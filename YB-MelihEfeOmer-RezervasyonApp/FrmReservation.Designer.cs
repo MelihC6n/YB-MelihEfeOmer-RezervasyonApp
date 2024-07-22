@@ -38,21 +38,21 @@
             panel5 = new Panel();
             groupBox1 = new GroupBox();
             dataGridView1 = new DataGridView();
-            button7 = new Button();
-            button6 = new Button();
-            button5 = new Button();
+            btnSil = new Button();
+            btnGüncelle = new Button();
+            btnListele = new Button();
             grpReservationDetails = new GroupBox();
-            groupBox2 = new GroupBox();
-            comboBox2 = new ComboBox();
-            btnKaydet = new Button();
+            grpRooms = new GroupBox();
+            cmbOdaTipi = new ComboBox();
+            btnRezervasyonaBasla = new Button();
             label4 = new Label();
             label5 = new Label();
-            comboBox3 = new ComboBox();
-            button2 = new Button();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
-            numericUpDown1 = new NumericUpDown();
-            comboBox1 = new ComboBox();
+            cmbOda = new ComboBox();
+            btnOdaBul = new Button();
+            dtpCikisTarihi = new DateTimePicker();
+            dtpGirisTarihi = new DateTimePicker();
+            nudKisiSayisi = new NumericUpDown();
+            cmbOtelAdi = new ComboBox();
             label8 = new Label();
             label6 = new Label();
             label7 = new Label();
@@ -60,47 +60,47 @@
             grpPersonalDetails = new GroupBox();
             label15 = new Label();
             label14 = new Label();
-            textBox3 = new TextBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox2 = new TextBox();
-            textBox7 = new TextBox();
-            textBox1 = new TextBox();
+            txtAdres = new TextBox();
+            txtEmail = new TextBox();
+            txtTelefon = new TextBox();
+            txtSoyadi = new TextBox();
+            txtKimlikNo = new TextBox();
+            txtAdi = new TextBox();
             label13 = new Label();
-            dateTimePicker3 = new DateTimePicker();
+            dtpDogumTarihi = new DateTimePicker();
             label12 = new Label();
             label11 = new Label();
             label9 = new Label();
             label22 = new Label();
-            button1 = new Button();
+            btnKaydet = new Button();
             label3 = new Label();
             label10 = new Label();
-            groupBox3 = new GroupBox();
-            groupBox4 = new GroupBox();
-            comboBox4 = new ComboBox();
-            button3 = new Button();
+            grpGüncelleme = new GroupBox();
+            grpOdaGüncelleme = new GroupBox();
+            cmbOdaTipiGüncelleme = new ComboBox();
+            btnGüncellemeRezervasyonaBasla = new Button();
             label16 = new Label();
             label17 = new Label();
-            comboBox5 = new ComboBox();
-            button4 = new Button();
-            dateTimePicker4 = new DateTimePicker();
-            dateTimePicker5 = new DateTimePicker();
+            cmbOdaGüncelleme = new ComboBox();
+            btnGüncellemeOdaBul = new Button();
+            dtpCikisTarihiGüncelleme = new DateTimePicker();
+            dtpGirisTarihiGüncelleme = new DateTimePicker();
             label18 = new Label();
             label20 = new Label();
             minimalizeButton = new PictureBox();
             pictureBox1 = new PictureBox();
             label19 = new Label();
-            textBox6 = new TextBox();
+            txtAramaYap = new TextBox();
             label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)exitButton).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             grpReservationDetails.SuspendLayout();
-            groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            grpRooms.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudKisiSayisi).BeginInit();
             grpPersonalDetails.SuspendLayout();
-            groupBox3.SuspendLayout();
-            groupBox4.SuspendLayout();
+            grpGüncelleme.SuspendLayout();
+            grpOdaGüncelleme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)minimalizeButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -163,12 +163,12 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Sans Serif Collection", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
             label1.Location = new Point(13, 15);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(171, 29);
+            label1.Size = new Size(116, 15);
             label1.TabIndex = 6;
             label1.Text = "Rezervasyon Formu";
             // 
@@ -206,54 +206,54 @@
             dataGridView1.Size = new Size(1007, 257);
             dataGridView1.TabIndex = 0;
             // 
-            // button7
+            // btnSil
             // 
-            button7.BackColor = Color.White;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Font = new Font("Segoe UI", 12F);
-            button7.ForeColor = Color.Black;
-            button7.Location = new Point(655, 520);
-            button7.Name = "button7";
-            button7.Size = new Size(175, 32);
-            button7.TabIndex = 1;
-            button7.Text = "Sil";
-            button7.UseVisualStyleBackColor = false;
+            btnSil.BackColor = Color.White;
+            btnSil.FlatStyle = FlatStyle.Flat;
+            btnSil.Font = new Font("Segoe UI", 12F);
+            btnSil.ForeColor = Color.Black;
+            btnSil.Location = new Point(655, 520);
+            btnSil.Name = "btnSil";
+            btnSil.Size = new Size(175, 32);
+            btnSil.TabIndex = 1;
+            btnSil.Text = "Sil";
+            btnSil.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnGüncelle
             // 
-            button6.BackColor = Color.White;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI", 12F);
-            button6.ForeColor = Color.Black;
-            button6.Location = new Point(429, 520);
-            button6.Name = "button6";
-            button6.Size = new Size(175, 32);
-            button6.TabIndex = 1;
-            button6.Text = "Güncelle";
-            button6.UseVisualStyleBackColor = false;
+            btnGüncelle.BackColor = Color.White;
+            btnGüncelle.FlatStyle = FlatStyle.Flat;
+            btnGüncelle.Font = new Font("Segoe UI", 12F);
+            btnGüncelle.ForeColor = Color.Black;
+            btnGüncelle.Location = new Point(429, 520);
+            btnGüncelle.Name = "btnGüncelle";
+            btnGüncelle.Size = new Size(175, 32);
+            btnGüncelle.TabIndex = 1;
+            btnGüncelle.Text = "Güncelle";
+            btnGüncelle.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnListele
             // 
-            button5.BackColor = Color.White;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 12F);
-            button5.ForeColor = Color.Black;
-            button5.Location = new Point(201, 520);
-            button5.Name = "button5";
-            button5.Size = new Size(175, 32);
-            button5.TabIndex = 1;
-            button5.Text = "Listele";
-            button5.UseVisualStyleBackColor = false;
+            btnListele.BackColor = Color.White;
+            btnListele.FlatStyle = FlatStyle.Flat;
+            btnListele.Font = new Font("Segoe UI", 12F);
+            btnListele.ForeColor = Color.Black;
+            btnListele.Location = new Point(201, 520);
+            btnListele.Name = "btnListele";
+            btnListele.Size = new Size(175, 32);
+            btnListele.TabIndex = 1;
+            btnListele.Text = "Listele";
+            btnListele.UseVisualStyleBackColor = false;
             // 
             // grpReservationDetails
             // 
             grpReservationDetails.BackColor = Color.Transparent;
-            grpReservationDetails.Controls.Add(groupBox2);
-            grpReservationDetails.Controls.Add(button2);
-            grpReservationDetails.Controls.Add(dateTimePicker2);
-            grpReservationDetails.Controls.Add(dateTimePicker1);
-            grpReservationDetails.Controls.Add(numericUpDown1);
-            grpReservationDetails.Controls.Add(comboBox1);
+            grpReservationDetails.Controls.Add(grpRooms);
+            grpReservationDetails.Controls.Add(btnOdaBul);
+            grpReservationDetails.Controls.Add(dtpCikisTarihi);
+            grpReservationDetails.Controls.Add(dtpGirisTarihi);
+            grpReservationDetails.Controls.Add(nudKisiSayisi);
+            grpReservationDetails.Controls.Add(cmbOtelAdi);
             grpReservationDetails.Controls.Add(label8);
             grpReservationDetails.Controls.Add(label6);
             grpReservationDetails.Controls.Add(label7);
@@ -268,46 +268,46 @@
             grpReservationDetails.TabStop = false;
             grpReservationDetails.Text = "Rezervasyon Bilgilerini Giriniz";
             // 
-            // groupBox2
+            // grpRooms
             // 
-            groupBox2.BackColor = Color.Transparent;
-            groupBox2.Controls.Add(comboBox2);
-            groupBox2.Controls.Add(btnKaydet);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(label5);
-            groupBox2.Controls.Add(comboBox3);
-            groupBox2.FlatStyle = FlatStyle.Flat;
-            groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(6, 239);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(348, 197);
-            groupBox2.TabIndex = 12;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Bilgilerinize Göre Müsait Oda Tipleri ve Odalar";
+            grpRooms.BackColor = Color.Transparent;
+            grpRooms.Controls.Add(cmbOdaTipi);
+            grpRooms.Controls.Add(btnRezervasyonaBasla);
+            grpRooms.Controls.Add(label4);
+            grpRooms.Controls.Add(label5);
+            grpRooms.Controls.Add(cmbOda);
+            grpRooms.FlatStyle = FlatStyle.Flat;
+            grpRooms.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            grpRooms.ForeColor = Color.White;
+            grpRooms.Location = new Point(6, 239);
+            grpRooms.Name = "grpRooms";
+            grpRooms.Size = new Size(348, 197);
+            grpRooms.TabIndex = 12;
+            grpRooms.TabStop = false;
+            grpRooms.Text = "Bilgilerinize Göre Müsait Oda Tipleri ve Odalar";
             // 
-            // comboBox2
+            // cmbOdaTipi
             // 
-            comboBox2.BackColor = Color.White;
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FlatStyle = FlatStyle.Flat;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(134, 55);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(184, 29);
-            comboBox2.TabIndex = 4;
+            cmbOdaTipi.BackColor = Color.White;
+            cmbOdaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbOdaTipi.FlatStyle = FlatStyle.Flat;
+            cmbOdaTipi.FormattingEnabled = true;
+            cmbOdaTipi.Location = new Point(134, 55);
+            cmbOdaTipi.Name = "cmbOdaTipi";
+            cmbOdaTipi.Size = new Size(184, 29);
+            cmbOdaTipi.TabIndex = 4;
             // 
-            // btnKaydet
+            // btnRezervasyonaBasla
             // 
-            btnKaydet.BackColor = Color.White;
-            btnKaydet.FlatStyle = FlatStyle.Flat;
-            btnKaydet.ForeColor = Color.Black;
-            btnKaydet.Location = new Point(134, 125);
-            btnKaydet.Name = "btnKaydet";
-            btnKaydet.Size = new Size(184, 32);
-            btnKaydet.TabIndex = 1;
-            btnKaydet.Text = "Rezervasyona Başla";
-            btnKaydet.UseVisualStyleBackColor = false;
+            btnRezervasyonaBasla.BackColor = Color.White;
+            btnRezervasyonaBasla.FlatStyle = FlatStyle.Flat;
+            btnRezervasyonaBasla.ForeColor = Color.Black;
+            btnRezervasyonaBasla.Location = new Point(134, 125);
+            btnRezervasyonaBasla.Name = "btnRezervasyonaBasla";
+            btnRezervasyonaBasla.Size = new Size(184, 32);
+            btnRezervasyonaBasla.TabIndex = 1;
+            btnRezervasyonaBasla.Text = "Rezervasyona Başla";
+            btnRezervasyonaBasla.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -327,65 +327,65 @@
             label5.TabIndex = 2;
             label5.Text = "Oda Seçiniz :";
             // 
-            // comboBox3
+            // cmbOda
             // 
-            comboBox3.BackColor = Color.White;
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.FlatStyle = FlatStyle.Flat;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(134, 90);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(184, 29);
-            comboBox3.TabIndex = 4;
+            cmbOda.BackColor = Color.White;
+            cmbOda.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbOda.FlatStyle = FlatStyle.Flat;
+            cmbOda.FormattingEnabled = true;
+            cmbOda.Location = new Point(134, 90);
+            cmbOda.Name = "cmbOda";
+            cmbOda.Size = new Size(184, 29);
+            cmbOda.TabIndex = 4;
             // 
-            // button2
+            // btnOdaBul
             // 
-            button2.BackColor = Color.White;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.Black;
-            button2.Location = new Point(225, 148);
-            button2.Name = "button2";
-            button2.Size = new Size(99, 32);
-            button2.TabIndex = 1;
-            button2.Text = "Oda Bul";
-            button2.UseVisualStyleBackColor = false;
+            btnOdaBul.BackColor = Color.White;
+            btnOdaBul.FlatStyle = FlatStyle.Flat;
+            btnOdaBul.ForeColor = Color.Black;
+            btnOdaBul.Location = new Point(225, 148);
+            btnOdaBul.Name = "btnOdaBul";
+            btnOdaBul.Size = new Size(99, 32);
+            btnOdaBul.TabIndex = 1;
+            btnOdaBul.Text = "Oda Bul";
+            btnOdaBul.UseVisualStyleBackColor = false;
             // 
-            // dateTimePicker2
+            // dtpCikisTarihi
             // 
-            dateTimePicker2.Location = new Point(140, 113);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(184, 29);
-            dateTimePicker2.TabIndex = 6;
+            dtpCikisTarihi.Location = new Point(140, 113);
+            dtpCikisTarihi.Name = "dtpCikisTarihi";
+            dtpCikisTarihi.Size = new Size(184, 29);
+            dtpCikisTarihi.TabIndex = 6;
             // 
-            // dateTimePicker1
+            // dtpGirisTarihi
             // 
-            dateTimePicker1.Location = new Point(140, 78);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(184, 29);
-            dateTimePicker1.TabIndex = 6;
+            dtpGirisTarihi.Location = new Point(140, 78);
+            dtpGirisTarihi.Name = "dtpGirisTarihi";
+            dtpGirisTarihi.Size = new Size(184, 29);
+            dtpGirisTarihi.TabIndex = 6;
             // 
-            // numericUpDown1
+            // nudKisiSayisi
             // 
-            numericUpDown1.BorderStyle = BorderStyle.FixedSingle;
-            numericUpDown1.Location = new Point(140, 148);
-            numericUpDown1.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
-            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(72, 29);
-            numericUpDown1.TabIndex = 5;
-            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudKisiSayisi.BorderStyle = BorderStyle.FixedSingle;
+            nudKisiSayisi.Location = new Point(140, 148);
+            nudKisiSayisi.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            nudKisiSayisi.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudKisiSayisi.Name = "nudKisiSayisi";
+            nudKisiSayisi.Size = new Size(72, 29);
+            nudKisiSayisi.TabIndex = 5;
+            nudKisiSayisi.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // comboBox1
+            // cmbOtelAdi
             // 
-            comboBox1.BackColor = Color.White;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FlatStyle = FlatStyle.Flat;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "aa", "aa", "aa" });
-            comboBox1.Location = new Point(140, 43);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(184, 29);
-            comboBox1.TabIndex = 4;
+            cmbOtelAdi.BackColor = Color.White;
+            cmbOtelAdi.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbOtelAdi.FlatStyle = FlatStyle.Flat;
+            cmbOtelAdi.FormattingEnabled = true;
+            cmbOtelAdi.Items.AddRange(new object[] { "aa", "aa", "aa" });
+            cmbOtelAdi.Location = new Point(140, 43);
+            cmbOtelAdi.Name = "cmbOtelAdi";
+            cmbOtelAdi.Size = new Size(184, 29);
+            cmbOtelAdi.TabIndex = 4;
             // 
             // label8
             // 
@@ -428,19 +428,19 @@
             grpPersonalDetails.BackColor = Color.Transparent;
             grpPersonalDetails.Controls.Add(label15);
             grpPersonalDetails.Controls.Add(label14);
-            grpPersonalDetails.Controls.Add(textBox3);
-            grpPersonalDetails.Controls.Add(textBox5);
-            grpPersonalDetails.Controls.Add(textBox4);
-            grpPersonalDetails.Controls.Add(textBox2);
-            grpPersonalDetails.Controls.Add(textBox7);
-            grpPersonalDetails.Controls.Add(textBox1);
+            grpPersonalDetails.Controls.Add(txtAdres);
+            grpPersonalDetails.Controls.Add(txtEmail);
+            grpPersonalDetails.Controls.Add(txtTelefon);
+            grpPersonalDetails.Controls.Add(txtSoyadi);
+            grpPersonalDetails.Controls.Add(txtKimlikNo);
+            grpPersonalDetails.Controls.Add(txtAdi);
             grpPersonalDetails.Controls.Add(label13);
-            grpPersonalDetails.Controls.Add(dateTimePicker3);
+            grpPersonalDetails.Controls.Add(dtpDogumTarihi);
             grpPersonalDetails.Controls.Add(label12);
             grpPersonalDetails.Controls.Add(label11);
             grpPersonalDetails.Controls.Add(label9);
             grpPersonalDetails.Controls.Add(label22);
-            grpPersonalDetails.Controls.Add(button1);
+            grpPersonalDetails.Controls.Add(btnKaydet);
             grpPersonalDetails.Controls.Add(label3);
             grpPersonalDetails.Controls.Add(label10);
             grpPersonalDetails.FlatStyle = FlatStyle.Flat;
@@ -473,66 +473,66 @@
             label14.TabIndex = 7;
             label14.Text = "<<";
             // 
-            // textBox3
+            // txtAdres
             // 
-            textBox3.BackColor = Color.White;
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.ForeColor = Color.Black;
-            textBox3.Location = new Point(134, 185);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(191, 90);
-            textBox3.TabIndex = 3;
+            txtAdres.BackColor = Color.White;
+            txtAdres.BorderStyle = BorderStyle.FixedSingle;
+            txtAdres.ForeColor = Color.Black;
+            txtAdres.Location = new Point(134, 185);
+            txtAdres.Multiline = true;
+            txtAdres.Name = "txtAdres";
+            txtAdres.Size = new Size(191, 90);
+            txtAdres.TabIndex = 3;
             // 
-            // textBox5
+            // txtEmail
             // 
-            textBox5.BackColor = Color.White;
-            textBox5.BorderStyle = BorderStyle.FixedSingle;
-            textBox5.ForeColor = Color.Black;
-            textBox5.Location = new Point(134, 316);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(191, 29);
-            textBox5.TabIndex = 3;
+            txtEmail.BackColor = Color.White;
+            txtEmail.BorderStyle = BorderStyle.FixedSingle;
+            txtEmail.ForeColor = Color.Black;
+            txtEmail.Location = new Point(134, 316);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(191, 29);
+            txtEmail.TabIndex = 3;
             // 
-            // textBox4
+            // txtTelefon
             // 
-            textBox4.BackColor = Color.White;
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.ForeColor = Color.Black;
-            textBox4.Location = new Point(134, 281);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(191, 29);
-            textBox4.TabIndex = 3;
+            txtTelefon.BackColor = Color.White;
+            txtTelefon.BorderStyle = BorderStyle.FixedSingle;
+            txtTelefon.ForeColor = Color.Black;
+            txtTelefon.Location = new Point(134, 281);
+            txtTelefon.Name = "txtTelefon";
+            txtTelefon.Size = new Size(191, 29);
+            txtTelefon.TabIndex = 3;
             // 
-            // textBox2
+            // txtSoyadi
             // 
-            textBox2.BackColor = Color.White;
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.ForeColor = Color.Black;
-            textBox2.Location = new Point(134, 115);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(191, 29);
-            textBox2.TabIndex = 3;
+            txtSoyadi.BackColor = Color.White;
+            txtSoyadi.BorderStyle = BorderStyle.FixedSingle;
+            txtSoyadi.ForeColor = Color.Black;
+            txtSoyadi.Location = new Point(134, 115);
+            txtSoyadi.Name = "txtSoyadi";
+            txtSoyadi.Size = new Size(191, 29);
+            txtSoyadi.TabIndex = 3;
             // 
-            // textBox7
+            // txtKimlikNo
             // 
-            textBox7.BackColor = Color.White;
-            textBox7.BorderStyle = BorderStyle.FixedSingle;
-            textBox7.ForeColor = Color.Black;
-            textBox7.Location = new Point(134, 44);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(191, 29);
-            textBox7.TabIndex = 3;
+            txtKimlikNo.BackColor = Color.White;
+            txtKimlikNo.BorderStyle = BorderStyle.FixedSingle;
+            txtKimlikNo.ForeColor = Color.Black;
+            txtKimlikNo.Location = new Point(134, 44);
+            txtKimlikNo.Name = "txtKimlikNo";
+            txtKimlikNo.Size = new Size(191, 29);
+            txtKimlikNo.TabIndex = 3;
             // 
-            // textBox1
+            // txtAdi
             // 
-            textBox1.BackColor = Color.White;
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.ForeColor = Color.Black;
-            textBox1.Location = new Point(134, 80);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(191, 29);
-            textBox1.TabIndex = 3;
+            txtAdi.BackColor = Color.White;
+            txtAdi.BorderStyle = BorderStyle.FixedSingle;
+            txtAdi.ForeColor = Color.Black;
+            txtAdi.Location = new Point(134, 80);
+            txtAdi.Name = "txtAdi";
+            txtAdi.Size = new Size(191, 29);
+            txtAdi.TabIndex = 3;
             // 
             // label13
             // 
@@ -543,12 +543,12 @@
             label13.TabIndex = 2;
             label13.Text = "Email'i:";
             // 
-            // dateTimePicker3
+            // dtpDogumTarihi
             // 
-            dateTimePicker3.Location = new Point(134, 150);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(191, 29);
-            dateTimePicker3.TabIndex = 6;
+            dtpDogumTarihi.Location = new Point(134, 150);
+            dtpDogumTarihi.Name = "dtpDogumTarihi";
+            dtpDogumTarihi.Size = new Size(191, 29);
+            dtpDogumTarihi.TabIndex = 6;
             // 
             // label12
             // 
@@ -586,17 +586,17 @@
             label22.TabIndex = 2;
             label22.Text = "Kimlik No :";
             // 
-            // button1
+            // btnKaydet
             // 
-            button1.BackColor = Color.White;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(184, 394);
-            button1.Name = "button1";
-            button1.Size = new Size(99, 32);
-            button1.TabIndex = 1;
-            button1.Text = "Kaydet";
-            button1.UseVisualStyleBackColor = false;
+            btnKaydet.BackColor = Color.White;
+            btnKaydet.FlatStyle = FlatStyle.Flat;
+            btnKaydet.ForeColor = Color.Black;
+            btnKaydet.Location = new Point(184, 394);
+            btnKaydet.Name = "btnKaydet";
+            btnKaydet.Size = new Size(99, 32);
+            btnKaydet.TabIndex = 1;
+            btnKaydet.Text = "Kaydet";
+            btnKaydet.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -616,65 +616,65 @@
             label10.TabIndex = 2;
             label10.Text = "Doğum Tarihi :";
             // 
-            // groupBox3
+            // grpGüncelleme
             // 
-            groupBox3.BackColor = Color.Transparent;
-            groupBox3.Controls.Add(groupBox4);
-            groupBox3.Controls.Add(button4);
-            groupBox3.Controls.Add(dateTimePicker4);
-            groupBox3.Controls.Add(dateTimePicker5);
-            groupBox3.Controls.Add(label18);
-            groupBox3.Controls.Add(label20);
-            groupBox3.FlatStyle = FlatStyle.Flat;
-            groupBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(12, 59);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(364, 442);
-            groupBox3.TabIndex = 12;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Güncel Rezervasyon Bilgilerini Giriniz";
+            grpGüncelleme.BackColor = Color.Transparent;
+            grpGüncelleme.Controls.Add(grpOdaGüncelleme);
+            grpGüncelleme.Controls.Add(btnGüncellemeOdaBul);
+            grpGüncelleme.Controls.Add(dtpCikisTarihiGüncelleme);
+            grpGüncelleme.Controls.Add(dtpGirisTarihiGüncelleme);
+            grpGüncelleme.Controls.Add(label18);
+            grpGüncelleme.Controls.Add(label20);
+            grpGüncelleme.FlatStyle = FlatStyle.Flat;
+            grpGüncelleme.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            grpGüncelleme.ForeColor = Color.White;
+            grpGüncelleme.Location = new Point(12, 59);
+            grpGüncelleme.Name = "grpGüncelleme";
+            grpGüncelleme.Size = new Size(364, 442);
+            grpGüncelleme.TabIndex = 12;
+            grpGüncelleme.TabStop = false;
+            grpGüncelleme.Text = "Güncel Rezervasyon Bilgilerini Giriniz";
             // 
-            // groupBox4
+            // grpOdaGüncelleme
             // 
-            groupBox4.BackColor = Color.Transparent;
-            groupBox4.Controls.Add(comboBox4);
-            groupBox4.Controls.Add(button3);
-            groupBox4.Controls.Add(label16);
-            groupBox4.Controls.Add(label17);
-            groupBox4.Controls.Add(comboBox5);
-            groupBox4.FlatStyle = FlatStyle.Flat;
-            groupBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            groupBox4.ForeColor = Color.White;
-            groupBox4.Location = new Point(6, 239);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(348, 197);
-            groupBox4.TabIndex = 12;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Bilgilerinize Göre Müsait Oda Tipleri ve Odalar";
+            grpOdaGüncelleme.BackColor = Color.Transparent;
+            grpOdaGüncelleme.Controls.Add(cmbOdaTipiGüncelleme);
+            grpOdaGüncelleme.Controls.Add(btnGüncellemeRezervasyonaBasla);
+            grpOdaGüncelleme.Controls.Add(label16);
+            grpOdaGüncelleme.Controls.Add(label17);
+            grpOdaGüncelleme.Controls.Add(cmbOdaGüncelleme);
+            grpOdaGüncelleme.FlatStyle = FlatStyle.Flat;
+            grpOdaGüncelleme.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            grpOdaGüncelleme.ForeColor = Color.White;
+            grpOdaGüncelleme.Location = new Point(6, 239);
+            grpOdaGüncelleme.Name = "grpOdaGüncelleme";
+            grpOdaGüncelleme.Size = new Size(348, 197);
+            grpOdaGüncelleme.TabIndex = 12;
+            grpOdaGüncelleme.TabStop = false;
+            grpOdaGüncelleme.Text = "Bilgilerinize Göre Müsait Oda Tipleri ve Odalar";
             // 
-            // comboBox4
+            // cmbOdaTipiGüncelleme
             // 
-            comboBox4.BackColor = Color.White;
-            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox4.FlatStyle = FlatStyle.Flat;
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(134, 55);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(184, 29);
-            comboBox4.TabIndex = 4;
+            cmbOdaTipiGüncelleme.BackColor = Color.White;
+            cmbOdaTipiGüncelleme.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbOdaTipiGüncelleme.FlatStyle = FlatStyle.Flat;
+            cmbOdaTipiGüncelleme.FormattingEnabled = true;
+            cmbOdaTipiGüncelleme.Location = new Point(134, 55);
+            cmbOdaTipiGüncelleme.Name = "cmbOdaTipiGüncelleme";
+            cmbOdaTipiGüncelleme.Size = new Size(184, 29);
+            cmbOdaTipiGüncelleme.TabIndex = 4;
             // 
-            // button3
+            // btnGüncellemeRezervasyonaBasla
             // 
-            button3.BackColor = Color.White;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(134, 125);
-            button3.Name = "button3";
-            button3.Size = new Size(184, 32);
-            button3.TabIndex = 1;
-            button3.Text = "Rezervasyona Başla";
-            button3.UseVisualStyleBackColor = false;
+            btnGüncellemeRezervasyonaBasla.BackColor = Color.White;
+            btnGüncellemeRezervasyonaBasla.FlatStyle = FlatStyle.Flat;
+            btnGüncellemeRezervasyonaBasla.ForeColor = Color.Black;
+            btnGüncellemeRezervasyonaBasla.Location = new Point(134, 125);
+            btnGüncellemeRezervasyonaBasla.Name = "btnGüncellemeRezervasyonaBasla";
+            btnGüncellemeRezervasyonaBasla.Size = new Size(184, 32);
+            btnGüncellemeRezervasyonaBasla.TabIndex = 1;
+            btnGüncellemeRezervasyonaBasla.Text = "Rezervasyona Başla";
+            btnGüncellemeRezervasyonaBasla.UseVisualStyleBackColor = false;
             // 
             // label16
             // 
@@ -694,42 +694,42 @@
             label17.TabIndex = 2;
             label17.Text = "Oda Seçiniz :";
             // 
-            // comboBox5
+            // cmbOdaGüncelleme
             // 
-            comboBox5.BackColor = Color.White;
-            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox5.FlatStyle = FlatStyle.Flat;
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(134, 90);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(184, 29);
-            comboBox5.TabIndex = 4;
+            cmbOdaGüncelleme.BackColor = Color.White;
+            cmbOdaGüncelleme.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbOdaGüncelleme.FlatStyle = FlatStyle.Flat;
+            cmbOdaGüncelleme.FormattingEnabled = true;
+            cmbOdaGüncelleme.Location = new Point(134, 90);
+            cmbOdaGüncelleme.Name = "cmbOdaGüncelleme";
+            cmbOdaGüncelleme.Size = new Size(184, 29);
+            cmbOdaGüncelleme.TabIndex = 4;
             // 
-            // button4
+            // btnGüncellemeOdaBul
             // 
-            button4.BackColor = Color.White;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.ForeColor = Color.Black;
-            button4.Location = new Point(225, 148);
-            button4.Name = "button4";
-            button4.Size = new Size(99, 32);
-            button4.TabIndex = 1;
-            button4.Text = "Oda Bul";
-            button4.UseVisualStyleBackColor = false;
+            btnGüncellemeOdaBul.BackColor = Color.White;
+            btnGüncellemeOdaBul.FlatStyle = FlatStyle.Flat;
+            btnGüncellemeOdaBul.ForeColor = Color.Black;
+            btnGüncellemeOdaBul.Location = new Point(225, 148);
+            btnGüncellemeOdaBul.Name = "btnGüncellemeOdaBul";
+            btnGüncellemeOdaBul.Size = new Size(99, 32);
+            btnGüncellemeOdaBul.TabIndex = 1;
+            btnGüncellemeOdaBul.Text = "Oda Bul";
+            btnGüncellemeOdaBul.UseVisualStyleBackColor = false;
             // 
-            // dateTimePicker4
+            // dtpCikisTarihiGüncelleme
             // 
-            dateTimePicker4.Location = new Point(140, 113);
-            dateTimePicker4.Name = "dateTimePicker4";
-            dateTimePicker4.Size = new Size(184, 29);
-            dateTimePicker4.TabIndex = 6;
+            dtpCikisTarihiGüncelleme.Location = new Point(140, 113);
+            dtpCikisTarihiGüncelleme.Name = "dtpCikisTarihiGüncelleme";
+            dtpCikisTarihiGüncelleme.Size = new Size(184, 29);
+            dtpCikisTarihiGüncelleme.TabIndex = 6;
             // 
-            // dateTimePicker5
+            // dtpGirisTarihiGüncelleme
             // 
-            dateTimePicker5.Location = new Point(140, 78);
-            dateTimePicker5.Name = "dateTimePicker5";
-            dateTimePicker5.Size = new Size(184, 29);
-            dateTimePicker5.TabIndex = 6;
+            dtpGirisTarihiGüncelleme.Location = new Point(140, 78);
+            dtpGirisTarihiGüncelleme.Name = "dtpGirisTarihiGüncelleme";
+            dtpGirisTarihiGüncelleme.Size = new Size(184, 29);
+            dtpGirisTarihiGüncelleme.TabIndex = 6;
             // 
             // label18
             // 
@@ -786,15 +786,15 @@
             label19.TabIndex = 2;
             label19.Text = "Otel mi? Trivago!";
             // 
-            // textBox6
+            // txtAramaYap
             // 
-            textBox6.BackColor = Color.White;
-            textBox6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox6.ForeColor = Color.Black;
-            textBox6.Location = new Point(420, 472);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(191, 29);
-            textBox6.TabIndex = 3;
+            txtAramaYap.BackColor = Color.White;
+            txtAramaYap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtAramaYap.ForeColor = Color.Black;
+            txtAramaYap.Location = new Point(420, 472);
+            txtAramaYap.Name = "txtAramaYap";
+            txtAramaYap.Size = new Size(191, 29);
+            txtAramaYap.TabIndex = 3;
             // 
             // label21
             // 
@@ -813,17 +813,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaGreen;
             ClientSize = new Size(1025, 848);
-            Controls.Add(button7);
+            Controls.Add(btnSil);
             Controls.Add(label1);
-            Controls.Add(button6);
-            Controls.Add(button5);
+            Controls.Add(btnGüncelle);
+            Controls.Add(btnListele);
             Controls.Add(exitButton);
             Controls.Add(groupBox1);
             Controls.Add(pictureBox1);
             Controls.Add(label21);
             Controls.Add(label19);
             Controls.Add(minimalizeButton);
-            Controls.Add(textBox6);
+            Controls.Add(txtAramaYap);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -831,7 +831,7 @@
             Controls.Add(panel5);
             Controls.Add(grpPersonalDetails);
             Controls.Add(grpReservationDetails);
-            Controls.Add(groupBox3);
+            Controls.Add(grpGüncelleme);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "FrmReservation";
@@ -843,15 +843,15 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             grpReservationDetails.ResumeLayout(false);
             grpReservationDetails.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            grpRooms.ResumeLayout(false);
+            grpRooms.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudKisiSayisi).EndInit();
             grpPersonalDetails.ResumeLayout(false);
             grpPersonalDetails.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
+            grpGüncelleme.ResumeLayout(false);
+            grpGüncelleme.PerformLayout();
+            grpOdaGüncelleme.ResumeLayout(false);
+            grpOdaGüncelleme.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)minimalizeButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -871,57 +871,57 @@
         private DataGridView dataGridView1;
         private GroupBox grpReservationDetails;
         private Label label2;
-        private Button btnKaydet;
+        private Button btnRezervasyonaBasla;
         private GroupBox grpPersonalDetails;
-        private TextBox textBox1;
+        private TextBox txtAdi;
         private Label label3;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private ComboBox cmbOdaTipi;
+        private ComboBox cmbOtelAdi;
         private Label label4;
-        private NumericUpDown numericUpDown1;
-        private ComboBox comboBox3;
+        private NumericUpDown nudKisiSayisi;
+        private ComboBox cmbOda;
         private Label label5;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpGirisTarihi;
         private Label label6;
         private Label label7;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dtpCikisTarihi;
         private Label label8;
-        private GroupBox groupBox2;
-        private Button button2;
-        private TextBox textBox3;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox2;
+        private GroupBox grpRooms;
+        private Button btnOdaBul;
+        private TextBox txtAdres;
+        private TextBox txtEmail;
+        private TextBox txtTelefon;
+        private TextBox txtSoyadi;
         private Label label13;
-        private DateTimePicker dateTimePicker3;
+        private DateTimePicker dtpDogumTarihi;
         private Label label12;
         private Label label11;
         private Label label9;
-        private Button button1;
+        private Button btnKaydet;
         private Label label10;
         private Label label15;
         private Label label14;
-        private GroupBox groupBox3;
-        private GroupBox groupBox4;
-        private ComboBox comboBox4;
-        private Button button3;
+        private GroupBox grpGüncelleme;
+        private GroupBox grpOdaGüncelleme;
+        private ComboBox cmbOdaTipiGüncelleme;
+        private Button btnGüncellemeRezervasyonaBasla;
         private Label label16;
         private Label label17;
-        private ComboBox comboBox5;
-        private Button button4;
-        private DateTimePicker dateTimePicker4;
-        private DateTimePicker dateTimePicker5;
+        private ComboBox cmbOdaGüncelleme;
+        private Button btnGüncellemeOdaBul;
+        private DateTimePicker dtpCikisTarihiGüncelleme;
+        private DateTimePicker dtpGirisTarihiGüncelleme;
         private Label label18;
         private Label label20;
         private PictureBox minimalizeButton;
         private PictureBox pictureBox1;
         private Label label19;
-        private Button button7;
-        private Button button6;
-        private Button button5;
-        private TextBox textBox6;
+        private Button btnSil;
+        private Button btnGüncelle;
+        private Button btnListele;
+        private TextBox txtAramaYap;
         private Label label21;
-        private TextBox textBox7;
+        private TextBox txtKimlikNo;
         private Label label22;
     }
 }
