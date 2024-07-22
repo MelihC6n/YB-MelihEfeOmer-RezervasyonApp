@@ -21,9 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="Abstractions\" />
-    <Folder Include="Context\" />
     <Folder Include="Repositories\" />
+=======
+    <Folder Include="Context\" />
+>>>>>>> 184f001e3be4fd6ec4049dcca2bb63b10461a6f8
   </ItemGroup>
 
 </Project>
