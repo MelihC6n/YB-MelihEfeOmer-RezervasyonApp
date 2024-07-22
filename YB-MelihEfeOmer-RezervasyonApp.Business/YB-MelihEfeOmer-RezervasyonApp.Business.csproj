@@ -12,4 +12,10 @@
     <ProjectReference Include="..\YB-MelihEfeOmer-RezervasyonApp.Entity\YB-MelihEfeOmer-RezervasyonApp.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Validators\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
