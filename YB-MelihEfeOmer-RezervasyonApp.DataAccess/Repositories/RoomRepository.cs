@@ -1,12 +1,13 @@
-﻿using YB_MelihEfeOmer_RezervasyonApp.Entity.Models;
+﻿using YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context;
+using YB_MelihEfeOmer_RezervasyonApp.Entity.Models;
 
 namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Repositories
 {
     public class RoomRepository : GenericRepository<Room>
     {
-        //public RoomRepository(ApplicationDbContext context) : base(context)
-        //{
-            
-        //}
+        public RoomRepository(ApplicationDbContext context) : base(context)
+        {
+
+        }
     }
 }
