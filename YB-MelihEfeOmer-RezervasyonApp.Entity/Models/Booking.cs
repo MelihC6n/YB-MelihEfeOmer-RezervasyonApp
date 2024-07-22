@@ -14,12 +14,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Entity.Models
         public decimal TotalPrice { get; set; }
 
         public ICollection<Payment>? Payments { get; set; }
+
         public ICollection<Guest>? Guests { get; set; }
 
-        public Guid GuestId { get; set; }
-        public Guest? Guest { get; set; }
-
-        //public Guid RoomId { get; set; }
-        //public Room? Room { get; set; }
+        public int RoomNumber { get; set; }
+        public Room? Room { get; set; }
     }
 }

@@ -28,9 +28,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Entity.Models
         [StringLength(255)]
         public string? Email { get; set; }
 
-        public Guid BookingId { get; set; }
-        public Booking? Booking { get; set; }
-
         public ICollection<Booking>? Bookings { get; set; }
     }
 }

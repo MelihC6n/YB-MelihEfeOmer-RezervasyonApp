@@ -14,7 +14,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Entity.Models
         public DateOnly PaymentDate { get; set; }
 
         [StringLength(50)]
-        public string? PaymentMetho { get; set; }
+        public string? PaymentMethod { get; set; }
         public Guid BookingId { get; set; }
         public Booking? Booking { get; set; }
 
