@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YB-MelihEfeOmer-RezervasyonApp", "YB-MelihEfeOmer-RezervasyonApp\YB-MelihEfeOmer-RezervasyonApp.csproj", "{E234095E-B3ED-4A91-B23E-692EB2A67E40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YB-MelihEfeOmer-RezervasyonApp.UI", "YB-MelihEfeOmer-RezervasyonApp\YB-MelihEfeOmer-RezervasyonApp.UI.csproj", "{E234095E-B3ED-4A91-B23E-692EB2A67E40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YB-MelihEfeOmer-RezervasyonApp.Entity", "YB-MelihEfeOmer-RezervasyonApp.Entity\YB-MelihEfeOmer-RezervasyonApp.Entity.csproj", "{D5928BE3-895E-4789-B5D1-C94FB54A15F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YB-MelihEfeOmer-RezervasyonApp.DataAccess", "YB-MelihEfeOmer-RezervasyonApp.DataAccess\YB-MelihEfeOmer-RezervasyonApp.DataAccess.csproj", "{2B7B994C-200D-4D76-B2A8-7E7382CA0A75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YB-MelihEfeOmer-RezervasyonApp.Business", "YB-MelihEfeOmer-RezervasyonApp.Business\YB-MelihEfeOmer-RezervasyonApp.Business.csproj", "{F81B2F93-B0A3-4881-85B3-537CF9EC30A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{E234095E-B3ED-4A91-B23E-692EB2A67E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E234095E-B3ED-4A91-B23E-692EB2A67E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E234095E-B3ED-4A91-B23E-692EB2A67E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5928BE3-895E-4789-B5D1-C94FB54A15F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5928BE3-895E-4789-B5D1-C94FB54A15F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5928BE3-895E-4789-B5D1-C94FB54A15F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5928BE3-895E-4789-B5D1-C94FB54A15F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B7B994C-200D-4D76-B2A8-7E7382CA0A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B7B994C-200D-4D76-B2A8-7E7382CA0A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B7B994C-200D-4D76-B2A8-7E7382CA0A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B7B994C-200D-4D76-B2A8-7E7382CA0A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F81B2F93-B0A3-4881-85B3-537CF9EC30A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81B2F93-B0A3-4881-85B3-537CF9EC30A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F81B2F93-B0A3-4881-85B3-537CF9EC30A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F81B2F93-B0A3-4881-85B3-537CF9EC30A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
