@@ -18,8 +18,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Entity.Models
         public string? Email { get; set; }
 
         public byte Stars { get; set; }
-        public DateTime CheckinTime { get; set; }
-        public DateTime CheckoutTime { get; set; }
+        public TimeOnly CheckinTime { get; set; }
+        public TimeOnly CheckoutTime { get; set; }
 
         public ICollection<Staff>? Staffs { get; set; }
         public ICollection<Room>? Rooms { get; set; }
