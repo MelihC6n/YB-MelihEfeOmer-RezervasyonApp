@@ -15,7 +15,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Entity.Models
 
         public ICollection<Payment>? Payments { get; set; }
 
-        public ICollection<Guest>? Guests { get; set; }
+        public ICollection<BRBookingGuest>? Guests { get; set; }
 
         public int RoomNumber { get; set; }
         public Room? Room { get; set; }

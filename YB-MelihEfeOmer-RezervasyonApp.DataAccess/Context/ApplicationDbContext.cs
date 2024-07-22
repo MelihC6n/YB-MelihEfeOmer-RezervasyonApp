@@ -59,6 +59,20 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
                     CheckoutTime = new TimeOnly(23, 59)
                 });
 
+            var hotelId2 = Guid.NewGuid();
+            modelBuilder.Entity<Hotel>().HasData(
+                new Hotel
+                {
+                    Id = hotelId2,
+                    Name = "Turkuaz",
+                    Address = "İstanbul/Eminönü",
+                    Phone = "55554443265",
+                    Email = "turkuaz@hotmail.com",
+                    Stars = 4,
+                    CheckinTime = new TimeOnly(8, 0),
+                    CheckoutTime = new TimeOnly(23, 59)
+                });
+
             var staffId = Guid.NewGuid();
             modelBuilder.Entity<Staff>().HasData(
                 new Staff
