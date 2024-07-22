@@ -20,7 +20,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-13V6IU8;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-13V6IU8;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); //Melihin connection string'i
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-DERU;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); // Ömer'in connection string'i
         }
 
@@ -90,6 +90,22 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
                     HireDate = new DateOnly(2010, 1, 1)
                 });
 
+            var staffId2 = Guid.NewGuid();
+            modelBuilder.Entity<Staff>().HasData(
+                new Staff
+                {
+                    Id = staffId2,
+                    HotelId = hotelId2,
+                    FirstName = "Murat",
+                    LastName = "Duran",
+                    Position = "Manager",
+                    Salary = 50000,
+                    DateOfBirth = new DateOnly(1980, 1, 1),
+                    Phone = "09995554433",
+                    Email = "ThisIsStaff2@hotmail.com",
+                    HireDate = new DateOnly(1981, 1, 1)
+                });
+
             var roomTypeId = Guid.NewGuid();
             modelBuilder.Entity<RoomType>().HasData(
                 new RoomType
@@ -99,6 +115,28 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
                     Description = "Suit type room",
                     PricePerNight = 1000,
                     Capacity = 2
+                });
+
+            var roomTypeId2 = Guid.NewGuid();
+            modelBuilder.Entity<RoomType>().HasData(
+                new RoomType
+                {
+                    Id = roomTypeId2,
+                    Name = "King",
+                    Description = "King type room",
+                    PricePerNight = 4000,
+                    Capacity = 4
+                });
+
+            var roomTypeId3 = Guid.NewGuid();
+            modelBuilder.Entity<RoomType>().HasData(
+                new RoomType
+                {
+                    Id = roomTypeId3,
+                    Name = "Single",
+                    Description = "Single type room",
+                    PricePerNight = 500,
+                    Capacity = 1
                 });
 
             var roomId = Guid.NewGuid();
@@ -120,6 +158,50 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
                     RoomNumber=102,
                     HotelId = hotelId,
                     RoomTypeId = roomTypeId,
+                    Status = "Avaliable"
+                });
+
+            var roomId3 = Guid.NewGuid();
+            modelBuilder.Entity<Room>().HasData(
+                new Room
+                {
+                    Id = roomId3,
+                    RoomNumber = 201,
+                    HotelId = hotelId,
+                    RoomTypeId = roomTypeId2,
+                    Status = "Avaliable"
+                });
+
+            var roomId4 = Guid.NewGuid();
+            modelBuilder.Entity<Room>().HasData(
+                new Room
+                {
+                    Id = roomId4,
+                    RoomNumber = 202,
+                    HotelId = hotelId,
+                    RoomTypeId = roomTypeId3,
+                    Status = "Avaliable"
+                });
+
+            var roomId5 = Guid.NewGuid();
+            modelBuilder.Entity<Room>().HasData(
+                new Room
+                {
+                    Id = roomId5,
+                    RoomNumber = 101,
+                    HotelId = hotelId2,
+                    RoomTypeId = roomTypeId3,
+                    Status = "Avaliable"
+                });
+
+            var roomId6 = Guid.NewGuid();
+            modelBuilder.Entity<Room>().HasData(
+                new Room
+                {
+                    Id = roomId6,
+                    RoomNumber = 102,
+                    HotelId = hotelId2,
+                    RoomTypeId = roomTypeId3,
                     Status = "Avaliable"
                 });
 
