@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\YB-MelihEfeOmer-RezervasyonApp.DataAccess\YB-MelihEfeOmer-RezervasyonApp.DataAccess.csproj" />
+    <ProjectReference Include="..\YB-MelihEfeOmer-RezervasyonApp.Entity\YB-MelihEfeOmer-RezervasyonApp.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
