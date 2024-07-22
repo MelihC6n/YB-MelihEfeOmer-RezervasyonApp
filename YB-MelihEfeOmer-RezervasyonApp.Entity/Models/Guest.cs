@@ -11,6 +11,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Entity.Models
 {
     public class Guest : BaseEntity
     {
+        [StringLength(11)]
+        public string? IdentityNumber { get; set; }
+
         [StringLength(50)] 
         public string? FirstName { get; set; }
 
