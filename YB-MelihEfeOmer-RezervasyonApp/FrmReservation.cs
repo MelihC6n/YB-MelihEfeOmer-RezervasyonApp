@@ -63,21 +63,22 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             this.WindowState = FormWindowState.Minimized;
         }
 
+        List<avaliableBooking> avaliableBooking = new List<avaliableBooking>();
+
         private void btnOdaBul_Click(object sender, EventArgs e)
         {
             //var roomWithType = roomService.GetAllQueryable().Where(r=>r.HotelId==(Guid)cmbOtelAdi.SelectedValue);
             // dataGridView1.DataSource= roomWithType.ToList();
             var avaliableRooms = from r in context.Rooms
                                  where r.RoomType.Capacity >= nudKisiSayisi.Value && r.HotelId == (Guid)cmbOtelAdi.SelectedValue
-                                 select new
+                                 select new avaliableBooking
                                  {
-                                     r.HotelId,
-                                     r.Hotel.Name,
-                                     r.RoomNumber,
-                                     r.RoomType.Capacity,
-                                     r.Id,
+                                     HotelId = r.HotelId,
+                                     Name = r.Hotel.Name,
+                                     RoomNumber = r.RoomNumber,
+                                     Capacity = (byte)r.RoomType.Capacity,
+                                     Id = r.Id,
                                      OdaTipi = r.RoomType
-
                                  };
             //dataGridView1.DataSource = avaliableRooms.ToList();
             var freeBookings = from b in context.Bookings
@@ -86,21 +87,24 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
             List<Guid> freeBookingIds = freeBookings.Select(b => b.Room.Id).ToList();
 
-            var avaliableBookings = avaliableRooms.Where(r => !freeBookingIds.Contains(r.Id)).ToList();
+
+            avaliableBooking = avaliableRooms.Where(r => !freeBookingIds.Contains(r.Id)).ToList();
 
             //var canSelectRoom = avaliableBookings.Where(r => r.OdaTipi == cmbOdaTipi.SelectedText);
             /*cmbOda.DataSource = avaliableBookings;
             cmbOda.DisplayMember = "RoomNumber";
             cmbOda.ValueMember = "Id";*/
 
-            cmbOdaTipi.DataSource = avaliableBookings.GroupBy(x => new { x.OdaTipi.Name, x.OdaTipi.Id }).Select(x => new
+            cmbOdaTipi.DisplayMember = "OdaTipi";
+            cmbOdaTipi.ValueMember = "OdaTipiId";
+
+            cmbOdaTipi.DataSource = avaliableBooking.GroupBy(x => new { x.OdaTipi.Name, x.OdaTipi.Id }).Select(x => new
             {
                 OdaTipi = x.Key.Name,
                 OdaTipiId = x.Key.Id,
                 Odalar = x.ToList()
             }).ToList();
-            cmbOdaTipi.DisplayMember = "OdaTipi";
-            cmbOdaTipi.ValueMember = "OdaTipiId";
+
         }
 
         private void btnRezervasyonaBasla_Click(object sender, EventArgs e)
@@ -110,6 +114,12 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void cmbOdaTipi_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbOdaTipi.SelectedValue != null)
+            {
+                cmbOda.DisplayMember = "RoomNumber";
+                cmbOda.ValueMember = "Id";
+                cmbOda.DataSource = avaliableBooking.Where(ab => (Guid)ab.OdaTipi.Id == (Guid)cmbOdaTipi.SelectedValue).ToList();
+            }
         }
     }
 }
