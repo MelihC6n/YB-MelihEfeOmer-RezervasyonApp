@@ -204,7 +204,7 @@
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
@@ -301,7 +301,7 @@
             cmbOdaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOdaTipi.FlatStyle = FlatStyle.Flat;
             cmbOdaTipi.FormattingEnabled = true;
-            cmbOdaTipi.Location = new Point(134, 55);
+            cmbOdaTipi.Location = new Point(129, 58);
             cmbOdaTipi.Name = "cmbOdaTipi";
             cmbOdaTipi.Size = new Size(184, 29);
             cmbOdaTipi.TabIndex = 4;
@@ -311,17 +311,18 @@
             btnRezervasyonaBasla.BackColor = Color.White;
             btnRezervasyonaBasla.FlatStyle = FlatStyle.Flat;
             btnRezervasyonaBasla.ForeColor = Color.Black;
-            btnRezervasyonaBasla.Location = new Point(134, 125);
+            btnRezervasyonaBasla.Location = new Point(129, 139);
             btnRezervasyonaBasla.Name = "btnRezervasyonaBasla";
             btnRezervasyonaBasla.Size = new Size(184, 32);
             btnRezervasyonaBasla.TabIndex = 1;
             btnRezervasyonaBasla.Text = "Rezervasyona Başla";
             btnRezervasyonaBasla.UseVisualStyleBackColor = false;
+            btnRezervasyonaBasla.Click += btnRezervasyonaBasla_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(53, 58);
+            label4.Location = new Point(38, 63);
             label4.Name = "label4";
             label4.Size = new Size(75, 21);
             label4.TabIndex = 2;
@@ -330,7 +331,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(30, 93);
+            label5.Location = new Point(23, 104);
             label5.Name = "label5";
             label5.Size = new Size(98, 21);
             label5.TabIndex = 2;
@@ -342,7 +343,7 @@
             cmbOda.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOda.FlatStyle = FlatStyle.Flat;
             cmbOda.FormattingEnabled = true;
-            cmbOda.Location = new Point(134, 90);
+            cmbOda.Location = new Point(129, 104);
             cmbOda.Name = "cmbOda";
             cmbOda.Size = new Size(184, 29);
             cmbOda.TabIndex = 4;
@@ -352,7 +353,7 @@
             btnOdaBul.BackColor = Color.White;
             btnOdaBul.FlatStyle = FlatStyle.Flat;
             btnOdaBul.ForeColor = Color.Black;
-            btnOdaBul.Location = new Point(225, 148);
+            btnOdaBul.Location = new Point(225, 189);
             btnOdaBul.Name = "btnOdaBul";
             btnOdaBul.Size = new Size(99, 32);
             btnOdaBul.TabIndex = 1;
@@ -377,7 +378,7 @@
             // nudKisiSayisi
             // 
             nudKisiSayisi.BorderStyle = BorderStyle.FixedSingle;
-            nudKisiSayisi.Location = new Point(140, 148);
+            nudKisiSayisi.Location = new Point(140, 153);
             nudKisiSayisi.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             nudKisiSayisi.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudKisiSayisi.Name = "nudKisiSayisi";
@@ -399,7 +400,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(36, 119);
+            label8.Location = new Point(38, 119);
             label8.Name = "label8";
             label8.Size = new Size(91, 21);
             label8.TabIndex = 2;
@@ -408,7 +409,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(49, 150);
+            label6.Location = new Point(42, 155);
             label6.Name = "label6";
             label6.Size = new Size(85, 21);
             label6.TabIndex = 2;

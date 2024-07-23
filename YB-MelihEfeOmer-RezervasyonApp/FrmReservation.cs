@@ -23,6 +23,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         RoomService roomService;
         RoomRepository roomRepository;
         ApplicationDbContext context;
+        RoomTypeService roomTypeService;
+        RoomTypeRepository roomTypeRepository;
         public FrmReservation()
         {
             InitializeComponent();
@@ -33,11 +35,14 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             bookingService = new BookingService(bookingRepository);
             roomRepository = new RoomRepository(context);
             roomService = new RoomService(roomRepository);
+            roomTypeRepository = new RoomTypeRepository(context);
+            roomTypeService = new RoomTypeService(roomTypeRepository);
         }
 
         private void FrmReservation_Load(object sender, EventArgs e)
         {
             ListHotels();
+
         }
 
         private void ListHotels()
@@ -60,30 +65,50 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void btnOdaBul_Click(object sender, EventArgs e)
         {
-            var roomWithType = roomService.GetAllQueryable().Where(r=>r.HotelId==(Guid)cmbOtelAdi.SelectedValue);
+            //var roomWithType = roomService.GetAllQueryable().Where(r=>r.HotelId==(Guid)cmbOtelAdi.SelectedValue);
             // dataGridView1.DataSource= roomWithType.ToList();
             var avaliableRooms = from r in context.Rooms
                                  where r.RoomType.Capacity >= nudKisiSayisi.Value && r.HotelId == (Guid)cmbOtelAdi.SelectedValue
-                                 select r; /*new 
-                                 { 
+                                 select new
+                                 {
                                      r.HotelId,
                                      r.Hotel.Name,
                                      r.RoomNumber,
                                      r.RoomType.Capacity,
-                                     r.Id
+                                     r.Id,
+                                     OdaTipi = r.RoomType.Name
 
-                                 };*/
+                                 };
             //dataGridView1.DataSource = avaliableRooms.ToList();
             var freeBookings = from b in context.Bookings
-                               where b.CheckinDate > DateOnly.FromDateTime(dtpCikisTarihi.Value) && b.CheckoutDate < DateOnly.FromDateTime(dtpGirisTarihi.Value)
+                               where b.CheckinDate < DateOnly.FromDateTime(dtpCikisTarihi.Value) && b.CheckoutDate > DateOnly.FromDateTime(dtpGirisTarihi.Value)
                                select b;
 
             List<Guid> freeBookingIds = freeBookings.Select(b => b.Room.Id).ToList();
 
             var avaliableBookings = avaliableRooms.Where(r => !freeBookingIds.Contains(r.Id)).ToList();
 
-            dataGridView1.DataSource= avaliableBookings.ToList();
+            //var canSelectRoom = avaliableBookings.Where(r => r.OdaTipi == cmbOdaTipi.SelectedText);
+            /*cmbOda.DataSource = avaliableBookings;
+            cmbOda.DisplayMember = "RoomNumber";
+            cmbOda.ValueMember = "Id";*/
 
+            cmbOdaTipi.DataSource = avaliableBookings.GroupBy(x => x.OdaTipi).Select(x => new 
+            {
+                OdaTipi=x.Key,
+                Odalar=x.ToList()
+            }).ToList();
+            cmbOdaTipi.DisplayMember = "OdaTipi";
+            cmbOdaTipi.ValueMember = "OdaTipi";
+
+
+
+
+
+        }
+
+        private void btnRezervasyonaBasla_Click(object sender, EventArgs e)
+        {
 
         }
     }
