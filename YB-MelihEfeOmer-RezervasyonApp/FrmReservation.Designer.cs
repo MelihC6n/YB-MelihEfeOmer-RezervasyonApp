@@ -305,6 +305,7 @@
             cmbOdaTipi.Name = "cmbOdaTipi";
             cmbOdaTipi.Size = new Size(184, 29);
             cmbOdaTipi.TabIndex = 4;
+            cmbOdaTipi.SelectedIndexChanged += cmbOdaTipi_SelectedIndexChanged;
             // 
             // btnRezervasyonaBasla
             // 

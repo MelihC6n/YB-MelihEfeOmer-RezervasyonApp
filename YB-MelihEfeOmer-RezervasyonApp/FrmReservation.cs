@@ -76,7 +76,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                                      r.RoomNumber,
                                      r.RoomType.Capacity,
                                      r.Id,
-                                     OdaTipi = r.RoomType.Name
+                                     OdaTipi = r.RoomType
 
                                  };
             //dataGridView1.DataSource = avaliableRooms.ToList();
@@ -93,23 +93,23 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             cmbOda.DisplayMember = "RoomNumber";
             cmbOda.ValueMember = "Id";*/
 
-            cmbOdaTipi.DataSource = avaliableBookings.GroupBy(x => x.OdaTipi).Select(x => new 
+            cmbOdaTipi.DataSource = avaliableBookings.GroupBy(x => new { x.OdaTipi.Name, x.OdaTipi.Id }).Select(x => new
             {
-                OdaTipi=x.Key,
-                Odalar=x.ToList()
+                OdaTipi = x.Key.Name,
+                OdaTipiId = x.Key.Id,
+                Odalar = x.ToList()
             }).ToList();
             cmbOdaTipi.DisplayMember = "OdaTipi";
-            cmbOdaTipi.ValueMember = "OdaTipi";
-
-
-
-
-
+            cmbOdaTipi.ValueMember = "OdaTipiId";
         }
 
         private void btnRezervasyonaBasla_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbOdaTipi_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }
