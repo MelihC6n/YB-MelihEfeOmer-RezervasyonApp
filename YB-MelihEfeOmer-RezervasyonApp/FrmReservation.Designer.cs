@@ -381,7 +381,6 @@
             cmbOtelAdi.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOtelAdi.FlatStyle = FlatStyle.Flat;
             cmbOtelAdi.FormattingEnabled = true;
-            cmbOtelAdi.Items.AddRange(new object[] { "aa", "aa", "aa" });
             cmbOtelAdi.Location = new Point(140, 43);
             cmbOtelAdi.Name = "cmbOtelAdi";
             cmbOtelAdi.Size = new Size(184, 29);
