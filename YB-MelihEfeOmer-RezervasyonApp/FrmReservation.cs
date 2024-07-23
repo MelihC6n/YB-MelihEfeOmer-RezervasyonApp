@@ -20,6 +20,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         HotelRepository hotelRepository;
         BookingService bookingService;
         BookingRepository bookingRepository;
+        RoomService roomService;
+        RoomRepository roomRepository;
         public FrmReservation()
         {
             InitializeComponent();
@@ -28,6 +30,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             hotelService = new HotelService(hotelRepository);
             bookingRepository = new BookingRepository(context);
             bookingService = new BookingService(bookingRepository);
+            roomRepository = new RoomRepository(context);
+            roomService = new RoomService(roomRepository);
         }
 
         private void FrmReservation_Load(object sender, EventArgs e)
