@@ -349,6 +349,7 @@
             btnOdaBul.TabIndex = 1;
             btnOdaBul.Text = "Oda Bul";
             btnOdaBul.UseVisualStyleBackColor = false;
+            btnOdaBul.Click += btnOdaBul_Click;
             // 
             // dtpCikisTarihi
             // 
