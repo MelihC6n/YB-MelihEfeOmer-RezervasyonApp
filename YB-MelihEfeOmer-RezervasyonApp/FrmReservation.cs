@@ -20,14 +20,19 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         HotelRepository hotelRepository;
         BookingService bookingService;
         BookingRepository bookingRepository;
+        RoomService roomService;
+        RoomRepository roomRepository;
+        ApplicationDbContext context;
         public FrmReservation()
         {
             InitializeComponent();
-            ApplicationDbContext context = new();
+            context = new();
             hotelRepository = new HotelRepository(context);
             hotelService = new HotelService(hotelRepository);
             bookingRepository = new BookingRepository(context);
             bookingService = new BookingService(bookingRepository);
+            roomRepository = new RoomRepository(context);
+            roomService = new RoomService(roomRepository);
         }
 
         private void FrmReservation_Load(object sender, EventArgs e)
@@ -55,7 +60,28 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void btnOdaBul_Click(object sender, EventArgs e)
         {
-           
+            var roomWithType = roomService.GetAllQueryable().Where(r=>r.HotelId==(Guid)cmbOtelAdi.SelectedValue);
+            // dataGridView1.DataSource= roomWithType.ToList();
+            var avaliableRooms = from r in context.Rooms
+                                 where r.RoomType.Capacity >= nudKisiSayisi.Value && r.HotelId == (Guid)cmbOtelAdi.SelectedValue
+                                 select r; /*new 
+                                 { 
+                                     r.HotelId,
+                                     r.Hotel.Name,
+                                     r.RoomNumber,
+                                     r.RoomType.Capacity,
+                                     r.Id
+
+                                 };*/
+            //dataGridView1.DataSource = avaliableRooms.ToList();
+            var freeBookings = from b in context.Bookings
+                               where b.CheckinDate > DateOnly.FromDateTime(dtpCikisTarihi.Value) && b.CheckoutDate < DateOnly.FromDateTime(dtpGirisTarihi.Value)
+                               select b;
+            dataGridView1.DataSource= freeBookings.ToList();
+
+            var avaliableBookings = avaliableRooms.ToList().Where(r => !freeBookings.ToList().Contains(r.Id));
+            
+
         }
     }
 }

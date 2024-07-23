@@ -14,6 +14,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Abstractions
         void Delete(Guid id); //void Delete(T entity);
         T? GetById(Guid id); //T GetById(string id);
         IEnumerable<T>? GetAll(); //List<T> GetAll();
-        //IQueryable<T> GetAllQueryable();
+        IQueryable<T> GetAllQueryable();
     }
 }

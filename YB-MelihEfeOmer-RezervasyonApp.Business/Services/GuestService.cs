@@ -31,6 +31,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
             return _guestRepository.GetAll();
         }
 
+        public IQueryable<Guest> GetAllQueryable()
+        {
+            return _guestRepository.GetAllQueryable();
+        }
+
         public Guest? GetById(Guid id)
         {
             return _guestRepository.GetById(id);

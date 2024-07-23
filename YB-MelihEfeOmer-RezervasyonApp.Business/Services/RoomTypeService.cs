@@ -31,6 +31,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
             return _roomTypeRepository.GetAll();
         }
 
+        public IQueryable<RoomType> GetAllQueryable()
+        {
+            return _roomTypeRepository.GetAllQueryable();
+        }
+
         public RoomType? GetById(Guid id)
         {
             return _roomTypeRepository.GetById(id);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
         public IEnumerable<Room>? GetAll()
         {
             return _roomRepository.GetAll();
+        }
+
+        public IQueryable<Room> GetAllQueryable()
+        {
+            return _roomRepository.GetAllQueryable().Include(r=>r.RoomType);
         }
 
         public Room? GetById(Guid id)
