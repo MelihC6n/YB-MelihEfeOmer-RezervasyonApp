@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReservation));
             panel1 = new Panel();
             panel2 = new Panel();
@@ -59,8 +59,8 @@
             label7 = new Label();
             label2 = new Label();
             grpPersonalDetails = new GroupBox();
-            label15 = new Label();
-            label14 = new Label();
+            İleriButonu = new Label();
+            GeriButonu = new Label();
             txtAdres = new TextBox();
             txtEmail = new TextBox();
             txtTelefon = new TextBox();
@@ -201,14 +201,14 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(4, 25);
             dataGridView1.Name = "dataGridView1";
@@ -285,6 +285,7 @@
             grpRooms.Controls.Add(label4);
             grpRooms.Controls.Add(label5);
             grpRooms.Controls.Add(cmbOda);
+            grpRooms.Enabled = false;
             grpRooms.FlatStyle = FlatStyle.Flat;
             grpRooms.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             grpRooms.ForeColor = Color.White;
@@ -437,8 +438,8 @@
             // grpPersonalDetails
             // 
             grpPersonalDetails.BackColor = Color.Transparent;
-            grpPersonalDetails.Controls.Add(label15);
-            grpPersonalDetails.Controls.Add(label14);
+            grpPersonalDetails.Controls.Add(İleriButonu);
+            grpPersonalDetails.Controls.Add(GeriButonu);
             grpPersonalDetails.Controls.Add(txtAdres);
             grpPersonalDetails.Controls.Add(txtEmail);
             grpPersonalDetails.Controls.Add(txtTelefon);
@@ -454,6 +455,7 @@
             grpPersonalDetails.Controls.Add(btnKaydet);
             grpPersonalDetails.Controls.Add(label3);
             grpPersonalDetails.Controls.Add(label10);
+            grpPersonalDetails.Enabled = false;
             grpPersonalDetails.FlatStyle = FlatStyle.Flat;
             grpPersonalDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             grpPersonalDetails.ForeColor = Color.White;
@@ -464,25 +466,27 @@
             grpPersonalDetails.TabStop = false;
             grpPersonalDetails.Text = "<T> Misafirin Bilgilerini Giriniz";
             // 
-            // label15
+            // İleriButonu
             // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            label15.Location = new Point(245, 364);
-            label15.Name = "label15";
-            label15.Size = new Size(38, 25);
-            label15.TabIndex = 7;
-            label15.Text = ">>";
+            İleriButonu.AutoSize = true;
+            İleriButonu.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            İleriButonu.Location = new Point(245, 364);
+            İleriButonu.Name = "İleriButonu";
+            İleriButonu.Size = new Size(38, 25);
+            İleriButonu.TabIndex = 7;
+            İleriButonu.Text = ">>";
+            İleriButonu.Click += İleriButonu_Click;
             // 
-            // label14
+            // GeriButonu
             // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            label14.Location = new Point(189, 364);
-            label14.Name = "label14";
-            label14.Size = new Size(38, 25);
-            label14.TabIndex = 7;
-            label14.Text = "<<";
+            GeriButonu.AutoSize = true;
+            GeriButonu.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            GeriButonu.Location = new Point(189, 364);
+            GeriButonu.Name = "GeriButonu";
+            GeriButonu.Size = new Size(38, 25);
+            GeriButonu.TabIndex = 7;
+            GeriButonu.Text = "<<";
+            GeriButonu.Click += GeriButonu_Click;
             // 
             // txtAdres
             // 
@@ -608,6 +612,7 @@
             btnKaydet.TabIndex = 1;
             btnKaydet.Text = "Kaydet";
             btnKaydet.UseVisualStyleBackColor = false;
+            btnKaydet.Click += btnKaydet_Click;
             // 
             // label3
             // 
@@ -910,8 +915,8 @@
         private Label label9;
         private Button btnKaydet;
         private Label label10;
-        private Label label15;
-        private Label label14;
+        private Label İleriButonu;
+        private Label GeriButonu;
         private GroupBox grpGüncelleme;
         private GroupBox grpOdaGüncelleme;
         private ComboBox cmbOdaTipiGüncelleme;
