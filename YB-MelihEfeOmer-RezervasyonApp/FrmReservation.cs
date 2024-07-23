@@ -77,10 +77,13 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             var freeBookings = from b in context.Bookings
                                where b.CheckinDate > DateOnly.FromDateTime(dtpCikisTarihi.Value) && b.CheckoutDate < DateOnly.FromDateTime(dtpGirisTarihi.Value)
                                select b;
-            dataGridView1.DataSource= freeBookings.ToList();
 
-            var avaliableBookings = avaliableRooms.ToList().Where(r => !freeBookings.ToList().Contains(r.Id));
-            
+            List<Guid> freeBookingIds = freeBookings.Select(b => b.Room.Id).ToList();
+
+            var avaliableBookings = avaliableRooms.Where(r => !freeBookingIds.Contains(r.Id)).ToList();
+
+            dataGridView1.DataSource= avaliableBookings.ToList();
+
 
         }
     }
