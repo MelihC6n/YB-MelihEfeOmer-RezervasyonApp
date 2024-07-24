@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReservation));
             panel1 = new Panel();
             panel2 = new Panel();
@@ -99,7 +99,6 @@
             txtAdAra = new TextBox();
             pgRez = new TabPage();
             txtRezAra = new TextBox();
-            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ((System.ComponentModel.ISupportInitialize)exitButton).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRezervasyonlar).BeginInit();
@@ -216,14 +215,14 @@
             dgvRezervasyonlar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRezervasyonlar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRezervasyonlar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle2;
             dgvRezervasyonlar.Dock = DockStyle.Fill;
             dgvRezervasyonlar.Location = new Point(4, 25);
             dgvRezervasyonlar.Name = "dgvRezervasyonlar";
@@ -715,6 +714,7 @@
             btnGüncellemeRezervasyonaBasla.TabIndex = 1;
             btnGüncellemeRezervasyonaBasla.Text = "Rezervasyona Başla";
             btnGüncellemeRezervasyonaBasla.UseVisualStyleBackColor = false;
+            btnGüncellemeRezervasyonaBasla.Click += btnGüncellemeRezervasyonaBasla_Click;
             // 
             // label16
             // 
@@ -756,6 +756,7 @@
             btnGüncellemeOdaBul.TabIndex = 1;
             btnGüncellemeOdaBul.Text = "Oda Bul";
             btnGüncellemeOdaBul.UseVisualStyleBackColor = false;
+            btnGüncellemeOdaBul.Click += btnGüncellemeOdaBul_Click;
             // 
             // dtpCikisTarihiGüncelleme
             // 
@@ -910,11 +911,6 @@
             txtRezAra.Size = new Size(204, 29);
             txtRezAra.TabIndex = 4;
             // 
-            // sqlCommand1
-            // 
-            sqlCommand1.CommandTimeout = 30;
-            sqlCommand1.EnableOptimizedParameterBinding = false;
-            // 
             // FrmReservation
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1044,6 +1040,5 @@
         private TabPage pgRez;
         private TextBox txtAdAra;
         private TextBox txtRezAra;
-        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
     }
 }
