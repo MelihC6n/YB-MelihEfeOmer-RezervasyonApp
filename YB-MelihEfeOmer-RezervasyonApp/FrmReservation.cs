@@ -351,27 +351,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void İleriButonu_Click(object sender, EventArgs e)
         {
-            MisafirBilgileriniKontrolEt();
-            misafirSayaci += 1;
-            grpPersonalDetails.Text = $"{misafirSayaci + 1}. Misafirin Bilgilerini Giriniz";
-            if (misafirler[misafirSayaci] == null)
-            {
-                CleanControls();
-            }
-            else
-            {
-                FillControls();
-            }
-            if (kisiSayisi == misafirSayaci + 1)
-            {
-                btnKaydet.Enabled = true;
-                İleriButonu.Enabled = false;
-            }
-            if (GeriButonu.Enabled == false)
-            {
-                GeriButonu.Enabled = true;
-            }
-        }
             bool isValid = MisafirBilgileriniKontrolEt();
             if (isValid)
             {
