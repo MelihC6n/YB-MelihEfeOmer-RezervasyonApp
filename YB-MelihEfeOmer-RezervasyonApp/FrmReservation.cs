@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ using YB_MelihEfeOmer_RezervasyonApp.Business.Services;
 using YB_MelihEfeOmer_RezervasyonApp.Business.Validators;
 using YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context;
 using YB_MelihEfeOmer_RezervasyonApp.DataAccess.Repositories;
+using YB_MelihEfeOmer_RezervasyonApp.Entity.Abstract;
 using YB_MelihEfeOmer_RezervasyonApp.Entity.Models;
 
 namespace YB_MelihEfeOmer_RezervasyonApp
@@ -52,7 +54,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         }
 
         private void FrmReservation_Load(object sender, EventArgs e)
-        {           
+        {
             dtpGirisTarihi.MinDate = DateTime.Now;
             dtpCikisTarihi.MinDate = DateTime.Now.AddDays(1);
             dgvRezervasyonlar.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -404,7 +406,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         private void btnListele_Click(object sender, EventArgs e)
         {
             dgvRezervasyonlar.DataSource = FillReservations(Guid.Empty).ToList();
-            if (btnListele.Text=="Güncellemeden Çık")
+            if (btnListele.Text == "Güncellemeden Çık")
             {
                 grpReservationDetails.BringToFront();
                 grpReservationDetails.Enabled = true;
@@ -417,7 +419,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         private Booking _booking;
         private void btnGüncelle_Click(object sender, EventArgs e)
         {
-            if (dgvRezervasyonlar.SelectedRows.Count == 1) 
+            if (dgvRezervasyonlar.SelectedRows.Count == 1)
             {
                 grpGüncelleme.BringToFront();
                 grpReservationDetails.Enabled = false;
@@ -426,22 +428,22 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
                 _booking = bookingService.GetById((Guid)dgvRezervasyonlar.CurrentRow.Cells["RezId"].Value);
                 GüncellemeBilgileriniDoldur(_booking);
-                
-              
+
+
             }
-            else 
+            else
             {
                 MessageBox.Show("Lütfen güncellemek istediğiniz rezervasyonu listeden seçiniz.");
             }
-            
+
         }
 
         private void GüncellemeBilgileriniDoldur(Booking b)
         {
             dtpGirisTarihiGüncelleme.Value = DateTime.Parse(b.CheckinDate.ToString());
             dtpCikisTarihiGüncelleme.Value = DateTime.Parse(b.CheckoutDate.ToString());
-            
-        
+
+
         }
 
         private void dtpGirisTarihi_ValueChanged(object sender, EventArgs e)
@@ -459,6 +461,60 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             //{
             //    dtpCikisTarihi.Value = dtpGirisTarihi.Value.AddDays(1);
             //}
+        }
+
+        private void txtKimlikAra_TextChanged(object sender, EventArgs e)
+        {
+            string kimlikAra = txtKimlikAra.Text.ToLower();
+            dgvRezervasyonlar.DataSource = null;
+
+            if (!string.IsNullOrEmpty(kimlikAra) && kimlikAra.Length >= 3)
+            {
+                var tList = guestService.GetAll().Where(x => x.IdentityNumber.ToLower().Contains(kimlikAra));
+
+                dgvRezervasyonlar.DataSource = tList.ToList();
+
+            }
+            else if (kimlikAra.Length == 0)
+            {
+                FillDataGridWithReservations();
+            }
+        }
+
+        private void txtAdAra_TextChanged(object sender, EventArgs e)
+        {
+            string AdAra = txtAdAra.Text.ToLower();
+            dgvRezervasyonlar.DataSource = null;
+
+            if (!string.IsNullOrEmpty(AdAra) && AdAra.Length >= 3)
+            {
+                var aList = guestService.GetAll().Where(x => x.FirstName.ToLower()
+                .Contains(AdAra));
+
+                dgvRezervasyonlar.DataSource = aList.ToList();
+            }
+            else if (AdAra.Length == 0)
+            {
+                FillDataGridWithReservations();
+            }
+
+        }
+
+        private void txtRezAra_TextChanged(object sender, EventArgs e)
+        {
+            //string rezAra = txtRezAra.Text.ToLower();
+            //dgvRezervasyonlar.DataSource = null;
+
+            //if (!string.IsNullOrEmpty(rezAra) && rezAra.Length >= 3)
+            //{
+            //    var rList = guestService.GetAll().Where( x => x.Contains(rezAra));
+            //    dgvRezervasyonlar.DataSource = rList.ToList();
+            //}
+            
+            //else if(rezAra.Length == 0)
+            //    {
+            //    FillDataGridWithReservations();
+            //    }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,5 +46,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
         {
             _bookingRepository.Update(entity);
         }
+
+        
     }
 }
