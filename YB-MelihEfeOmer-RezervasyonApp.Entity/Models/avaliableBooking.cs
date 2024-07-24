@@ -14,5 +14,15 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Entity.Models
         public byte Capacity { get; set; }
         public Guid Id { get; set; }
         public RoomType OdaTipi { get; set; }
+        public string RoomTypeName { get; set; }
+        public decimal PricePerNight { get; set; }
+
+        public string DisplayRoomTypeInfo
+        {
+            get
+            {
+                return $"A:{RoomTypeName} B:{PricePerNight} C:{Capacity}";
+            }
+        }
     }
 }

@@ -486,7 +486,7 @@
             grpPersonalDetails.Size = new Size(358, 442);
             grpPersonalDetails.TabIndex = 11;
             grpPersonalDetails.TabStop = false;
-            grpPersonalDetails.Text = "<T> Misafirin Bilgilerini Giriniz";
+            grpPersonalDetails.Text = "? Misafirin Bilgilerini Giriniz";
             // 
             // İleriButonu
             // 
