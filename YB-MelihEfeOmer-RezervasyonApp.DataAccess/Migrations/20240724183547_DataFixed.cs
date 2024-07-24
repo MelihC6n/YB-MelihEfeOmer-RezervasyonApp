@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class ReMakeDbAndFixes : Migration
+    public partial class DataFixed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -218,15 +218,15 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Guests",
                 columns: new[] { "Id", "Address", "CreatedTime", "DateOfBirth", "Email", "FirstName", "IdentityNumber", "IsActive", "IsDeleted", "LastName", "Phone", "UpdatedTime" },
-                values: new object[] { new Guid("4df541dd-034f-4ff4-8c72-09d92652cfed"), "aa", new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3865), new DateOnly(1999, 9, 9), "aaa", "Test", null, false, false, "Test", "5656", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                values: new object[] { new Guid("f9cce1c4-cd5c-4ec5-a37d-5e8c3d41c5d6"), "aa", new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4247), new DateOnly(1999, 9, 9), "aaa", "Test", "11111111111", false, false, "Test", "5656", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "Hotels",
                 columns: new[] { "Id", "Address", "CheckinTime", "CheckoutTime", "CreatedTime", "Email", "IsActive", "IsDeleted", "Name", "Phone", "Stars", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { new Guid("5ca0f94b-54a1-43d3-b0e3-83a038942f7c"), "İstanbul/Eminönü", new TimeOnly(8, 0, 0), new TimeOnly(23, 59, 0), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3497), "turkuaz@hotmail.com", false, false, "Turkuaz", "55554443265", (byte)4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"), "İzmir/Alsancak", new TimeOnly(8, 0, 0), new TimeOnly(23, 59, 0), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3417), "ibishotel@hotmail.com", false, false, "İbis", "09998887766", (byte)4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("94525f48-c2d7-40df-9eb1-05e497a3b017"), "İstanbul/Eminönü", new TimeOnly(8, 0, 0), new TimeOnly(23, 59, 0), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(3866), "turkuaz@hotmail.com", false, false, "Turkuaz", "55554443265", (byte)4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("ab82cf27-2085-4fd1-b0c4-00247dc3e6ef"), "İzmir/Alsancak", new TimeOnly(8, 0, 0), new TimeOnly(23, 59, 0), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(3786), "ibishotel@hotmail.com", false, false, "İbis", "09998887766", (byte)4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -234,9 +234,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                 columns: new[] { "Id", "Capacity", "CreatedTime", "Description", "IsActive", "IsDeleted", "Name", "PricePerNight", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { new Guid("1382416c-df00-4799-9a1e-fc02abdfd876"), (byte)1, new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3683), "Single type room", false, false, "Single", 500m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("b04545e0-776f-4630-9b05-83c8d3fb5647"), (byte)2, new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3616), "Suit type room", false, false, "Suit", 1000m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("c4fca870-88cf-45f9-88ec-20c24b22da1c"), (byte)4, new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3649), "King type room", false, false, "King", 4000m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("4526b32f-357a-4840-83bf-c623eb165b16"), (byte)1, new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4076), "Single type room", false, false, "Single", 500m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("c5f47aa4-c21a-4c9b-be83-d914f209f970"), (byte)2, new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4017), "Suit type room", false, false, "Suit", 1000m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("c82931f9-eb9c-4a13-a7d5-010d403dee55"), (byte)4, new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4052), "King type room", false, false, "King", 4000m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -244,12 +244,12 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedTime", "HotelId", "IsActive", "IsDeleted", "RoomNumber", "RoomTypeId", "Status", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { new Guid("45c01126-6939-4f59-8a9f-ed02fe3b4fed"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3742), new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"), false, false, 102, new Guid("b04545e0-776f-4630-9b05-83c8d3fb5647"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("585721b7-063b-4444-8fdc-d9d94ac9165e"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3767), new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"), false, false, 201, new Guid("c4fca870-88cf-45f9-88ec-20c24b22da1c"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("5abab472-41ab-48f4-9bca-c095e9482569"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3713), new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"), false, false, 101, new Guid("b04545e0-776f-4630-9b05-83c8d3fb5647"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("5dcbfa30-023d-4460-8689-9cb79368abb2"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3811), new Guid("5ca0f94b-54a1-43d3-b0e3-83a038942f7c"), false, false, 101, new Guid("1382416c-df00-4799-9a1e-fc02abdfd876"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("66b5eb51-354f-498d-a3c5-51457f2826fa"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3788), new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"), false, false, 202, new Guid("1382416c-df00-4799-9a1e-fc02abdfd876"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("94a231ff-7fae-4313-9740-307e5e698bd8"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3836), new Guid("5ca0f94b-54a1-43d3-b0e3-83a038942f7c"), false, false, 102, new Guid("1382416c-df00-4799-9a1e-fc02abdfd876"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("1015a3ab-0203-4c78-a5f8-074565d28159"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4194), new Guid("94525f48-c2d7-40df-9eb1-05e497a3b017"), false, false, 101, new Guid("4526b32f-357a-4840-83bf-c623eb165b16"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("3900fda2-7190-486a-b525-c0ebddefd668"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4104), new Guid("ab82cf27-2085-4fd1-b0c4-00247dc3e6ef"), false, false, 101, new Guid("c5f47aa4-c21a-4c9b-be83-d914f209f970"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("6d1a079d-8ba5-4ad4-bf19-749e193a7d0b"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4151), new Guid("ab82cf27-2085-4fd1-b0c4-00247dc3e6ef"), false, false, 201, new Guid("c82931f9-eb9c-4a13-a7d5-010d403dee55"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("98b44101-d5d1-4f37-9773-21dc715502bd"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4219), new Guid("94525f48-c2d7-40df-9eb1-05e497a3b017"), false, false, 102, new Guid("4526b32f-357a-4840-83bf-c623eb165b16"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("d51aa5ff-b10d-458c-9827-44ba21715588"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4174), new Guid("ab82cf27-2085-4fd1-b0c4-00247dc3e6ef"), false, false, 202, new Guid("4526b32f-357a-4840-83bf-c623eb165b16"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("ffc4d23e-c4f8-4d45-b50a-61821f738a86"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4131), new Guid("ab82cf27-2085-4fd1-b0c4-00247dc3e6ef"), false, false, 102, new Guid("c5f47aa4-c21a-4c9b-be83-d914f209f970"), "Avaliable", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -257,8 +257,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedTime", "DateOfBirth", "Email", "FirstName", "HireDate", "HotelId", "IsActive", "IsDeleted", "LastName", "Phone", "Position", "Salary", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { new Guid("238a1aa2-c9d5-431a-9593-ff204afa58a2"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3536), new DateOnly(1970, 1, 1), "ThisIsStaff@hotmail.com", "Ali", new DateOnly(2010, 1, 1), new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"), false, false, "Vali", "09995554433", "Manager", 50000m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("3d75af45-d16c-440b-af0e-5effcc177834"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3579), new DateOnly(1980, 1, 1), "ThisIsStaff2@hotmail.com", "Murat", new DateOnly(1981, 1, 1), new Guid("5ca0f94b-54a1-43d3-b0e3-83a038942f7c"), false, false, "Duran", "09995554433", "Manager", 50000m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("b93f68d3-b1ec-4bf9-b5f9-a2ef58b2c386"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(3976), new DateOnly(1980, 1, 1), "ThisIsStaff2@hotmail.com", "Murat", new DateOnly(1981, 1, 1), new Guid("94525f48-c2d7-40df-9eb1-05e497a3b017"), false, false, "Duran", "09995554433", "Manager", 50000m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("d6e9838f-673b-449e-a4da-121ccc4bad37"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(3920), new DateOnly(1970, 1, 1), "ThisIsStaff@hotmail.com", "Ali", new DateOnly(2010, 1, 1), new Guid("ab82cf27-2085-4fd1-b0c4-00247dc3e6ef"), false, false, "Vali", "09995554433", "Manager", 50000m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -266,8 +266,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                 columns: new[] { "Id", "CheckinDate", "CheckoutDate", "CreatedTime", "IsActive", "IsDeleted", "RoomId", "TotalPrice", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { new Guid("2f4d1a0a-4934-4c2d-9b00-c7f83a8acdf2"), new DateOnly(2024, 7, 23), new DateOnly(2024, 7, 28), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3901), false, false, new Guid("5abab472-41ab-48f4-9bca-c095e9482569"), 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("b16283d2-72c2-4699-8fee-53417c4c0712"), new DateOnly(2024, 8, 1), new DateOnly(2024, 8, 2), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3926), false, false, new Guid("5abab472-41ab-48f4-9bca-c095e9482569"), 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("1605fc67-d031-4e54-b872-53bcabde7543"), new DateOnly(2024, 7, 23), new DateOnly(2024, 7, 28), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4286), false, false, new Guid("3900fda2-7190-486a-b525-c0ebddefd668"), 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("29690c18-f14b-4235-944b-05660631475f"), new DateOnly(2024, 8, 1), new DateOnly(2024, 8, 2), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4316), false, false, new Guid("3900fda2-7190-486a-b525-c0ebddefd668"), 0m, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -275,8 +275,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                 columns: new[] { "BookingId", "GuestId", "CreatedTime", "IsActive", "IsDeleted", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { new Guid("2f4d1a0a-4934-4c2d-9b00-c7f83a8acdf2"), new Guid("4df541dd-034f-4ff4-8c72-09d92652cfed"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3950), false, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("b16283d2-72c2-4699-8fee-53417c4c0712"), new Guid("4df541dd-034f-4ff4-8c72-09d92652cfed"), new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3978), false, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("1605fc67-d031-4e54-b872-53bcabde7543"), new Guid("f9cce1c4-cd5c-4ec5-a37d-5e8c3d41c5d6"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4353), false, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { new Guid("29690c18-f14b-4235-944b-05660631475f"), new Guid("f9cce1c4-cd5c-4ec5-a37d-5e8c3d41c5d6"), new DateTime(2024, 7, 24, 21, 35, 46, 641, DateTimeKind.Local).AddTicks(4377), false, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.CreateIndex(
