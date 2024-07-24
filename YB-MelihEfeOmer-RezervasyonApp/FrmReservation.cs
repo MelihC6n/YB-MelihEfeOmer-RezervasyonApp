@@ -19,19 +19,19 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 {
     public partial class FrmReservation : Form
     {
-        HotelService hotelService;
-        HotelRepository hotelRepository;
-        BookingService bookingService;
-        BookingRepository bookingRepository;
-        RoomService roomService;
-        RoomRepository roomRepository;
-        ApplicationDbContext context;
-        RoomTypeService roomTypeService;
-        RoomTypeRepository roomTypeRepository;
-        GuestService guestService;
-        GuestRepository guestRepository;
-        BRBookingGuestService BRBookingGuestService;
-        BRBookingGuestRepository BRBookingGuestRepository;
+        private readonly HotelService hotelService;
+        private readonly HotelRepository hotelRepository;
+        private readonly BookingService bookingService;
+        private readonly BookingRepository bookingRepository;
+        private readonly RoomService roomService;
+        private readonly RoomRepository roomRepository;
+        private readonly ApplicationDbContext context;
+        private readonly RoomTypeService roomTypeService;
+        private readonly RoomTypeRepository roomTypeRepository;
+        private readonly GuestService guestService;
+        private readonly GuestRepository guestRepository;
+        private readonly BRBookingGuestService BRBookingGuestService;
+        private readonly BRBookingGuestRepository BRBookingGuestRepository;
 
         public FrmReservation()
         {
@@ -277,7 +277,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                            CheckoutDate = b.CheckoutDate,
                            RoomNumber = b.Room.RoomNumber,
                            TotalPrice = b.TotalPrice,
-                           Guest = g.FirstName + g.LastName,
+                           Guest = g.FirstName + " " + g.LastName,
                            Phone = g.Phone,
                            OdaTipi = r.RoomType.Name
                        };
@@ -295,7 +295,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                            CheckoutDate = b.CheckoutDate,
                            RoomNumber = b.Room.RoomNumber,
                            TotalPrice = b.TotalPrice,
-                           Guest = g.FirstName + g.LastName,
+                           Guest = g.FirstName + " " +g.LastName,
                            Phone = g.Phone,
                            OdaTipi = r.RoomType.Name
                        };
@@ -427,7 +427,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 _booking = bookingService.GetById((Guid)dgvRezervasyonlar.CurrentRow.Cells["RezId"].Value);
                 GüncellemeBilgileriniDoldur(_booking);
                 
-              
+
             }
             else 
             {
