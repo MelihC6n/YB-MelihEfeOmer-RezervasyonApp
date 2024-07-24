@@ -20,13 +20,13 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Validators
                 .Matches(@"[\p{L} ]+$").WithMessage("Soyad alanı sayı veya noktalama işareti içeremez.");
 
             RuleFor(g => g.DateOfBirth).NotEmpty().WithMessage("Doğum tarihi alanı boş bırakılamaz.")
-                .Must(g => g == default(DateOnly) && g < DateOnly.FromDateTime(DateTime.Now));
+                .Must(g => g < DateOnly.FromDateTime(DateTime.Now)).WithMessage("Doğum tarihi bugün seçilemez.");
 
             RuleFor(g => g.Address).NotEmpty().WithMessage("Adres alanı boş bırakılamaz.")
                 .Length(25, 255).WithMessage("Adres alanı 25 ile 255 karakter arasında olmalıdır.");
 
             RuleFor(g => g.Phone).NotEmpty().WithMessage("Telefon alanı boş bırakılamaz.")
-                .Length(3, 15)
+                .Length(3, 15).WithMessage("Telefon numarası 3 ile 15 karakter arasında olmalıdır.")
                 .Matches("^\\d+$").WithMessage("Telefon numarası sadece rakamlardan oluşmalıdır.");
 
             RuleFor(g => g.Email).NotEmpty().WithMessage("Email alanı boş bırakılamaz.")
