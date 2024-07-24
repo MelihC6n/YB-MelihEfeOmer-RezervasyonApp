@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReservation));
             panel1 = new Panel();
             panel2 = new Panel();
@@ -91,8 +91,14 @@
             minimalizeButton = new PictureBox();
             pictureBox1 = new PictureBox();
             label19 = new Label();
-            txtAramaYap = new TextBox();
+            txtKimlikAra = new TextBox();
             label21 = new Label();
+            tabArama = new TabControl();
+            pgKimlik = new TabPage();
+            pgAd = new TabPage();
+            pgRez = new TabPage();
+            txtAdAra = new TextBox();
+            txtRezAra = new TextBox();
             ((System.ComponentModel.ISupportInitialize)exitButton).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRezervasyonlar).BeginInit();
@@ -104,6 +110,10 @@
             grpOdaGüncelleme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)minimalizeButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tabArama.SuspendLayout();
+            pgKimlik.SuspendLayout();
+            pgAd.SuspendLayout();
+            pgRez.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -205,14 +215,14 @@
             dgvRezervasyonlar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRezervasyonlar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRezervasyonlar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle2;
             dgvRezervasyonlar.Dock = DockStyle.Fill;
             dgvRezervasyonlar.Location = new Point(4, 25);
             dgvRezervasyonlar.Name = "dgvRezervasyonlar";
@@ -816,26 +826,89 @@
             label19.TabIndex = 2;
             label19.Text = "Otel mi? Trivago!";
             // 
-            // txtAramaYap
+            // txtKimlikAra
             // 
-            txtAramaYap.BackColor = Color.White;
-            txtAramaYap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            txtAramaYap.ForeColor = Color.Black;
-            txtAramaYap.Location = new Point(420, 472);
-            txtAramaYap.Name = "txtAramaYap";
-            txtAramaYap.Size = new Size(191, 29);
-            txtAramaYap.TabIndex = 3;
+            txtKimlikAra.BackColor = Color.White;
+            txtKimlikAra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtKimlikAra.ForeColor = Color.Black;
+            txtKimlikAra.Location = new Point(8, 6);
+            txtKimlikAra.Name = "txtKimlikAra";
+            txtKimlikAra.Size = new Size(204, 29);
+            txtKimlikAra.TabIndex = 3;
             // 
             // label21
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label21.ForeColor = Color.White;
-            label21.Location = new Point(430, 443);
+            label21.Location = new Point(430, 404);
             label21.Name = "label21";
             label21.Size = new Size(171, 21);
             label21.TabIndex = 2;
             label21.Text = "Aranacak Rezarvasyon";
+            // 
+            // tabArama
+            // 
+            tabArama.Controls.Add(pgKimlik);
+            tabArama.Controls.Add(pgAd);
+            tabArama.Controls.Add(pgRez);
+            tabArama.Location = new Point(402, 428);
+            tabArama.Name = "tabArama";
+            tabArama.SelectedIndex = 0;
+            tabArama.Size = new Size(226, 69);
+            tabArama.TabIndex = 13;
+            // 
+            // pgKimlik
+            // 
+            pgKimlik.BackColor = Color.SeaGreen;
+            pgKimlik.Controls.Add(txtKimlikAra);
+            pgKimlik.Location = new Point(4, 24);
+            pgKimlik.Name = "pgKimlik";
+            pgKimlik.Padding = new Padding(3);
+            pgKimlik.Size = new Size(218, 41);
+            pgKimlik.TabIndex = 0;
+            pgKimlik.Text = "KİMLİK ";
+            // 
+            // pgAd
+            // 
+            pgAd.BackColor = Color.SeaGreen;
+            pgAd.Controls.Add(txtAdAra);
+            pgAd.Location = new Point(4, 24);
+            pgAd.Name = "pgAd";
+            pgAd.Padding = new Padding(3);
+            pgAd.Size = new Size(218, 41);
+            pgAd.TabIndex = 1;
+            pgAd.Text = "İSİM";
+            // 
+            // pgRez
+            // 
+            pgRez.BackColor = Color.SeaGreen;
+            pgRez.Controls.Add(txtRezAra);
+            pgRez.Location = new Point(4, 24);
+            pgRez.Name = "pgRez";
+            pgRez.Size = new Size(218, 41);
+            pgRez.TabIndex = 2;
+            pgRez.Text = "REZ. NO";
+            // 
+            // txtAdAra
+            // 
+            txtAdAra.BackColor = Color.White;
+            txtAdAra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtAdAra.ForeColor = Color.Black;
+            txtAdAra.Location = new Point(7, 6);
+            txtAdAra.Name = "txtAdAra";
+            txtAdAra.Size = new Size(204, 29);
+            txtAdAra.TabIndex = 4;
+            // 
+            // txtRezAra
+            // 
+            txtRezAra.BackColor = Color.White;
+            txtRezAra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtRezAra.ForeColor = Color.Black;
+            txtRezAra.Location = new Point(7, 6);
+            txtRezAra.Name = "txtRezAra";
+            txtRezAra.Size = new Size(204, 29);
+            txtRezAra.TabIndex = 4;
             // 
             // FrmReservation
             // 
@@ -843,6 +916,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaGreen;
             ClientSize = new Size(1025, 848);
+            Controls.Add(tabArama);
             Controls.Add(btnSil);
             Controls.Add(label1);
             Controls.Add(btnGüncelle);
@@ -853,7 +927,6 @@
             Controls.Add(label21);
             Controls.Add(label19);
             Controls.Add(minimalizeButton);
-            Controls.Add(txtAramaYap);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -884,6 +957,13 @@
             grpOdaGüncelleme.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)minimalizeButton).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tabArama.ResumeLayout(false);
+            pgKimlik.ResumeLayout(false);
+            pgKimlik.PerformLayout();
+            pgAd.ResumeLayout(false);
+            pgAd.PerformLayout();
+            pgRez.ResumeLayout(false);
+            pgRez.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -949,9 +1029,15 @@
         private Button btnSil;
         private Button btnGüncelle;
         private Button btnListele;
-        private TextBox txtAramaYap;
+        private TextBox txtKimlikAra;
         private Label label21;
         private TextBox txtKimlikNo;
         private Label label22;
+        private TabControl tabArama;
+        private TabPage pgKimlik;
+        private TabPage pgAd;
+        private TabPage pgRez;
+        private TextBox txtAdAra;
+        private TextBox txtRezAra;
     }
 }
