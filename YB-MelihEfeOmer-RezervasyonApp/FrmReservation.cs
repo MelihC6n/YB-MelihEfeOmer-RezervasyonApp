@@ -136,6 +136,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             if (kisiSayisi > 1)
             {
                 btnKaydet.Enabled = false;
+                İleriButonu.Enabled = true;
             }
         }
 
@@ -189,9 +190,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
                         BRBookingGuest bRBookingGuest = new BRBookingGuest()
                         {
-                            Booking = booking,
                             BookingId = booking.Id,
-
                             GuestId = guest.Id
                         };
 
@@ -199,7 +198,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                     }
                     transaction.Commit();
                     lastBookingId = booking.Id;
-                    MessageBox.Show("Ekleme başarılı");
+                    MessageBox.Show(kisiSayisi + " Kişinin kaydı başarıyla gerçekleşti", "Misafir Bilgi Girişi Tamamlandı",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     FillDataGridWithReservations();
                 }
                 catch (Exception ex)
@@ -266,6 +265,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             {
                 İleriButonu.Enabled = true;
             }
+            if (misafirSayaci == 0)
+            {
+                GeriButonu.Enabled = false;
+            }
         }
 
         private void MisafirBilgileriniKontrolEt()
@@ -296,11 +299,14 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             {
                 FillControls();
             }
-
             if (kisiSayisi == misafirSayaci + 1)
             {
                 btnKaydet.Enabled = true;
                 İleriButonu.Enabled = false;
+            }
+            if(GeriButonu.Enabled==false)
+            {
+                GeriButonu.Enabled=true;
             }
         }
 

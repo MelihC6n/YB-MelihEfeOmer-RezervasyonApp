@@ -472,6 +472,7 @@
             // İleriButonu
             // 
             İleriButonu.AutoSize = true;
+            İleriButonu.Enabled = false;
             İleriButonu.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             İleriButonu.Location = new Point(245, 364);
             İleriButonu.Name = "İleriButonu";
@@ -483,6 +484,7 @@
             // GeriButonu
             // 
             GeriButonu.AutoSize = true;
+            GeriButonu.Enabled = false;
             GeriButonu.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             GeriButonu.Location = new Point(189, 364);
             GeriButonu.Name = "GeriButonu";
