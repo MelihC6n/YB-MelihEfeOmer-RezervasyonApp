@@ -31,6 +31,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Entity.Models
         [StringLength(255)]
         public string? Email { get; set; }
 
-        public ICollection<BRBookingGuest>? Bookings { get; set; }
+        public ICollection<BRBookingGuest>? BRBookingGuests { get; set; }
     }
 }

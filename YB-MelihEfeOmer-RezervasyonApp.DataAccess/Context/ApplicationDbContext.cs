@@ -17,6 +17,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
         public DbSet<Room> Rooms { get; set; }
         public DbSet<RoomType> RoomTypes { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<BRBookingGuest> BRBookingGuests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,13 +40,13 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
             modelBuilder.Entity<Payment>()
                 .Property(p => p.Amount).HasPrecision(10, 2);
 
-            modelBuilder.Entity<BRBookingGuest>()
-                .HasKey(br => new { br.GuestId, br.BookingId });
-            modelBuilder.Entity<BRBookingGuest>()
-                .Ignore(br => br.Id);
-
             modelBuilder.Entity<Guest>()
                 .HasIndex(g => g.IdentityNumber).IsUnique();
+
+            modelBuilder.Entity<BRBookingGuest>()
+                .HasKey(br => new { br.BookingId, br.GuestId });
+
+            modelBuilder.Entity<BRBookingGuest>().Ignore(br => br.Id);
 
             var hotelId = Guid.NewGuid();
             modelBuilder.Entity<Hotel>().HasData(
@@ -225,28 +226,14 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
             var brBookingId = Guid.NewGuid();
             var brBookingId2 = Guid.NewGuid();
 
-            modelBuilder.Entity<BRBookingGuest>().HasData(
-                new BRBookingGuest
-                {
-                    Id = brBookingId,
-                    BookingId = bookingId,
-                    GuestId = guestId
-                });
 
-            modelBuilder.Entity<BRBookingGuest>().HasData(
-                new BRBookingGuest
-                {
-                    Id = brBookingId2,
-                    BookingId = bookingId2,
-                    GuestId = guestId
-                });
 
             modelBuilder.Entity<Booking>().HasData(
                 new Booking
                 {
                     Id = bookingId,
-                    CheckinDate = new DateOnly(2024,7,23),
-                    CheckoutDate = new DateOnly(2024,7,28),
+                    CheckinDate = new DateOnly(2024, 7, 23),
+                    CheckoutDate = new DateOnly(2024, 7, 28),
                     RoomId = roomId
                 });
 
@@ -254,11 +241,24 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
                 new Booking
                 {
                     Id = bookingId2,
-                    CheckinDate = new DateOnly(2024,8,1),
-                    CheckoutDate = new DateOnly(2024,8,2),
+                    CheckinDate = new DateOnly(2024, 8, 1),
+                    CheckoutDate = new DateOnly(2024, 8, 2),
                     RoomId = roomId
                 });
 
+            modelBuilder.Entity<BRBookingGuest>().HasData(
+                new BRBookingGuest
+                {
+                    BookingId = bookingId,
+                    GuestId = guestId
+                });
+
+            modelBuilder.Entity<BRBookingGuest>().HasData(
+                new BRBookingGuest
+                {
+                    BookingId = bookingId2,
+                    GuestId = guestId
+                });
 
             base.OnModelCreating(modelBuilder);
         }

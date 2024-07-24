@@ -51,10 +51,15 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void FrmReservation_Load(object sender, EventArgs e)
         {
+            dgvRezervasyonlar.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             ListHotels();
-            dataGridView1.DataSource = bookingService.GetAll();
+            IQueryable<object> showBookings = FillReservations(Guid.Empty);
+
+            dgvRezervasyonlar.DataSource = showBookings.ToList();
 
         }
+
+
 
         private void ListHotels()
         {
@@ -94,7 +99,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                                  };
             //dataGridView1.DataSource = avaliableRooms.ToList();
             var freeBookings = from b in context.Bookings
-                               where b.CheckinDate < DateOnly.FromDateTime(dtpCikisTarihi.Value) && b.CheckoutDate > DateOnly.FromDateTime(dtpGirisTarihi.Value)
+                               where b.CheckinDate <= DateOnly.FromDateTime(dtpCikisTarihi.Value) && b.CheckoutDate >= DateOnly.FromDateTime(dtpGirisTarihi.Value)
                                select b;
 
             List<Guid> freeBookingIds = freeBookings.Select(b => b.Room.Id).ToList();
@@ -128,7 +133,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
             misafirler = new List<Guest>(new Guest[kisiSayisi]);
 
-            if(kisiSayisi>1)
+            if (kisiSayisi > 1)
             {
                 btnKaydet.Enabled = false;
             }
@@ -147,6 +152,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         List<Guest> misafirler;
         int kisiSayisi;
         int misafirSayaci = 0;
+        Guid lastBookingId;
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
@@ -192,9 +198,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                         BRBookingGuestService.Add(bRBookingGuest);
                     }
                     transaction.Commit();
+                    lastBookingId = booking.Id;
                     MessageBox.Show("Ekleme başarılı");
-
-                    dataGridView1.DataSource = bookingService.GetAll();
+                    FillDataGridWithReservations();
                 }
                 catch (Exception ex)
                 {
@@ -205,12 +211,57 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         }
 
+        private void FillDataGridWithReservations()
+        {
+            dgvRezervasyonlar.DataSource = FillReservations(lastBookingId).ToList();
+        }
+
+        private IQueryable<object> FillReservations(Guid lastBookingId)
+        {
+            dgvRezervasyonlar.DataSource = null;
+            if (lastBookingId != Guid.Empty)
+            {
+                return from b in context.Bookings
+                       where b.Id == lastBookingId
+                       join br in context.BRBookingGuests on b.Id equals br.BookingId
+                       join g in context.Guests on br.GuestId equals g.Id
+                       join r in context.Rooms on b.RoomId equals r.Id
+                       select new
+                       {
+                           CheckinDate = b.CheckinDate,
+                           CheckoutDate = b.CheckoutDate,
+                           RoomNumber = b.Room.RoomNumber,
+                           TotalPrice = b.TotalPrice,
+                           Guest = g.FirstName + g.LastName,
+                           Phone = g.Phone,
+                           OdaTipi = r.RoomType.Name
+                       };
+            }
+            else
+            {
+                return from b in context.Bookings
+                       join br in context.BRBookingGuests on b.Id equals br.BookingId
+                       join g in context.Guests on br.GuestId equals g.Id
+                       join r in context.Rooms on b.RoomId equals r.Id
+                       select new
+                       {
+                           CheckinDate = b.CheckinDate,
+                           CheckoutDate = b.CheckoutDate,
+                           RoomNumber = b.Room.RoomNumber,
+                           TotalPrice = b.TotalPrice,
+                           Guest = g.FirstName + g.LastName,
+                           Phone = g.Phone,
+                           OdaTipi = r.RoomType.Name
+                       };
+            }
+        }
+
         private void GeriButonu_Click(object sender, EventArgs e)
         {
             MisafirBilgileriniKontrolEt();
             misafirSayaci -= 1;
             FillControls();
-            if(İleriButonu.Enabled==false)
+            if (İleriButonu.Enabled == false)
             {
                 İleriButonu.Enabled = true;
             }
@@ -244,7 +295,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 FillControls();
             }
 
-            if(kisiSayisi==misafirSayaci+1)
+            if (kisiSayisi == misafirSayaci + 1)
             {
                 btnKaydet.Enabled = true;
                 İleriButonu.Enabled = false;
@@ -271,6 +322,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             txtTelefon.Text = misafirler[misafirSayaci].Phone;
             txtKimlikNo.Text = misafirler[misafirSayaci].IdentityNumber;
             dtpDogumTarihi.Value = misafirler[misafirSayaci].DateOfBirth.ToDateTime(TimeOnly.MinValue);
+        }
+
+        private void btnListele_Click(object sender, EventArgs e)
+        {
+            dgvRezervasyonlar.DataSource = FillReservations(Guid.Empty).ToList();
         }
     }
 }

@@ -12,8 +12,8 @@ using YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context;
 namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240723085454_databaseupdate")]
-    partial class databaseupdate
+    [Migration("20240724053508_ReMakeDbAndFixes")]
+    partial class ReMakeDbAndFixes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,10 +27,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
 
             modelBuilder.Entity("YB_MelihEfeOmer_RezervasyonApp.Entity.Models.BRBookingGuest", b =>
                 {
-                    b.Property<Guid>("GuestId")
+                    b.Property<Guid>("BookingId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BookingId")
+                    b.Property<Guid>("GuestId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedTime")
@@ -45,18 +45,27 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                     b.Property<DateTime>("UpdatedTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("GuestId", "BookingId");
+                    b.HasKey("BookingId", "GuestId");
 
-                    b.HasIndex("BookingId");
+                    b.HasIndex("GuestId");
 
-                    b.ToTable("BRBookingGuest");
+                    b.ToTable("BRBookingGuests");
 
                     b.HasData(
                         new
                         {
-                            GuestId = new Guid("f09faf7a-8f71-4e87-8777-cc89057cddbc"),
-                            BookingId = new Guid("f987e9ac-0119-4e79-965f-29082a7acf49"),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3850),
+                            BookingId = new Guid("2f4d1a0a-4934-4c2d-9b00-c7f83a8acdf2"),
+                            GuestId = new Guid("4df541dd-034f-4ff4-8c72-09d92652cfed"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3950),
+                            IsActive = false,
+                            IsDeleted = false,
+                            UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            BookingId = new Guid("b16283d2-72c2-4699-8fee-53417c4c0712"),
+                            GuestId = new Guid("4df541dd-034f-4ff4-8c72-09d92652cfed"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3978),
                             IsActive = false,
                             IsDeleted = false,
                             UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -103,13 +112,25 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f987e9ac-0119-4e79-965f-29082a7acf49"),
-                            CheckinDate = new DateOnly(1, 1, 1),
-                            CheckoutDate = new DateOnly(1, 1, 1),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3882),
+                            Id = new Guid("2f4d1a0a-4934-4c2d-9b00-c7f83a8acdf2"),
+                            CheckinDate = new DateOnly(2024, 7, 23),
+                            CheckoutDate = new DateOnly(2024, 7, 28),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3901),
                             IsActive = false,
                             IsDeleted = false,
-                            RoomId = new Guid("aadbf26e-985d-4b28-8ea9-84397e6604e9"),
+                            RoomId = new Guid("5abab472-41ab-48f4-9bca-c095e9482569"),
+                            TotalPrice = 0m,
+                            UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = new Guid("b16283d2-72c2-4699-8fee-53417c4c0712"),
+                            CheckinDate = new DateOnly(2024, 8, 1),
+                            CheckoutDate = new DateOnly(2024, 8, 2),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3926),
+                            IsActive = false,
+                            IsDeleted = false,
+                            RoomId = new Guid("5abab472-41ab-48f4-9bca-c095e9482569"),
                             TotalPrice = 0m,
                             UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -171,9 +192,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f09faf7a-8f71-4e87-8777-cc89057cddbc"),
+                            Id = new Guid("4df541dd-034f-4ff4-8c72-09d92652cfed"),
                             Address = "aa",
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3813),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3865),
                             DateOfBirth = new DateOnly(1999, 9, 9),
                             Email = "aaa",
                             FirstName = "Test",
@@ -235,11 +256,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b1316992-4e60-4f0f-986c-68d1f1043042"),
+                            Id = new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"),
                             Address = "İzmir/Alsancak",
                             CheckinTime = new TimeOnly(8, 0, 0),
                             CheckoutTime = new TimeOnly(23, 59, 0),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3353),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3417),
                             Email = "ibishotel@hotmail.com",
                             IsActive = false,
                             IsDeleted = false,
@@ -250,11 +271,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4b684e12-6673-4814-9d54-01cdbe6316db"),
+                            Id = new Guid("5ca0f94b-54a1-43d3-b0e3-83a038942f7c"),
                             Address = "İstanbul/Eminönü",
                             CheckinTime = new TimeOnly(8, 0, 0),
                             CheckoutTime = new TimeOnly(23, 59, 0),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3412),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3497),
                             Email = "turkuaz@hotmail.com",
                             IsActive = false,
                             IsDeleted = false,
@@ -346,73 +367,73 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("aadbf26e-985d-4b28-8ea9-84397e6604e9"),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3643),
-                            HotelId = new Guid("b1316992-4e60-4f0f-986c-68d1f1043042"),
+                            Id = new Guid("5abab472-41ab-48f4-9bca-c095e9482569"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3713),
+                            HotelId = new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"),
                             IsActive = false,
                             IsDeleted = false,
                             RoomNumber = 101,
-                            RoomTypeId = new Guid("18e870ac-20f3-403f-b978-777e651faeaa"),
+                            RoomTypeId = new Guid("b04545e0-776f-4630-9b05-83c8d3fb5647"),
                             Status = "Avaliable",
                             UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("b82aac65-08b2-4c6d-9bbf-8c5b0577471b"),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3673),
-                            HotelId = new Guid("b1316992-4e60-4f0f-986c-68d1f1043042"),
+                            Id = new Guid("45c01126-6939-4f59-8a9f-ed02fe3b4fed"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3742),
+                            HotelId = new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"),
                             IsActive = false,
                             IsDeleted = false,
                             RoomNumber = 102,
-                            RoomTypeId = new Guid("18e870ac-20f3-403f-b978-777e651faeaa"),
+                            RoomTypeId = new Guid("b04545e0-776f-4630-9b05-83c8d3fb5647"),
                             Status = "Avaliable",
                             UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("da6de807-c136-4356-bbfb-1a08b8916cde"),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3699),
-                            HotelId = new Guid("b1316992-4e60-4f0f-986c-68d1f1043042"),
+                            Id = new Guid("585721b7-063b-4444-8fdc-d9d94ac9165e"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3767),
+                            HotelId = new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"),
                             IsActive = false,
                             IsDeleted = false,
                             RoomNumber = 201,
-                            RoomTypeId = new Guid("ac5ee7c8-afbb-4ef9-891a-1130b984519b"),
+                            RoomTypeId = new Guid("c4fca870-88cf-45f9-88ec-20c24b22da1c"),
                             Status = "Avaliable",
                             UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("9b273348-a54b-4b4c-a39a-ab0d9aac0bad"),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3724),
-                            HotelId = new Guid("b1316992-4e60-4f0f-986c-68d1f1043042"),
+                            Id = new Guid("66b5eb51-354f-498d-a3c5-51457f2826fa"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3788),
+                            HotelId = new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"),
                             IsActive = false,
                             IsDeleted = false,
                             RoomNumber = 202,
-                            RoomTypeId = new Guid("5c8278c8-e67e-40e1-8eed-ae043b9dc2f4"),
+                            RoomTypeId = new Guid("1382416c-df00-4799-9a1e-fc02abdfd876"),
                             Status = "Avaliable",
                             UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("c52efb0c-cb0e-445a-b3a8-990a13b6b76a"),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3762),
-                            HotelId = new Guid("4b684e12-6673-4814-9d54-01cdbe6316db"),
+                            Id = new Guid("5dcbfa30-023d-4460-8689-9cb79368abb2"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3811),
+                            HotelId = new Guid("5ca0f94b-54a1-43d3-b0e3-83a038942f7c"),
                             IsActive = false,
                             IsDeleted = false,
                             RoomNumber = 101,
-                            RoomTypeId = new Guid("5c8278c8-e67e-40e1-8eed-ae043b9dc2f4"),
+                            RoomTypeId = new Guid("1382416c-df00-4799-9a1e-fc02abdfd876"),
                             Status = "Avaliable",
                             UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("9685765c-af41-44cf-9b8c-2cdbe38e1572"),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3790),
-                            HotelId = new Guid("4b684e12-6673-4814-9d54-01cdbe6316db"),
+                            Id = new Guid("94a231ff-7fae-4313-9740-307e5e698bd8"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3836),
+                            HotelId = new Guid("5ca0f94b-54a1-43d3-b0e3-83a038942f7c"),
                             IsActive = false,
                             IsDeleted = false,
                             RoomNumber = 102,
-                            RoomTypeId = new Guid("5c8278c8-e67e-40e1-8eed-ae043b9dc2f4"),
+                            RoomTypeId = new Guid("1382416c-df00-4799-9a1e-fc02abdfd876"),
                             Status = "Avaliable",
                             UpdatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -458,9 +479,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("18e870ac-20f3-403f-b978-777e651faeaa"),
+                            Id = new Guid("b04545e0-776f-4630-9b05-83c8d3fb5647"),
                             Capacity = (byte)2,
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3548),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3616),
                             Description = "Suit type room",
                             IsActive = false,
                             IsDeleted = false,
@@ -470,9 +491,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ac5ee7c8-afbb-4ef9-891a-1130b984519b"),
+                            Id = new Guid("c4fca870-88cf-45f9-88ec-20c24b22da1c"),
                             Capacity = (byte)4,
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3579),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3649),
                             Description = "King type room",
                             IsActive = false,
                             IsDeleted = false,
@@ -482,9 +503,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5c8278c8-e67e-40e1-8eed-ae043b9dc2f4"),
+                            Id = new Guid("1382416c-df00-4799-9a1e-fc02abdfd876"),
                             Capacity = (byte)1,
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3604),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3683),
                             Description = "Single type room",
                             IsActive = false,
                             IsDeleted = false,
@@ -554,13 +575,13 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("fd34bb28-2bde-433c-87a8-894c8997423a"),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3450),
+                            Id = new Guid("238a1aa2-c9d5-431a-9593-ff204afa58a2"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3536),
                             DateOfBirth = new DateOnly(1970, 1, 1),
                             Email = "ThisIsStaff@hotmail.com",
                             FirstName = "Ali",
                             HireDate = new DateOnly(2010, 1, 1),
-                            HotelId = new Guid("b1316992-4e60-4f0f-986c-68d1f1043042"),
+                            HotelId = new Guid("8cfdab6f-36bd-42a8-af7f-da566a586715"),
                             IsActive = false,
                             IsDeleted = false,
                             LastName = "Vali",
@@ -571,13 +592,13 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = new Guid("afebe0be-8793-4409-84a4-59a39360102a"),
-                            CreatedTime = new DateTime(2024, 7, 23, 11, 54, 53, 481, DateTimeKind.Local).AddTicks(3510),
+                            Id = new Guid("3d75af45-d16c-440b-af0e-5effcc177834"),
+                            CreatedTime = new DateTime(2024, 7, 24, 8, 35, 8, 164, DateTimeKind.Local).AddTicks(3579),
                             DateOfBirth = new DateOnly(1980, 1, 1),
                             Email = "ThisIsStaff2@hotmail.com",
                             FirstName = "Murat",
                             HireDate = new DateOnly(1981, 1, 1),
-                            HotelId = new Guid("4b684e12-6673-4814-9d54-01cdbe6316db"),
+                            HotelId = new Guid("5ca0f94b-54a1-43d3-b0e3-83a038942f7c"),
                             IsActive = false,
                             IsDeleted = false,
                             LastName = "Duran",
@@ -591,13 +612,13 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
             modelBuilder.Entity("YB_MelihEfeOmer_RezervasyonApp.Entity.Models.BRBookingGuest", b =>
                 {
                     b.HasOne("YB_MelihEfeOmer_RezervasyonApp.Entity.Models.Booking", "Booking")
-                        .WithMany("Guests")
+                        .WithMany("BRBookingGuests")
                         .HasForeignKey("BookingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("YB_MelihEfeOmer_RezervasyonApp.Entity.Models.Guest", "Guest")
-                        .WithMany("Bookings")
+                        .WithMany("BRBookingGuests")
                         .HasForeignKey("GuestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -661,14 +682,14 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Migrations
 
             modelBuilder.Entity("YB_MelihEfeOmer_RezervasyonApp.Entity.Models.Booking", b =>
                 {
-                    b.Navigation("Guests");
+                    b.Navigation("BRBookingGuests");
 
                     b.Navigation("Payments");
                 });
 
             modelBuilder.Entity("YB_MelihEfeOmer_RezervasyonApp.Entity.Models.Guest", b =>
                 {
-                    b.Navigation("Bookings");
+                    b.Navigation("BRBookingGuests");
                 });
 
             modelBuilder.Entity("YB_MelihEfeOmer_RezervasyonApp.Entity.Models.Hotel", b =>

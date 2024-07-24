@@ -38,7 +38,7 @@
             label1 = new Label();
             panel5 = new Panel();
             groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            dgvRezervasyonlar = new DataGridView();
             btnSil = new Button();
             btnGüncelle = new Button();
             btnListele = new Button();
@@ -95,7 +95,7 @@
             label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)exitButton).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRezervasyonlar).BeginInit();
             grpReservationDetails.SuspendLayout();
             grpRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudKisiSayisi).BeginInit();
@@ -185,7 +185,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Transparent;
-            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(dgvRezervasyonlar);
             groupBox1.Dock = DockStyle.Bottom;
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             groupBox1.ForeColor = Color.White;
@@ -198,22 +198,24 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Rezervasyonlar";
             // 
-            // dataGridView1
+            // dgvRezervasyonlar
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRezervasyonlar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvRezervasyonlar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvRezervasyonlar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(4, 25);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1007, 257);
-            dataGridView1.TabIndex = 0;
+            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle1;
+            dgvRezervasyonlar.Dock = DockStyle.Fill;
+            dgvRezervasyonlar.Location = new Point(4, 25);
+            dgvRezervasyonlar.Name = "dgvRezervasyonlar";
+            dgvRezervasyonlar.Size = new Size(1007, 257);
+            dgvRezervasyonlar.TabIndex = 0;
             // 
             // btnSil
             // 
@@ -253,6 +255,7 @@
             btnListele.TabIndex = 1;
             btnListele.Text = "Listele";
             btnListele.UseVisualStyleBackColor = false;
+            btnListele.Click += btnListele_Click;
             // 
             // grpReservationDetails
             // 
@@ -856,7 +859,7 @@
             Load += FrmReservation_Load;
             ((System.ComponentModel.ISupportInitialize)exitButton).EndInit();
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvRezervasyonlar).EndInit();
             grpReservationDetails.ResumeLayout(false);
             grpReservationDetails.PerformLayout();
             grpRooms.ResumeLayout(false);
@@ -884,7 +887,7 @@
         private Label label1;
         private Panel panel5;
         private GroupBox groupBox1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvRezervasyonlar;
         private GroupBox grpReservationDetails;
         private Label label2;
         private Button btnRezervasyonaBasla;
