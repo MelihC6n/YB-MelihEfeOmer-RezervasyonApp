@@ -99,7 +99,8 @@
             txtAdAra = new TextBox();
             pgRez = new TabPage();
             txtRezAra = new TextBox();
-            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            label14 = new Label();
+            lblToplamTutar = new Label();
             ((System.ComponentModel.ISupportInitialize)exitButton).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRezervasyonlar).BeginInit();
@@ -301,6 +302,8 @@
             grpRooms.Controls.Add(cmbOdaTipi);
             grpRooms.Controls.Add(btnRezervasyonaBasla);
             grpRooms.Controls.Add(label4);
+            grpRooms.Controls.Add(lblToplamTutar);
+            grpRooms.Controls.Add(label14);
             grpRooms.Controls.Add(label5);
             grpRooms.Controls.Add(cmbOda);
             grpRooms.Enabled = false;
@@ -320,7 +323,7 @@
             cmbOdaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOdaTipi.FlatStyle = FlatStyle.Flat;
             cmbOdaTipi.FormattingEnabled = true;
-            cmbOdaTipi.Location = new Point(129, 58);
+            cmbOdaTipi.Location = new Point(129, 40);
             cmbOdaTipi.Name = "cmbOdaTipi";
             cmbOdaTipi.Size = new Size(184, 29);
             cmbOdaTipi.TabIndex = 4;
@@ -331,7 +334,7 @@
             btnRezervasyonaBasla.BackColor = Color.White;
             btnRezervasyonaBasla.FlatStyle = FlatStyle.Flat;
             btnRezervasyonaBasla.ForeColor = Color.Black;
-            btnRezervasyonaBasla.Location = new Point(129, 139);
+            btnRezervasyonaBasla.Location = new Point(129, 146);
             btnRezervasyonaBasla.Name = "btnRezervasyonaBasla";
             btnRezervasyonaBasla.Size = new Size(184, 32);
             btnRezervasyonaBasla.TabIndex = 1;
@@ -342,7 +345,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(38, 63);
+            label4.Location = new Point(50, 45);
             label4.Name = "label4";
             label4.Size = new Size(75, 21);
             label4.TabIndex = 2;
@@ -351,7 +354,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(23, 104);
+            label5.Location = new Point(27, 76);
             label5.Name = "label5";
             label5.Size = new Size(98, 21);
             label5.TabIndex = 2;
@@ -363,7 +366,7 @@
             cmbOda.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOda.FlatStyle = FlatStyle.Flat;
             cmbOda.FormattingEnabled = true;
-            cmbOda.Location = new Point(129, 104);
+            cmbOda.Location = new Point(129, 76);
             cmbOda.Name = "cmbOda";
             cmbOda.Size = new Size(184, 29);
             cmbOda.TabIndex = 4;
@@ -424,7 +427,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(38, 119);
+            label8.Location = new Point(34, 119);
             label8.Name = "label8";
             label8.Size = new Size(91, 21);
             label8.TabIndex = 2;
@@ -433,7 +436,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(42, 155);
+            label6.Location = new Point(40, 155);
             label6.Name = "label6";
             label6.Size = new Size(85, 21);
             label6.TabIndex = 2;
@@ -442,7 +445,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(44, 84);
+            label7.Location = new Point(35, 84);
             label7.Name = "label7";
             label7.Size = new Size(90, 21);
             label7.TabIndex = 2;
@@ -451,7 +454,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(61, 46);
+            label2.Location = new Point(52, 46);
             label2.Name = "label2";
             label2.Size = new Size(73, 21);
             label2.TabIndex = 2;
@@ -520,6 +523,7 @@
             txtAdres.Location = new Point(134, 185);
             txtAdres.Multiline = true;
             txtAdres.Name = "txtAdres";
+            txtAdres.ScrollBars = ScrollBars.Vertical;
             txtAdres.Size = new Size(191, 90);
             txtAdres.TabIndex = 3;
             // 
@@ -559,6 +563,7 @@
             txtKimlikNo.BorderStyle = BorderStyle.FixedSingle;
             txtKimlikNo.ForeColor = Color.Black;
             txtKimlikNo.Location = new Point(134, 44);
+            txtKimlikNo.MaxLength = 11;
             txtKimlikNo.Name = "txtKimlikNo";
             txtKimlikNo.Size = new Size(191, 29);
             txtKimlikNo.TabIndex = 3;
@@ -910,10 +915,24 @@
             txtRezAra.Size = new Size(204, 29);
             txtRezAra.TabIndex = 4;
             // 
-            // sqlCommand1
+            // label14
             // 
-            sqlCommand1.CommandTimeout = 30;
-            sqlCommand1.EnableOptimizedParameterBinding = false;
+            label14.AutoSize = true;
+            label14.Location = new Point(18, 114);
+            label14.Name = "label14";
+            label14.Size = new Size(107, 21);
+            label14.TabIndex = 2;
+            label14.Text = "Toplam Tutar :";
+            // 
+            // lblToplamTutar
+            // 
+            lblToplamTutar.AutoSize = true;
+            lblToplamTutar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblToplamTutar.Location = new Point(219, 114);
+            lblToplamTutar.Name = "lblToplamTutar";
+            lblToplamTutar.Size = new Size(0, 21);
+            lblToplamTutar.TabIndex = 2;
+            lblToplamTutar.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FrmReservation
             // 
@@ -1044,6 +1063,7 @@
         private TabPage pgRez;
         private TextBox txtAdAra;
         private TextBox txtRezAra;
-        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private Label lblToplamTutar;
+        private Label label14;
     }
 }
