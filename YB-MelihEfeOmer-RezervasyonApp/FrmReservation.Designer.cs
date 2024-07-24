@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReservation));
             panel1 = new Panel();
             panel2 = new Panel();
@@ -96,9 +96,10 @@
             tabArama = new TabControl();
             pgKimlik = new TabPage();
             pgAd = new TabPage();
-            pgRez = new TabPage();
             txtAdAra = new TextBox();
+            pgRez = new TabPage();
             txtRezAra = new TextBox();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ((System.ComponentModel.ISupportInitialize)exitButton).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRezervasyonlar).BeginInit();
@@ -213,14 +214,14 @@
             dgvRezervasyonlar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRezervasyonlar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRezervasyonlar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle1;
             dgvRezervasyonlar.Dock = DockStyle.Fill;
             dgvRezervasyonlar.Location = new Point(4, 25);
             dgvRezervasyonlar.Name = "dgvRezervasyonlar";
@@ -250,8 +251,9 @@
             btnGüncelle.Name = "btnGüncelle";
             btnGüncelle.Size = new Size(175, 32);
             btnGüncelle.TabIndex = 1;
-            btnGüncelle.Text = "Güncelle";
+            btnGüncelle.Text = "Güncelleme Ekranı";
             btnGüncelle.UseVisualStyleBackColor = false;
+            btnGüncelle.Click += btnGüncelle_Click;
             // 
             // btnListele
             // 
@@ -621,7 +623,7 @@
             btnKaydet.BackColor = Color.White;
             btnKaydet.FlatStyle = FlatStyle.Flat;
             btnKaydet.ForeColor = Color.Black;
-            btnKaydet.Location = new Point(184, 394);
+            btnKaydet.Location = new Point(184, 396);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(99, 32);
             btnKaydet.TabIndex = 1;
@@ -871,16 +873,6 @@
             pgAd.TabIndex = 1;
             pgAd.Text = "İSİM";
             // 
-            // pgRez
-            // 
-            pgRez.BackColor = Color.SeaGreen;
-            pgRez.Controls.Add(txtRezAra);
-            pgRez.Location = new Point(4, 24);
-            pgRez.Name = "pgRez";
-            pgRez.Size = new Size(218, 41);
-            pgRez.TabIndex = 2;
-            pgRez.Text = "REZ. NO";
-            // 
             // txtAdAra
             // 
             txtAdAra.BackColor = Color.White;
@@ -890,6 +882,16 @@
             txtAdAra.Name = "txtAdAra";
             txtAdAra.Size = new Size(204, 29);
             txtAdAra.TabIndex = 4;
+            // 
+            // pgRez
+            // 
+            pgRez.BackColor = Color.SeaGreen;
+            pgRez.Controls.Add(txtRezAra);
+            pgRez.Location = new Point(4, 24);
+            pgRez.Name = "pgRez";
+            pgRez.Size = new Size(218, 41);
+            pgRez.TabIndex = 2;
+            pgRez.Text = "REZ. NO";
             // 
             // txtRezAra
             // 
@@ -901,12 +903,18 @@
             txtRezAra.Size = new Size(204, 29);
             txtRezAra.TabIndex = 4;
             // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
             // FrmReservation
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaGreen;
             ClientSize = new Size(1025, 848);
+            Controls.Add(grpGüncelleme);
             Controls.Add(tabArama);
             Controls.Add(btnSil);
             Controls.Add(label1);
@@ -925,7 +933,6 @@
             Controls.Add(panel5);
             Controls.Add(grpPersonalDetails);
             Controls.Add(grpReservationDetails);
-            Controls.Add(grpGüncelleme);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "FrmReservation";
@@ -1030,5 +1037,6 @@
         private TabPage pgRez;
         private TextBox txtAdAra;
         private TextBox txtRezAra;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
     }
 }
