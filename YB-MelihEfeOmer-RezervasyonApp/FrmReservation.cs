@@ -260,6 +260,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         {
             MisafirBilgileriniKontrolEt();
             misafirSayaci -= 1;
+            grpPersonalDetails.Text = $"{misafirSayaci + 1}. Misafirin Bilgilerini Giriniz";
             FillControls();
             if (İleriButonu.Enabled == false)
             {
@@ -286,6 +287,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         {
             MisafirBilgileriniKontrolEt();
             misafirSayaci += 1;
+            grpPersonalDetails.Text = $"{misafirSayaci + 1}. Misafirin Bilgilerini Giriniz";
             if (misafirler[misafirSayaci] == null)
             {
                 CleanControls();
