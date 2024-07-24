@@ -384,7 +384,6 @@
             // dtpCikisTarihi
             // 
             dtpCikisTarihi.Location = new Point(140, 113);
-            dtpCikisTarihi.MinDate = new DateTime(2024, 7, 24, 12, 36, 49, 513);
             dtpCikisTarihi.Name = "dtpCikisTarihi";
             dtpCikisTarihi.Size = new Size(184, 29);
             dtpCikisTarihi.TabIndex = 6;
@@ -394,7 +393,6 @@
             // dtpGirisTarihi
             // 
             dtpGirisTarihi.Location = new Point(140, 78);
-            dtpGirisTarihi.MinDate = new DateTime(2024, 7, 24, 12, 36, 49, 514);
             dtpGirisTarihi.Name = "dtpGirisTarihi";
             dtpGirisTarihi.Size = new Size(184, 29);
             dtpGirisTarihi.TabIndex = 6;

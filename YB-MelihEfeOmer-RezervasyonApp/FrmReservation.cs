@@ -53,6 +53,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void FrmReservation_Load(object sender, EventArgs e)
         {           
+            dtpGirisTarihi.MinDate = DateTime.Now;
+            dtpCikisTarihi.MinDate = DateTime.Now.AddDays(1);
             dgvRezervasyonlar.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             ListHotels();
             IQueryable<object> showBookings = FillReservations(Guid.Empty);
@@ -429,19 +431,18 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         private void dtpGirisTarihi_ValueChanged(object sender, EventArgs e)
         {
             dtpCikisTarihi.MinDate = dtpGirisTarihi.Value.AddDays(1);
-            if (!RezervasyonBilgileriniKontrolEt())
-            {
-                dtpGirisTarihi.Value = dtpCikisTarihi.Value.AddDays(-1);
-            }
+            //if (!RezervasyonBilgileriniKontrolEt())
+            //{
+            //}
 
         }
 
         private void dtpCikisTarihi_ValueChanged(object sender, EventArgs e)
         {
-            if (!RezervasyonBilgileriniKontrolEt())
-            {
-                dtpCikisTarihi.Value = dtpGirisTarihi.Value.AddDays(1);
-            }
+            //if (!RezervasyonBilgileriniKontrolEt())
+            //{
+            //    dtpCikisTarihi.Value = dtpGirisTarihi.Value.AddDays(1);
+            //}
         }
     }
 }
