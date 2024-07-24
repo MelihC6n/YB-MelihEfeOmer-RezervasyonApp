@@ -923,7 +923,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaGreen;
             ClientSize = new Size(1025, 848);
-            Controls.Add(grpGüncelleme);
             Controls.Add(tabArama);
             Controls.Add(btnSil);
             Controls.Add(label1);
@@ -942,6 +941,7 @@
             Controls.Add(panel5);
             Controls.Add(grpPersonalDetails);
             Controls.Add(grpReservationDetails);
+            Controls.Add(grpGüncelleme);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "FrmReservation";

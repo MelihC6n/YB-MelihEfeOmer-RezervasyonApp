@@ -321,7 +321,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 ValidationResult result = guestValidator.Validate(guest);
                 if (!result.IsValid)
                 {
-                    throw new Exception(string.Join(",", result.Errors));
+                    throw new Exception(string.Join("", result.Errors));
                 }
                 misafirler[misafirSayaci] = guest;
                 return true;
@@ -335,25 +335,29 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void İleriButonu_Click(object sender, EventArgs e)
         {
-            MisafirBilgileriniKontrolEt();
-            misafirSayaci += 1;
-            grpPersonalDetails.Text = $"{misafirSayaci + 1}. Misafirin Bilgilerini Giriniz";
-            if (misafirler[misafirSayaci] == null)
+            bool isValid = MisafirBilgileriniKontrolEt();
+            if (isValid)
             {
-                CleanControls();
-            }
-            else
-            {
-                FillControls();
-            }
-            if (kisiSayisi == misafirSayaci + 1)
-            {
-                btnKaydet.Enabled = true;
-                İleriButonu.Enabled = false;
-            }
-            if(GeriButonu.Enabled==false)
-            {
-                GeriButonu.Enabled=true;
+                MisafirBilgileriniKontrolEt();
+                misafirSayaci += 1;
+                grpPersonalDetails.Text = $"{misafirSayaci + 1}. Misafirin Bilgilerini Giriniz";
+                if (misafirler[misafirSayaci] == null)
+                {
+                    CleanControls();
+                }
+                else
+                {
+                    FillControls();
+                }
+                if (kisiSayisi == misafirSayaci + 1)
+                {
+                    btnKaydet.Enabled = true;
+                    İleriButonu.Enabled = false;
+                }
+                if (GeriButonu.Enabled == false)
+                {
+                    GeriButonu.Enabled = true;
+                }
             }
         }
 
@@ -423,7 +427,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         }
 
         private void dtpGirisTarihi_ValueChanged(object sender, EventArgs e)
-        {           
+        {
+            dtpCikisTarihi.MinDate = dtpGirisTarihi.Value.AddDays(1);
             if (!RezervasyonBilgileriniKontrolEt())
             {
                 dtpGirisTarihi.Value = dtpCikisTarihi.Value.AddDays(-1);
