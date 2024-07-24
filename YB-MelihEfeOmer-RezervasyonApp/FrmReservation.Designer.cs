@@ -99,6 +99,7 @@
             txtAdAra = new TextBox();
             pgRez = new TabPage();
             txtRezAra = new TextBox();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             ((System.ComponentModel.ISupportInitialize)exitButton).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRezervasyonlar).BeginInit();
@@ -210,6 +211,8 @@
             // 
             // dgvRezervasyonlar
             // 
+            dgvRezervasyonlar.AllowUserToAddRows = false;
+            dgvRezervasyonlar.AllowUserToDeleteRows = false;
             dgvRezervasyonlar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRezervasyonlar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRezervasyonlar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -224,6 +227,7 @@
             dgvRezervasyonlar.Dock = DockStyle.Fill;
             dgvRezervasyonlar.Location = new Point(4, 25);
             dgvRezervasyonlar.Name = "dgvRezervasyonlar";
+            dgvRezervasyonlar.ReadOnly = true;
             dgvRezervasyonlar.Size = new Size(1007, 257);
             dgvRezervasyonlar.TabIndex = 0;
             // 
@@ -250,8 +254,9 @@
             btnGüncelle.Name = "btnGüncelle";
             btnGüncelle.Size = new Size(175, 32);
             btnGüncelle.TabIndex = 1;
-            btnGüncelle.Text = "Güncelle";
+            btnGüncelle.Text = "Güncelleme Ekranı";
             btnGüncelle.UseVisualStyleBackColor = false;
+            btnGüncelle.Click += btnGüncelle_Click;
             // 
             // btnListele
             // 
@@ -379,16 +384,22 @@
             // dtpCikisTarihi
             // 
             dtpCikisTarihi.Location = new Point(140, 113);
+            dtpCikisTarihi.MinDate = new DateTime(2024, 7, 24, 12, 36, 49, 513);
             dtpCikisTarihi.Name = "dtpCikisTarihi";
             dtpCikisTarihi.Size = new Size(184, 29);
             dtpCikisTarihi.TabIndex = 6;
+            dtpCikisTarihi.Value = new DateTime(2024, 7, 24, 12, 36, 49, 513);
+            dtpCikisTarihi.ValueChanged += dtpCikisTarihi_ValueChanged;
             // 
             // dtpGirisTarihi
             // 
             dtpGirisTarihi.Location = new Point(140, 78);
+            dtpGirisTarihi.MinDate = new DateTime(2024, 7, 24, 12, 36, 49, 514);
             dtpGirisTarihi.Name = "dtpGirisTarihi";
             dtpGirisTarihi.Size = new Size(184, 29);
             dtpGirisTarihi.TabIndex = 6;
+            dtpGirisTarihi.Value = new DateTime(2024, 7, 24, 12, 36, 49, 514);
+            dtpGirisTarihi.ValueChanged += dtpGirisTarihi_ValueChanged;
             // 
             // nudKisiSayisi
             // 
@@ -621,7 +632,7 @@
             btnKaydet.BackColor = Color.White;
             btnKaydet.FlatStyle = FlatStyle.Flat;
             btnKaydet.ForeColor = Color.Black;
-            btnKaydet.Location = new Point(184, 394);
+            btnKaydet.Location = new Point(184, 396);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(99, 32);
             btnKaydet.TabIndex = 1;
@@ -901,6 +912,11 @@
             txtRezAra.Size = new Size(204, 29);
             txtRezAra.TabIndex = 4;
             // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
             // FrmReservation
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1030,5 +1046,6 @@
         private TabPage pgRez;
         private TextBox txtAdAra;
         private TextBox txtRezAra;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
     }
 }

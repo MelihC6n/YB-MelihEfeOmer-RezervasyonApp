@@ -11,8 +11,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Validators
 
             RuleFor(b => b.CheckoutDate).NotEmpty().WithMessage("Çıkış tarihi boş bırakılamaz.");
 
-            RuleFor(b => b).Must(b => b.CheckoutDate == default(DateOnly) || b.CheckinDate == default(DateOnly) || b.CheckoutDate > b.CheckinDate)
-        .WithMessage("EndTime must greater than StartTime");
+            RuleFor(b => b).Must(b => b.CheckoutDate >= b.CheckinDate)
+        .WithMessage("Çıkış tarihi giriş tarihinden önce olamaz.");
 
             RuleFor(b => b.TotalPrice).GreaterThanOrEqualTo(0).WithMessage("Toplam tutar negatif bir sayı olamaz.");
         }
