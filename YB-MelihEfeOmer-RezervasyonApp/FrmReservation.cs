@@ -83,7 +83,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void btnOdaBul_Click(object sender, EventArgs e)
         {
-            grpRooms.Enabled = true;
+            grpRooms.Enabled = false;
+
             //var roomWithType = roomService.GetAllQueryable().Where(r=>r.HotelId==(Guid)cmbOtelAdi.SelectedValue);
             // dataGridView1.DataSource= roomWithType.ToList();
             var avaliableRooms = from r in context.Rooms
@@ -95,7 +96,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                                      RoomNumber = r.RoomNumber,
                                      Capacity = (byte)r.RoomType.Capacity,
                                      Id = r.Id,
-                                     OdaTipi = r.RoomType
+                                     OdaTipi = r.RoomType,
+                                     PricePerNight = r.RoomType.PricePerNight,
+                                     RoomTypeName = r.RoomType.Name
                                  };
             //dataGridView1.DataSource = avaliableRooms.ToList();
             var freeBookings = from b in context.Bookings
@@ -112,15 +115,27 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             cmbOda.DisplayMember = "RoomNumber";
             cmbOda.ValueMember = "Id";*/
 
-            cmbOdaTipi.DisplayMember = "OdaTipi";
-            cmbOdaTipi.ValueMember = "OdaTipiId";
-
-            cmbOdaTipi.DataSource = avaliableBooking.GroupBy(x => new { x.OdaTipi.Name, x.OdaTipi.Id }).Select(x => new
+            if (avaliableBooking.Count == 0)
             {
-                OdaTipi = x.Key.Name,
-                OdaTipiId = x.Key.Id,
-                Odalar = x.ToList()
-            }).ToList();
+                cmbOdaTipi.SelectedItem = null;
+                cmbOda.SelectedItem = null;
+                MessageBox.Show("Aradığınız kriterlere göre bu tarihte uygun oda bulunmamakta. Lütfen farklı tarih seçiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                grpRooms.Enabled = true;
+                cmbOdaTipi.DataSource = null;
+                cmbOdaTipi.DisplayMember = "DisplayInfo";
+                cmbOdaTipi.ValueMember = "OdaTipiId";
+                cmbOdaTipi.DataSource = avaliableBooking.GroupBy(x => new { x.OdaTipi.Name, x.OdaTipi.Id }).Select(x => new
+                {
+                    OdaTipi = x.Key.Name,
+                    OdaTipiId = x.Key.Id,
+                    DisplayInfo = $"{x.First().RoomTypeName} - {x.First().PricePerNight}:TL - {x.First().Capacity}",
+                    Odalar = x.ToList()
+                }).ToList();
+            }
+
 
         }
         private void btnRezervasyonaBasla_Click(object sender, EventArgs e)
@@ -198,7 +213,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                     }
                     transaction.Commit();
                     lastBookingId = booking.Id;
-                    MessageBox.Show(kisiSayisi + " Kişinin kaydı başarıyla gerçekleşti", "Misafir Bilgi Girişi Tamamlandı",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show(kisiSayisi + " Kişinin kaydı başarıyla gerçekleşti", "Misafir Bilgi Girişi Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FillDataGridWithReservations();
                 }
                 catch (Exception ex)
@@ -304,9 +319,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 btnKaydet.Enabled = true;
                 İleriButonu.Enabled = false;
             }
-            if(GeriButonu.Enabled==false)
+            if (GeriButonu.Enabled == false)
             {
-                GeriButonu.Enabled=true;
+                GeriButonu.Enabled = true;
             }
         }
 
