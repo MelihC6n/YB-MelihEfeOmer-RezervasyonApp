@@ -40,19 +40,21 @@
             panel5 = new Panel();
             minimalizeButton = new PictureBox();
             label2 = new Label();
-            label3 = new Label();
+            lblOtel = new Label();
             label4 = new Label();
-            label5 = new Label();
+            lblTip = new Label();
             label6 = new Label();
-            label7 = new Label();
+            lblOdaNumara = new Label();
             label8 = new Label();
-            label9 = new Label();
+            lblMisafirSayısı = new Label();
             label10 = new Label();
-            label11 = new Label();
+            lblGiris = new Label();
             label12 = new Label();
-            label13 = new Label();
+            lblCikis = new Label();
             grpOdaGüncelleme = new GroupBox();
             lstMisafirler = new ListView();
+            label3 = new Label();
+            lblTotalPrice = new Label();
             ((System.ComponentModel.ISupportInitialize)exitButton).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minimalizeButton).BeginInit();
@@ -184,18 +186,18 @@
             label2.TabIndex = 14;
             label2.Text = "Otel Adı :";
             // 
-            // label3
+            // lblOtel
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(263, 100);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(60, 24);
-            label3.TabIndex = 14;
-            label3.Text = "#####";
+            lblOtel.AutoSize = true;
+            lblOtel.BackColor = Color.Transparent;
+            lblOtel.Font = new Font("Microsoft Sans Serif", 14.25F);
+            lblOtel.ForeColor = Color.White;
+            lblOtel.Location = new Point(265, 100);
+            lblOtel.Margin = new Padding(4, 0, 4, 0);
+            lblOtel.Name = "lblOtel";
+            lblOtel.Size = new Size(60, 24);
+            lblOtel.TabIndex = 14;
+            lblOtel.Text = "#####";
             // 
             // label4
             // 
@@ -203,25 +205,25 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Microsoft Sans Serif", 14.25F);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(145, 147);
+            label4.Location = new Point(145, 140);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(92, 24);
             label4.TabIndex = 14;
             label4.Text = "Oda Tipi :";
             // 
-            // label5
+            // lblTip
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(263, 147);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(60, 24);
-            label5.TabIndex = 14;
-            label5.Text = "#####";
+            lblTip.AutoSize = true;
+            lblTip.BackColor = Color.Transparent;
+            lblTip.Font = new Font("Microsoft Sans Serif", 14.25F);
+            lblTip.ForeColor = Color.White;
+            lblTip.Location = new Point(265, 140);
+            lblTip.Margin = new Padding(4, 0, 4, 0);
+            lblTip.Name = "lblTip";
+            lblTip.Size = new Size(60, 24);
+            lblTip.TabIndex = 14;
+            lblTip.Text = "#####";
             // 
             // label6
             // 
@@ -229,25 +231,25 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Microsoft Sans Serif", 14.25F);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(113, 194);
+            label6.Location = new Point(113, 180);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(124, 24);
             label6.TabIndex = 14;
             label6.Text = "Seçilen Oda :";
             // 
-            // label7
+            // lblOdaNumara
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(263, 194);
-            label7.Margin = new Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(60, 24);
-            label7.TabIndex = 14;
-            label7.Text = "#####";
+            lblOdaNumara.AutoSize = true;
+            lblOdaNumara.BackColor = Color.Transparent;
+            lblOdaNumara.Font = new Font("Microsoft Sans Serif", 14.25F);
+            lblOdaNumara.ForeColor = Color.White;
+            lblOdaNumara.Location = new Point(265, 180);
+            lblOdaNumara.Margin = new Padding(4, 0, 4, 0);
+            lblOdaNumara.Name = "lblOdaNumara";
+            lblOdaNumara.Size = new Size(60, 24);
+            lblOdaNumara.TabIndex = 14;
+            lblOdaNumara.Text = "#####";
             // 
             // label8
             // 
@@ -255,25 +257,25 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Microsoft Sans Serif", 14.25F);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(111, 241);
+            label8.Location = new Point(111, 220);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(126, 24);
             label8.TabIndex = 14;
             label8.Text = "Misafir Sayısı :";
             // 
-            // label9
+            // lblMisafirSayısı
             // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Transparent;
-            label9.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label9.ForeColor = Color.White;
-            label9.Location = new Point(263, 241);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(60, 24);
-            label9.TabIndex = 14;
-            label9.Text = "#####";
+            lblMisafirSayısı.AutoSize = true;
+            lblMisafirSayısı.BackColor = Color.Transparent;
+            lblMisafirSayısı.Font = new Font("Microsoft Sans Serif", 14.25F);
+            lblMisafirSayısı.ForeColor = Color.White;
+            lblMisafirSayısı.Location = new Point(265, 220);
+            lblMisafirSayısı.Margin = new Padding(4, 0, 4, 0);
+            lblMisafirSayısı.Name = "lblMisafirSayısı";
+            lblMisafirSayısı.Size = new Size(60, 24);
+            lblMisafirSayısı.TabIndex = 14;
+            lblMisafirSayısı.Text = "#####";
             // 
             // label10
             // 
@@ -281,25 +283,25 @@
             label10.BackColor = Color.Transparent;
             label10.Font = new Font("Microsoft Sans Serif", 14.25F);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(123, 288);
+            label10.Location = new Point(123, 260);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
             label10.Size = new Size(114, 24);
             label10.TabIndex = 14;
             label10.Text = "Giriş Tarihi  :";
             // 
-            // label11
+            // lblGiris
             // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.Transparent;
-            label11.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(263, 288);
-            label11.Margin = new Padding(4, 0, 4, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(60, 24);
-            label11.TabIndex = 14;
-            label11.Text = "#####";
+            lblGiris.AutoSize = true;
+            lblGiris.BackColor = Color.Transparent;
+            lblGiris.Font = new Font("Microsoft Sans Serif", 14.25F);
+            lblGiris.ForeColor = Color.White;
+            lblGiris.Location = new Point(265, 260);
+            lblGiris.Margin = new Padding(4, 0, 4, 0);
+            lblGiris.Name = "lblGiris";
+            lblGiris.Size = new Size(60, 24);
+            lblGiris.TabIndex = 14;
+            lblGiris.Text = "#####";
             // 
             // label12
             // 
@@ -307,25 +309,26 @@
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("Microsoft Sans Serif", 14.25F);
             label12.ForeColor = Color.White;
-            label12.Location = new Point(121, 335);
+            label12.Location = new Point(121, 300);
             label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
             label12.Size = new Size(116, 24);
             label12.TabIndex = 14;
             label12.Text = "Çıkış Tarihi  :";
             // 
-            // label13
+            // lblCikis
             // 
-            label13.AutoSize = true;
-            label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Microsoft Sans Serif", 14.25F);
-            label13.ForeColor = Color.White;
-            label13.Location = new Point(263, 335);
-            label13.Margin = new Padding(4, 0, 4, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(60, 24);
-            label13.TabIndex = 14;
-            label13.Text = "#####";
+            lblCikis.AutoSize = true;
+            lblCikis.BackColor = Color.Transparent;
+            lblCikis.Font = new Font("Microsoft Sans Serif", 14.25F);
+            lblCikis.ForeColor = Color.White;
+            lblCikis.Location = new Point(265, 300);
+            lblCikis.Margin = new Padding(4, 0, 4, 0);
+            lblCikis.Name = "lblCikis";
+            lblCikis.Size = new Size(60, 24);
+            lblCikis.TabIndex = 14;
+            lblCikis.Text = "#####";
+            lblCikis.Click += lblCikis_Click;
             // 
             // grpOdaGüncelleme
             // 
@@ -345,11 +348,39 @@
             // 
             lstMisafirler.BackColor = Color.SeaGreen;
             lstMisafirler.ForeColor = Color.White;
+            lstMisafirler.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lstMisafirler.Location = new Point(6, 28);
             lstMisafirler.Name = "lstMisafirler";
             lstMisafirler.Size = new Size(463, 234);
             lstMisafirler.TabIndex = 16;
             lstMisafirler.UseCompatibleStateImageBehavior = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Microsoft Sans Serif", 14.25F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(104, 340);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(133, 24);
+            label3.TabIndex = 14;
+            label3.Text = "Toplam Ücret :";
+            // 
+            // lblTotalPrice
+            // 
+            lblTotalPrice.AutoSize = true;
+            lblTotalPrice.BackColor = Color.Transparent;
+            lblTotalPrice.Font = new Font("Microsoft Sans Serif", 14.25F);
+            lblTotalPrice.ForeColor = Color.White;
+            lblTotalPrice.Location = new Point(265, 340);
+            lblTotalPrice.Margin = new Padding(4, 0, 4, 0);
+            lblTotalPrice.Name = "lblTotalPrice";
+            lblTotalPrice.Size = new Size(60, 24);
+            lblTotalPrice.TabIndex = 14;
+            lblTotalPrice.Text = "#####";
+            lblTotalPrice.Click += lblCikis_Click;
             // 
             // FrmSummary
             // 
@@ -358,11 +389,13 @@
             BackColor = Color.SeaGreen;
             ClientSize = new Size(500, 676);
             Controls.Add(grpOdaGüncelleme);
-            Controls.Add(label13);
-            Controls.Add(label11);
-            Controls.Add(label9);
-            Controls.Add(label7);
-            Controls.Add(label5);
+            Controls.Add(lblTotalPrice);
+            Controls.Add(lblCikis);
+            Controls.Add(lblGiris);
+            Controls.Add(lblMisafirSayısı);
+            Controls.Add(lblOdaNumara);
+            Controls.Add(lblTip);
+            Controls.Add(lblOtel);
             Controls.Add(label3);
             Controls.Add(label12);
             Controls.Add(label10);
@@ -382,6 +415,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmSummary";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmSummary";
             Load += FrmSummary_Load;
             ((System.ComponentModel.ISupportInitialize)exitButton).EndInit();
@@ -405,18 +439,20 @@
         private Panel panel5;
         private PictureBox minimalizeButton;
         private Label label2;
-        private Label label3;
+        private Label lblOtel;
         private Label label4;
-        private Label label5;
+        private Label lblTip;
         private Label label6;
-        private Label label7;
+        private Label lblOdaNumara;
         private Label label8;
-        private Label label9;
+        private Label lblMisafirSayısı;
         private Label label10;
-        private Label label11;
+        private Label lblGiris;
         private Label label12;
-        private Label label13;
+        private Label lblCikis;
         private GroupBox grpOdaGüncelleme;
         private ListView lstMisafirler;
+        private Label label3;
+        private Label lblTotalPrice;
     }
 }

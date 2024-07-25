@@ -14,11 +14,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
     {
         private readonly BookingRepository _bookingRepository;
 
-        public BookingService()
-        {
-
-        }
-
         public BookingService(BookingRepository bRep)
         {
             _bookingRepository = bRep;

@@ -246,7 +246,24 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                                     Email = m.Email,
                                 };
 
-                                guestService.Add(guest);
+                                if (guestService.GetAll().Any(x=>x.Id == guest.Id))
+                                {
+                                    guestService.Add(guest);
+                                }
+                                else
+                                {
+                                    guest = guestService.GetById(m.Id);
+
+                                    guest.IdentityNumber = m.IdentityNumber;
+                                    guest.FirstName = m.FirstName;
+                                    guest.LastName = m.LastName;
+                                    guest.DateOfBirth = m.DateOfBirth;
+                                    guest.Address = m.Address;
+                                    guest.Phone = m.Phone;
+                                    guest.Email = m.Email;
+
+                                    guestService.Update(guest);
+                                }
 
                                 BRBookingGuest bRBookingGuest = new BRBookingGuest()
                                 {
@@ -293,9 +310,15 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
                         FillDataGridWithReservations();
                         CleanControls();
+                        cmbOdaTipi.DataSource = null;
+                        cmbOda.DataSource = null;
                         grpPersonalDetails.Enabled = false;
                         grpReservationDetails.Enabled = true;
                         grpRooms.Enabled = false;
+
+                        FrmSummary frmSummary = new FrmSummary(lastBookingId);
+                        frmSummary.Show();
+
                     }
                     catch (Exception ex)
                     {
@@ -472,6 +495,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 btnGüncelle.Enabled = true;
                 btnListele.Text = "Listele";
                 formStatus = true;
+                CleanControls();
             }
 
         }
@@ -543,9 +567,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
             if (!string.IsNullOrEmpty(kimlikAra) && kimlikAra.Length >= 3)
             {
-                var tList = guestService.GetAll().Where(x => x.IdentityNumber.ToLower().Contains(kimlikAra));
-
-                dgvRezervasyonlar.DataSource = tList.ToList();
+                IEnumerable<Guest> tList = guestService.GetAll().Where(x => x.IdentityNumber.ToLower().Contains(kimlikAra));
+                var tShowList = tList.Select(x => new { Tc_Kimlik_No = x.IdentityNumber, İsim = x.FirstName, Soyisim = x.LastName, Telefon = x.Phone, Email = x.Email, Dogum_Tarihi = x.DateOfBirth, x });
+                dgvRezervasyonlar.DataSource = tShowList.ToList();
 
             }
             else if (kimlikAra.Length == 0)
@@ -563,8 +587,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             {
                 var aList = guestService.GetAll().Where(x => x.FirstName.ToLower()
                 .Contains(AdAra));
-
-                dgvRezervasyonlar.DataSource = aList.ToList();
+                var aShowList = aList.Select(x => new { Tc_Kimlik_No = x.IdentityNumber, İsim = x.FirstName, Soyisim = x.LastName, Telefon = x.Phone, Email = x.Email, Dogum_Tarihi = x.DateOfBirth, x });
+                dgvRezervasyonlar.DataSource = aShowList.ToList();
             }
             else if (AdAra.Length == 0)
             {
@@ -735,6 +759,15 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         private void dtpGirisTarihiGüncelleme_ValueChanged(object sender, EventArgs e)
         {
             dtpCikisTarihiGüncelleme.MinDate = dtpGirisTarihiGüncelleme.Value.AddDays(1);
+        }
+
+        private void txtKimlikNo_TextChanged(object sender, EventArgs e)
+        {
+            if (guestService.GetByIdentityNumber(txtKimlikNo.Text) != null)
+            {
+                misafirler[misafirSayaci] = guestService.GetByIdentityNumber(txtKimlikNo.Text);
+                FillControls();
+            }
         }
     }
 }

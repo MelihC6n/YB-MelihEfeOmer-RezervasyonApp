@@ -18,6 +18,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Repositories
         {
             Booking booking = GetById(id);
             booking.IsDeleted = true;
+            booking.UpdatedTime = DateTime.Now;
             _dbSet.Update(booking);
             _context.SaveChanges();
         }

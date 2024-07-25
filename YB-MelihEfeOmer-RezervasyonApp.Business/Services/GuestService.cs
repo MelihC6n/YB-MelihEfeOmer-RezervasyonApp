@@ -13,14 +13,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
     {
         private readonly GuestRepository _guestRepository;
 
-        public GuestService()
-        {
-        }
-
         public GuestService(GuestRepository gRep)
         {
             _guestRepository = gRep;
         }
+
         public void Add(Guest entity)
         {
             _guestRepository.Add(entity);
@@ -49,6 +46,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
         public void Update(Guest entity)
         {
             _guestRepository.Update(entity);
+        }
+
+        public Guest? GetByIdentityNumber(string kimlikNo)
+        {
+            return _guestRepository.GetByIdentityNumber(kimlikNo);
         }
     }
 }

@@ -591,6 +591,7 @@
             txtKimlikNo.Name = "txtKimlikNo";
             txtKimlikNo.Size = new Size(191, 29);
             txtKimlikNo.TabIndex = 3;
+            txtKimlikNo.TextChanged += txtKimlikNo_TextChanged;
             // 
             // txtAdi
             // 
@@ -991,8 +992,8 @@
             Controls.Add(panel1);
             Controls.Add(panel5);
             Controls.Add(grpPersonalDetails);
-            Controls.Add(grpGüncelleme);
             Controls.Add(grpReservationDetails);
+            Controls.Add(grpGüncelleme);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "FrmReservation";
