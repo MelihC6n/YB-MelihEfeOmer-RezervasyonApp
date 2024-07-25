@@ -57,12 +57,12 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         {
             dtpGirisTarihi.MinDate = DateTime.Now;
             dtpCikisTarihi.MinDate = DateTime.Now.AddDays(1);
+            dtpDogumTarihi.MaxDate = DateTime.Now.AddDays(-1);
             dgvRezervasyonlar.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             ListHotels();
             IQueryable<object> showBookings = FillReservations(Guid.Empty);
 
             dgvRezervasyonlar.DataSource = showBookings.ToList();
-
         }
 
 
@@ -86,11 +86,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         }
 
         List<avaliableBooking> avaliableBooking = new List<avaliableBooking>();
+        Room selectedRoom;       
+        decimal totalPrice;
 
         private void btnOdaBul_Click(object sender, EventArgs e)
         {
-
-
             grpRooms.Enabled = false;
 
             //var roomWithType = roomService.GetAllQueryable().Where(r=>r.HotelId==(Guid)cmbOtelAdi.SelectedValue);
@@ -142,6 +142,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                     DisplayInfo = $"{x.First().RoomTypeName} - {x.First().PricePerNight}:TL - {x.First().Capacity}",
                     Odalar = x.ToList()
                 }).ToList();
+
+                selectedRoom = roomService.GetById((Guid)cmbOda.SelectedValue);
+                TimeSpan dayCount = dtpCikisTarihi.Value - dtpGirisTarihi.Value;
+                totalPrice = dayCount.Days * selectedRoom.RoomType.PricePerNight;
             }
 
         }
@@ -193,6 +197,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 cmbOda.DisplayMember = "RoomNumber";
                 cmbOda.ValueMember = "Id";
                 cmbOda.DataSource = avaliableBooking.Where(ab => (Guid)ab.OdaTipi.Id == (Guid)cmbOdaTipi.SelectedValue).ToList();
+
+                lblToplamTutar.Text = totalPrice.ToString();
             }
         }
 
@@ -214,8 +220,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                         {
                             CheckinDate = DateOnly.FromDateTime(dtpGirisTarihi.Value),
                             CheckoutDate = DateOnly.FromDateTime(dtpCikisTarihi.Value),
-                            TotalPrice = 100,
-                            RoomId = (Guid)cmbOda.SelectedValue,
+                            TotalPrice = totalPrice,
+                            RoomId = selectedRoom.Id,
                         };
 
                         bookingService.Add(booking);
@@ -249,6 +255,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                         lastBookingId = booking.Id;
                         MessageBox.Show(kisiSayisi + " Kişinin kaydı başarıyla gerçekleşti", "Misafir Bilgi Girişi Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FillDataGridWithReservations();
+                        CleanControls();
+                        grpPersonalDetails.Enabled = false;
+                        grpReservationDetails.Enabled = true;
+                        grpRooms.Enabled = false;
                     }
                     catch (Exception ex)
                     {
@@ -350,7 +360,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
         }
@@ -391,7 +401,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             txtTelefon.Clear();
             txtEmail.Clear();
             txtAdres.Clear();
-            dtpDogumTarihi.Value = DateTime.Now;
+            dtpDogumTarihi.Value = DateTime.Now.AddHours(-25);
 
         }
         private void FillControls()
@@ -459,8 +469,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         {
             dtpGirisTarihiGüncelleme.Value = DateTime.Parse(b.CheckinDate.ToString());
             dtpCikisTarihiGüncelleme.Value = DateTime.Parse(b.CheckoutDate.ToString());
-
-
 
 
         }
