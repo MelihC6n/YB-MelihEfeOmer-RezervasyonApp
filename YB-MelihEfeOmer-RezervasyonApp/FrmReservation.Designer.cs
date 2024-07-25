@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReservation));
             panel1 = new Panel();
             panel2 = new Panel();
@@ -123,39 +123,39 @@
             panel1.BackColor = Color.DarkGreen;
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(5, 4, 5, 4);
+            panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(6, 1100);
+            panel1.Size = new Size(5, 825);
             panel1.TabIndex = 0;
             // 
             // panel2
             // 
             panel2.BackColor = Color.DarkGreen;
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(1165, 0);
-            panel2.Margin = new Padding(5, 4, 5, 4);
+            panel2.Location = new Point(1020, 0);
+            panel2.Margin = new Padding(4, 3, 4, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(6, 1100);
+            panel2.Size = new Size(5, 825);
             panel2.TabIndex = 1;
             // 
             // panel3
             // 
             panel3.BackColor = Color.DarkGreen;
             panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(6, 0);
-            panel3.Margin = new Padding(5, 4, 5, 4);
+            panel3.Location = new Point(5, 0);
+            panel3.Margin = new Padding(4, 3, 4, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1159, 7);
+            panel3.Size = new Size(1015, 5);
             panel3.TabIndex = 2;
             // 
             // panel4
             // 
             panel4.BackColor = Color.DarkGreen;
             panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(6, 1093);
-            panel4.Margin = new Padding(5, 4, 5, 4);
+            panel4.Location = new Point(5, 820);
+            panel4.Margin = new Padding(4, 3, 4, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1159, 7);
+            panel4.Size = new Size(1015, 5);
             panel4.TabIndex = 3;
             // 
             // exitButton
@@ -163,10 +163,10 @@
             exitButton.BackColor = Color.Transparent;
             exitButton.Cursor = Cursors.Hand;
             exitButton.Image = Properties.Resources.icons8_close_351;
-            exitButton.Location = new Point(1117, 12);
-            exitButton.Margin = new Padding(5, 4, 5, 4);
+            exitButton.Location = new Point(977, 9);
+            exitButton.Margin = new Padding(4, 3, 4, 3);
             exitButton.Name = "exitButton";
-            exitButton.Size = new Size(41, 47);
+            exitButton.Size = new Size(36, 35);
             exitButton.SizeMode = PictureBoxSizeMode.CenterImage;
             exitButton.TabIndex = 4;
             exitButton.TabStop = false;
@@ -178,20 +178,20 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(15, 20);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(13, 15);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(281, 42);
+            label1.Size = new Size(128, 16);
             label1.TabIndex = 6;
             label1.Text = "Rezervasyon Formu";
             // 
             // panel5
             // 
             panel5.BackColor = Color.White;
-            panel5.Location = new Point(14, 63);
-            panel5.Margin = new Padding(5, 4, 5, 4);
+            panel5.Location = new Point(12, 47);
+            panel5.Margin = new Padding(4, 3, 4, 3);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1143, 3);
+            panel5.Size = new Size(1000, 2);
             panel5.TabIndex = 7;
             // 
             // groupBox1
@@ -201,11 +201,11 @@
             groupBox1.Dock = DockStyle.Bottom;
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(6, 732);
-            groupBox1.Margin = new Padding(5, 4, 5, 4);
+            groupBox1.Location = new Point(5, 549);
+            groupBox1.Margin = new Padding(4, 3, 4, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(5, 4, 5, 4);
-            groupBox1.Size = new Size(1159, 361);
+            groupBox1.Padding = new Padding(4, 3, 4, 3);
+            groupBox1.Size = new Size(1015, 271);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Rezervasyonlar";
@@ -217,21 +217,20 @@
             dgvRezervasyonlar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRezervasyonlar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRezervasyonlar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.SeaGreen;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle1;
             dgvRezervasyonlar.Dock = DockStyle.Fill;
-            dgvRezervasyonlar.Location = new Point(5, 31);
-            dgvRezervasyonlar.Margin = new Padding(3, 4, 3, 4);
+            dgvRezervasyonlar.Location = new Point(4, 25);
             dgvRezervasyonlar.Name = "dgvRezervasyonlar";
             dgvRezervasyonlar.ReadOnly = true;
             dgvRezervasyonlar.RowHeadersWidth = 51;
-            dgvRezervasyonlar.Size = new Size(1149, 326);
+            dgvRezervasyonlar.Size = new Size(1007, 243);
             dgvRezervasyonlar.TabIndex = 0;
             // 
             // btnSil
@@ -240,10 +239,9 @@
             btnSil.FlatStyle = FlatStyle.Flat;
             btnSil.Font = new Font("Segoe UI", 12F);
             btnSil.ForeColor = Color.Black;
-            btnSil.Location = new Point(751, 681);
-            btnSil.Margin = new Padding(3, 4, 3, 4);
+            btnSil.Location = new Point(657, 511);
             btnSil.Name = "btnSil";
-            btnSil.Size = new Size(195, 43);
+            btnSil.Size = new Size(171, 32);
             btnSil.TabIndex = 1;
             btnSil.Text = "Sil";
             btnSil.UseVisualStyleBackColor = false;
@@ -255,10 +253,9 @@
             btnGüncelle.FlatStyle = FlatStyle.Flat;
             btnGüncelle.Font = new Font("Segoe UI", 12F);
             btnGüncelle.ForeColor = Color.Black;
-            btnGüncelle.Location = new Point(491, 681);
-            btnGüncelle.Margin = new Padding(3, 4, 3, 4);
+            btnGüncelle.Location = new Point(430, 511);
             btnGüncelle.Name = "btnGüncelle";
-            btnGüncelle.Size = new Size(195, 43);
+            btnGüncelle.Size = new Size(171, 32);
             btnGüncelle.TabIndex = 1;
             btnGüncelle.Text = "Güncelleme Ekranı";
             btnGüncelle.UseVisualStyleBackColor = false;
@@ -270,10 +267,9 @@
             btnListele.FlatStyle = FlatStyle.Flat;
             btnListele.Font = new Font("Segoe UI", 12F);
             btnListele.ForeColor = Color.Black;
-            btnListele.Location = new Point(232, 681);
-            btnListele.Margin = new Padding(3, 4, 3, 4);
+            btnListele.Location = new Point(203, 511);
             btnListele.Name = "btnListele";
-            btnListele.Size = new Size(195, 43);
+            btnListele.Size = new Size(171, 32);
             btnListele.TabIndex = 1;
             btnListele.Text = "Listele";
             btnListele.UseVisualStyleBackColor = false;
@@ -295,11 +291,9 @@
             grpReservationDetails.FlatStyle = FlatStyle.Flat;
             grpReservationDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             grpReservationDetails.ForeColor = Color.White;
-            grpReservationDetails.Location = new Point(14, 79);
-            grpReservationDetails.Margin = new Padding(3, 4, 3, 4);
+            grpReservationDetails.Location = new Point(12, 59);
             grpReservationDetails.Name = "grpReservationDetails";
-            grpReservationDetails.Padding = new Padding(3, 4, 3, 4);
-            grpReservationDetails.Size = new Size(416, 589);
+            grpReservationDetails.Size = new Size(364, 442);
             grpReservationDetails.TabIndex = 9;
             grpReservationDetails.TabStop = false;
             grpReservationDetails.Text = "Rezervasyon Bilgilerini Giriniz";
@@ -318,11 +312,9 @@
             grpRooms.FlatStyle = FlatStyle.Flat;
             grpRooms.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             grpRooms.ForeColor = Color.White;
-            grpRooms.Location = new Point(7, 308);
-            grpRooms.Margin = new Padding(3, 4, 3, 4);
+            grpRooms.Location = new Point(6, 231);
             grpRooms.Name = "grpRooms";
-            grpRooms.Padding = new Padding(3, 4, 3, 4);
-            grpRooms.Size = new Size(398, 273);
+            grpRooms.Size = new Size(348, 205);
             grpRooms.TabIndex = 12;
             grpRooms.TabStop = false;
             grpRooms.Text = "Bilgilerinize Göre Müsait Oda Tipleri ve Odalar";
@@ -333,10 +325,9 @@
             cmbOdaTipi.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOdaTipi.FlatStyle = FlatStyle.Flat;
             cmbOdaTipi.FormattingEnabled = true;
-            cmbOdaTipi.Location = new Point(153, 63);
-            cmbOdaTipi.Margin = new Padding(3, 4, 3, 4);
+            cmbOdaTipi.Location = new Point(134, 47);
             cmbOdaTipi.Name = "cmbOdaTipi";
-            cmbOdaTipi.Size = new Size(210, 36);
+            cmbOdaTipi.Size = new Size(184, 29);
             cmbOdaTipi.TabIndex = 4;
             cmbOdaTipi.SelectedIndexChanged += cmbOdaTipi_SelectedIndexChanged;
             // 
@@ -345,10 +336,9 @@
             btnRezervasyonaBasla.BackColor = Color.White;
             btnRezervasyonaBasla.FlatStyle = FlatStyle.Flat;
             btnRezervasyonaBasla.ForeColor = Color.Black;
-            btnRezervasyonaBasla.Location = new Point(153, 223);
-            btnRezervasyonaBasla.Margin = new Padding(3, 4, 3, 4);
+            btnRezervasyonaBasla.Location = new Point(134, 167);
             btnRezervasyonaBasla.Name = "btnRezervasyonaBasla";
-            btnRezervasyonaBasla.Size = new Size(210, 43);
+            btnRezervasyonaBasla.Size = new Size(184, 32);
             btnRezervasyonaBasla.TabIndex = 1;
             btnRezervasyonaBasla.Text = "Rezervasyona Başla";
             btnRezervasyonaBasla.UseVisualStyleBackColor = false;
@@ -357,9 +347,9 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(61, 69);
+            label4.Location = new Point(53, 52);
             label4.Name = "label4";
-            label4.Size = new Size(95, 28);
+            label4.Size = new Size(75, 21);
             label4.TabIndex = 2;
             label4.Text = "Oda Tipi :";
             // 
@@ -367,27 +357,27 @@
             // 
             lblToplamTutar.AutoSize = true;
             lblToplamTutar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            lblToplamTutar.Location = new Point(250, 168);
+            lblToplamTutar.Location = new Point(219, 126);
             lblToplamTutar.Name = "lblToplamTutar";
-            lblToplamTutar.Size = new Size(0, 28);
+            lblToplamTutar.Size = new Size(0, 21);
             lblToplamTutar.TabIndex = 2;
             lblToplamTutar.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(24, 168);
+            label14.Location = new Point(21, 126);
             label14.Name = "label14";
-            label14.Size = new Size(135, 28);
+            label14.Size = new Size(107, 21);
             label14.TabIndex = 2;
             label14.Text = "Toplam Tutar :";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(34, 113);
+            label5.Location = new Point(30, 85);
             label5.Name = "label5";
-            label5.Size = new Size(123, 28);
+            label5.Size = new Size(98, 21);
             label5.TabIndex = 2;
             label5.Text = "Oda Seçiniz :";
             // 
@@ -397,10 +387,9 @@
             cmbOda.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOda.FlatStyle = FlatStyle.Flat;
             cmbOda.FormattingEnabled = true;
-            cmbOda.Location = new Point(153, 109);
-            cmbOda.Margin = new Padding(3, 4, 3, 4);
+            cmbOda.Location = new Point(134, 82);
             cmbOda.Name = "cmbOda";
-            cmbOda.Size = new Size(210, 36);
+            cmbOda.Size = new Size(184, 29);
             cmbOda.TabIndex = 4;
             cmbOda.SelectedIndexChanged += cmbOda_SelectedIndexChanged;
             // 
@@ -409,10 +398,9 @@
             btnOdaBul.BackColor = Color.White;
             btnOdaBul.FlatStyle = FlatStyle.Flat;
             btnOdaBul.ForeColor = Color.Black;
-            btnOdaBul.Location = new Point(257, 244);
-            btnOdaBul.Margin = new Padding(3, 4, 3, 4);
+            btnOdaBul.Location = new Point(225, 183);
             btnOdaBul.Name = "btnOdaBul";
-            btnOdaBul.Size = new Size(113, 43);
+            btnOdaBul.Size = new Size(99, 32);
             btnOdaBul.TabIndex = 1;
             btnOdaBul.Text = "Oda Bul";
             btnOdaBul.UseVisualStyleBackColor = false;
@@ -420,20 +408,18 @@
             // 
             // dtpCikisTarihi
             // 
-            dtpCikisTarihi.Location = new Point(160, 151);
-            dtpCikisTarihi.Margin = new Padding(3, 4, 3, 4);
+            dtpCikisTarihi.Location = new Point(140, 113);
             dtpCikisTarihi.Name = "dtpCikisTarihi";
-            dtpCikisTarihi.Size = new Size(210, 34);
+            dtpCikisTarihi.Size = new Size(184, 29);
             dtpCikisTarihi.TabIndex = 6;
             dtpCikisTarihi.Value = new DateTime(2024, 7, 24, 12, 36, 49, 513);
             dtpCikisTarihi.ValueChanged += dtpCikisTarihi_ValueChanged;
             // 
             // dtpGirisTarihi
             // 
-            dtpGirisTarihi.Location = new Point(160, 104);
-            dtpGirisTarihi.Margin = new Padding(3, 4, 3, 4);
+            dtpGirisTarihi.Location = new Point(140, 78);
             dtpGirisTarihi.Name = "dtpGirisTarihi";
-            dtpGirisTarihi.Size = new Size(210, 34);
+            dtpGirisTarihi.Size = new Size(184, 29);
             dtpGirisTarihi.TabIndex = 6;
             dtpGirisTarihi.Value = new DateTime(2024, 7, 24, 12, 36, 49, 514);
             dtpGirisTarihi.ValueChanged += dtpGirisTarihi_ValueChanged;
@@ -441,12 +427,11 @@
             // nudKisiSayisi
             // 
             nudKisiSayisi.BorderStyle = BorderStyle.FixedSingle;
-            nudKisiSayisi.Location = new Point(160, 204);
-            nudKisiSayisi.Margin = new Padding(3, 4, 3, 4);
+            nudKisiSayisi.Location = new Point(140, 153);
             nudKisiSayisi.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             nudKisiSayisi.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudKisiSayisi.Name = "nudKisiSayisi";
-            nudKisiSayisi.Size = new Size(82, 34);
+            nudKisiSayisi.Size = new Size(72, 29);
             nudKisiSayisi.TabIndex = 5;
             nudKisiSayisi.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
@@ -456,45 +441,44 @@
             cmbOtelAdi.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOtelAdi.FlatStyle = FlatStyle.Flat;
             cmbOtelAdi.FormattingEnabled = true;
-            cmbOtelAdi.Location = new Point(160, 57);
-            cmbOtelAdi.Margin = new Padding(3, 4, 3, 4);
+            cmbOtelAdi.Location = new Point(140, 43);
             cmbOtelAdi.Name = "cmbOtelAdi";
-            cmbOtelAdi.Size = new Size(210, 36);
+            cmbOtelAdi.Size = new Size(184, 29);
             cmbOtelAdi.TabIndex = 4;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(41, 159);
+            label8.Location = new Point(36, 119);
             label8.Name = "label8";
-            label8.Size = new Size(112, 28);
+            label8.Size = new Size(91, 21);
             label8.TabIndex = 2;
             label8.Text = "Çıkış Tarihi :";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(48, 207);
+            label6.Location = new Point(42, 155);
             label6.Name = "label6";
-            label6.Size = new Size(105, 28);
+            label6.Size = new Size(85, 21);
             label6.TabIndex = 2;
             label6.Text = "Kişi Sayısı :";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(42, 112);
+            label7.Location = new Point(37, 84);
             label7.Name = "label7";
-            label7.Size = new Size(111, 28);
+            label7.Size = new Size(90, 21);
             label7.TabIndex = 2;
             label7.Text = "Giriş Tarihi :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(62, 61);
+            label2.Location = new Point(54, 46);
             label2.Name = "label2";
-            label2.Size = new Size(93, 28);
+            label2.Size = new Size(73, 21);
             label2.TabIndex = 2;
             label2.Text = "Otel Adı :";
             // 
@@ -522,11 +506,9 @@
             grpPersonalDetails.FlatStyle = FlatStyle.Flat;
             grpPersonalDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             grpPersonalDetails.ForeColor = Color.White;
-            grpPersonalDetails.Location = new Point(749, 79);
-            grpPersonalDetails.Margin = new Padding(3, 4, 3, 4);
+            grpPersonalDetails.Location = new Point(655, 59);
             grpPersonalDetails.Name = "grpPersonalDetails";
-            grpPersonalDetails.Padding = new Padding(3, 4, 3, 4);
-            grpPersonalDetails.Size = new Size(409, 589);
+            grpPersonalDetails.Size = new Size(358, 442);
             grpPersonalDetails.TabIndex = 11;
             grpPersonalDetails.TabStop = false;
             grpPersonalDetails.Text = "? Misafirin Bilgilerini Giriniz";
@@ -536,9 +518,9 @@
             İleriButonu.AutoSize = true;
             İleriButonu.Enabled = false;
             İleriButonu.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            İleriButonu.Location = new Point(275, 469);
+            İleriButonu.Location = new Point(241, 352);
             İleriButonu.Name = "İleriButonu";
-            İleriButonu.Size = new Size(48, 32);
+            İleriButonu.Size = new Size(38, 25);
             İleriButonu.TabIndex = 7;
             İleriButonu.Text = ">>";
             İleriButonu.Click += İleriButonu_Click;
@@ -548,9 +530,9 @@
             GeriButonu.AutoSize = true;
             GeriButonu.Enabled = false;
             GeriButonu.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            GeriButonu.Location = new Point(211, 469);
+            GeriButonu.Location = new Point(185, 352);
             GeriButonu.Name = "GeriButonu";
-            GeriButonu.Size = new Size(48, 32);
+            GeriButonu.Size = new Size(38, 25);
             GeriButonu.TabIndex = 7;
             GeriButonu.Text = "<<";
             GeriButonu.Click += GeriButonu_Click;
@@ -560,12 +542,11 @@
             txtAdres.BackColor = Color.White;
             txtAdres.BorderStyle = BorderStyle.FixedSingle;
             txtAdres.ForeColor = Color.Black;
-            txtAdres.Location = new Point(153, 247);
-            txtAdres.Margin = new Padding(3, 4, 3, 4);
+            txtAdres.Location = new Point(134, 185);
             txtAdres.Multiline = true;
             txtAdres.Name = "txtAdres";
             txtAdres.ScrollBars = ScrollBars.Vertical;
-            txtAdres.Size = new Size(218, 119);
+            txtAdres.Size = new Size(191, 90);
             txtAdres.TabIndex = 3;
             // 
             // txtEmail
@@ -573,10 +554,9 @@
             txtEmail.BackColor = Color.White;
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.ForeColor = Color.Black;
-            txtEmail.Location = new Point(153, 421);
-            txtEmail.Margin = new Padding(3, 4, 3, 4);
+            txtEmail.Location = new Point(134, 316);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(218, 34);
+            txtEmail.Size = new Size(191, 29);
             txtEmail.TabIndex = 3;
             // 
             // txtTelefon
@@ -584,10 +564,9 @@
             txtTelefon.BackColor = Color.White;
             txtTelefon.BorderStyle = BorderStyle.FixedSingle;
             txtTelefon.ForeColor = Color.Black;
-            txtTelefon.Location = new Point(153, 375);
-            txtTelefon.Margin = new Padding(3, 4, 3, 4);
+            txtTelefon.Location = new Point(134, 281);
             txtTelefon.Name = "txtTelefon";
-            txtTelefon.Size = new Size(218, 34);
+            txtTelefon.Size = new Size(191, 29);
             txtTelefon.TabIndex = 3;
             // 
             // txtSoyadi
@@ -595,10 +574,9 @@
             txtSoyadi.BackColor = Color.White;
             txtSoyadi.BorderStyle = BorderStyle.FixedSingle;
             txtSoyadi.ForeColor = Color.Black;
-            txtSoyadi.Location = new Point(153, 153);
-            txtSoyadi.Margin = new Padding(3, 4, 3, 4);
+            txtSoyadi.Location = new Point(134, 115);
             txtSoyadi.Name = "txtSoyadi";
-            txtSoyadi.Size = new Size(218, 34);
+            txtSoyadi.Size = new Size(191, 29);
             txtSoyadi.TabIndex = 3;
             // 
             // txtKimlikNo
@@ -606,11 +584,10 @@
             txtKimlikNo.BackColor = Color.White;
             txtKimlikNo.BorderStyle = BorderStyle.FixedSingle;
             txtKimlikNo.ForeColor = Color.Black;
-            txtKimlikNo.Location = new Point(153, 59);
-            txtKimlikNo.Margin = new Padding(3, 4, 3, 4);
+            txtKimlikNo.Location = new Point(134, 44);
             txtKimlikNo.MaxLength = 11;
             txtKimlikNo.Name = "txtKimlikNo";
-            txtKimlikNo.Size = new Size(218, 34);
+            txtKimlikNo.Size = new Size(191, 29);
             txtKimlikNo.TabIndex = 3;
             // 
             // txtAdi
@@ -618,62 +595,60 @@
             txtAdi.BackColor = Color.White;
             txtAdi.BorderStyle = BorderStyle.FixedSingle;
             txtAdi.ForeColor = Color.Black;
-            txtAdi.Location = new Point(153, 107);
-            txtAdi.Margin = new Padding(3, 4, 3, 4);
+            txtAdi.Location = new Point(134, 80);
             txtAdi.Name = "txtAdi";
-            txtAdi.Size = new Size(218, 34);
+            txtAdi.Size = new Size(191, 29);
             txtAdi.TabIndex = 3;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(79, 423);
+            label13.Location = new Point(69, 317);
             label13.Name = "label13";
-            label13.Size = new Size(73, 28);
+            label13.Size = new Size(59, 21);
             label13.TabIndex = 2;
             label13.Text = "Email'i:";
             // 
             // dtpDogumTarihi
             // 
-            dtpDogumTarihi.Location = new Point(153, 200);
-            dtpDogumTarihi.Margin = new Padding(3, 4, 3, 4);
+            dtpDogumTarihi.Location = new Point(134, 150);
             dtpDogumTarihi.Name = "dtpDogumTarihi";
-            dtpDogumTarihi.Size = new Size(218, 34);
+            dtpDogumTarihi.Size = new Size(191, 29);
             dtpDogumTarihi.TabIndex = 6;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(61, 376);
+            label12.Location = new Point(53, 282);
             label12.Name = "label12";
-            label12.Size = new Size(94, 28);
+            label12.Size = new Size(75, 21);
             label12.TabIndex = 2;
             label12.Text = "Telefonu :";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(77, 252);
+            label11.Location = new Point(67, 189);
             label11.Name = "label11";
-            label11.Size = new Size(76, 28);
+            label11.Size = new Size(61, 21);
             label11.TabIndex = 2;
             label11.Text = "Adresi :";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(73, 155);
+            label9.Location = new Point(64, 116);
             label9.Name = "label9";
-            label9.Size = new Size(81, 28);
+            label9.Size = new Size(64, 21);
             label9.TabIndex = 2;
             label9.Text = "Soyadı :";
             // 
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(49, 61);
+            label22.Location = new Point(43, 46);
             label22.Name = "label22";
-            label22.Size = new Size(107, 28);
+            label22.Size = new Size(85, 21);
             label22.TabIndex = 2;
             label22.Text = "Kimlik No :";
             // 
@@ -682,10 +657,9 @@
             btnKaydet.BackColor = Color.White;
             btnKaydet.FlatStyle = FlatStyle.Flat;
             btnKaydet.ForeColor = Color.Black;
-            btnKaydet.Location = new Point(210, 528);
-            btnKaydet.Margin = new Padding(3, 4, 3, 4);
+            btnKaydet.Location = new Point(184, 396);
             btnKaydet.Name = "btnKaydet";
-            btnKaydet.Size = new Size(113, 43);
+            btnKaydet.Size = new Size(99, 32);
             btnKaydet.TabIndex = 1;
             btnKaydet.Text = "Kaydet";
             btnKaydet.UseVisualStyleBackColor = false;
@@ -694,18 +668,18 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(101, 112);
+            label3.Location = new Point(88, 84);
             label3.Name = "label3";
-            label3.Size = new Size(51, 28);
+            label3.Size = new Size(40, 21);
             label3.TabIndex = 2;
             label3.Text = "Adı :";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(21, 207);
+            label10.Location = new Point(18, 155);
             label10.Name = "label10";
-            label10.Size = new Size(138, 28);
+            label10.Size = new Size(110, 21);
             label10.TabIndex = 2;
             label10.Text = "Doğum Tarihi :";
             // 
@@ -721,11 +695,9 @@
             grpGüncelleme.FlatStyle = FlatStyle.Flat;
             grpGüncelleme.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             grpGüncelleme.ForeColor = Color.White;
-            grpGüncelleme.Location = new Point(14, 79);
-            grpGüncelleme.Margin = new Padding(3, 4, 3, 4);
+            grpGüncelleme.Location = new Point(12, 59);
             grpGüncelleme.Name = "grpGüncelleme";
-            grpGüncelleme.Padding = new Padding(3, 4, 3, 4);
-            grpGüncelleme.Size = new Size(416, 589);
+            grpGüncelleme.Size = new Size(364, 442);
             grpGüncelleme.TabIndex = 12;
             grpGüncelleme.TabStop = false;
             grpGüncelleme.Text = "Güncel Rezervasyon Bilgilerini Giriniz";
@@ -741,11 +713,9 @@
             grpOdaGüncelleme.FlatStyle = FlatStyle.Flat;
             grpOdaGüncelleme.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             grpOdaGüncelleme.ForeColor = Color.White;
-            grpOdaGüncelleme.Location = new Point(7, 319);
-            grpOdaGüncelleme.Margin = new Padding(3, 4, 3, 4);
+            grpOdaGüncelleme.Location = new Point(6, 239);
             grpOdaGüncelleme.Name = "grpOdaGüncelleme";
-            grpOdaGüncelleme.Padding = new Padding(3, 4, 3, 4);
-            grpOdaGüncelleme.Size = new Size(398, 263);
+            grpOdaGüncelleme.Size = new Size(348, 197);
             grpOdaGüncelleme.TabIndex = 12;
             grpOdaGüncelleme.TabStop = false;
             grpOdaGüncelleme.Text = "Bilgilerinize Göre Müsait Oda Tipleri ve Odalar";
@@ -756,10 +726,9 @@
             cmbOdaTipiGüncelleme.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOdaTipiGüncelleme.FlatStyle = FlatStyle.Flat;
             cmbOdaTipiGüncelleme.FormattingEnabled = true;
-            cmbOdaTipiGüncelleme.Location = new Point(153, 73);
-            cmbOdaTipiGüncelleme.Margin = new Padding(3, 4, 3, 4);
+            cmbOdaTipiGüncelleme.Location = new Point(134, 55);
             cmbOdaTipiGüncelleme.Name = "cmbOdaTipiGüncelleme";
-            cmbOdaTipiGüncelleme.Size = new Size(210, 36);
+            cmbOdaTipiGüncelleme.Size = new Size(184, 29);
             cmbOdaTipiGüncelleme.TabIndex = 4;
             cmbOdaTipiGüncelleme.SelectedIndexChanged += cmbOdaTipiGüncelleme_SelectedIndexChanged;
             // 
@@ -768,10 +737,9 @@
             btnGüncellemeRezervasyonaBasla.BackColor = Color.White;
             btnGüncellemeRezervasyonaBasla.FlatStyle = FlatStyle.Flat;
             btnGüncellemeRezervasyonaBasla.ForeColor = Color.Black;
-            btnGüncellemeRezervasyonaBasla.Location = new Point(153, 167);
-            btnGüncellemeRezervasyonaBasla.Margin = new Padding(3, 4, 3, 4);
+            btnGüncellemeRezervasyonaBasla.Location = new Point(134, 125);
             btnGüncellemeRezervasyonaBasla.Name = "btnGüncellemeRezervasyonaBasla";
-            btnGüncellemeRezervasyonaBasla.Size = new Size(210, 43);
+            btnGüncellemeRezervasyonaBasla.Size = new Size(184, 32);
             btnGüncellemeRezervasyonaBasla.TabIndex = 1;
             btnGüncellemeRezervasyonaBasla.Text = "Rezervasyona Başla";
             btnGüncellemeRezervasyonaBasla.UseVisualStyleBackColor = false;
@@ -780,18 +748,18 @@
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(61, 77);
+            label16.Location = new Point(53, 58);
             label16.Name = "label16";
-            label16.Size = new Size(95, 28);
+            label16.Size = new Size(75, 21);
             label16.TabIndex = 2;
             label16.Text = "Oda Tipi :";
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(34, 124);
+            label17.Location = new Point(30, 93);
             label17.Name = "label17";
-            label17.Size = new Size(123, 28);
+            label17.Size = new Size(98, 21);
             label17.TabIndex = 2;
             label17.Text = "Oda Seçiniz :";
             // 
@@ -801,10 +769,9 @@
             cmbOdaGüncelleme.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbOdaGüncelleme.FlatStyle = FlatStyle.Flat;
             cmbOdaGüncelleme.FormattingEnabled = true;
-            cmbOdaGüncelleme.Location = new Point(153, 120);
-            cmbOdaGüncelleme.Margin = new Padding(3, 4, 3, 4);
+            cmbOdaGüncelleme.Location = new Point(134, 90);
             cmbOdaGüncelleme.Name = "cmbOdaGüncelleme";
-            cmbOdaGüncelleme.Size = new Size(210, 36);
+            cmbOdaGüncelleme.Size = new Size(184, 29);
             cmbOdaGüncelleme.TabIndex = 4;
             cmbOdaGüncelleme.SelectedIndexChanged += cmbOdaGüncelleme_SelectedIndexChanged;
             // 
@@ -813,10 +780,9 @@
             btnGüncellemeOdaBul.BackColor = Color.White;
             btnGüncellemeOdaBul.FlatStyle = FlatStyle.Flat;
             btnGüncellemeOdaBul.ForeColor = Color.Black;
-            btnGüncellemeOdaBul.Location = new Point(257, 197);
-            btnGüncellemeOdaBul.Margin = new Padding(3, 4, 3, 4);
+            btnGüncellemeOdaBul.Location = new Point(225, 148);
             btnGüncellemeOdaBul.Name = "btnGüncellemeOdaBul";
-            btnGüncellemeOdaBul.Size = new Size(113, 43);
+            btnGüncellemeOdaBul.Size = new Size(99, 32);
             btnGüncellemeOdaBul.TabIndex = 1;
             btnGüncellemeOdaBul.Text = "Oda Bul";
             btnGüncellemeOdaBul.UseVisualStyleBackColor = false;
@@ -824,35 +790,33 @@
             // 
             // dtpCikisTarihiGüncelleme
             // 
-            dtpCikisTarihiGüncelleme.Location = new Point(160, 151);
-            dtpCikisTarihiGüncelleme.Margin = new Padding(3, 4, 3, 4);
+            dtpCikisTarihiGüncelleme.Location = new Point(140, 113);
             dtpCikisTarihiGüncelleme.Name = "dtpCikisTarihiGüncelleme";
-            dtpCikisTarihiGüncelleme.Size = new Size(210, 34);
+            dtpCikisTarihiGüncelleme.Size = new Size(184, 29);
             dtpCikisTarihiGüncelleme.TabIndex = 6;
             // 
             // dtpGirisTarihiGüncelleme
             // 
-            dtpGirisTarihiGüncelleme.Location = new Point(160, 104);
-            dtpGirisTarihiGüncelleme.Margin = new Padding(3, 4, 3, 4);
+            dtpGirisTarihiGüncelleme.Location = new Point(140, 78);
             dtpGirisTarihiGüncelleme.Name = "dtpGirisTarihiGüncelleme";
-            dtpGirisTarihiGüncelleme.Size = new Size(210, 34);
+            dtpGirisTarihiGüncelleme.Size = new Size(184, 29);
             dtpGirisTarihiGüncelleme.TabIndex = 6;
             // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(41, 159);
+            label18.Location = new Point(36, 119);
             label18.Name = "label18";
-            label18.Size = new Size(112, 28);
+            label18.Size = new Size(91, 21);
             label18.TabIndex = 2;
             label18.Text = "Çıkış Tarihi :";
             // 
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(50, 112);
+            label20.Location = new Point(44, 84);
             label20.Name = "label20";
-            label20.Size = new Size(111, 28);
+            label20.Size = new Size(90, 21);
             label20.TabIndex = 2;
             label20.Text = "Giriş Tarihi :";
             // 
@@ -860,10 +824,10 @@
             // 
             minimalizeButton.Cursor = Cursors.Hand;
             minimalizeButton.Image = Properties.Resources.icons8_minimize_35;
-            minimalizeButton.Location = new Point(1063, 12);
-            minimalizeButton.Margin = new Padding(5, 4, 5, 4);
+            minimalizeButton.Location = new Point(930, 9);
+            minimalizeButton.Margin = new Padding(4, 3, 4, 3);
             minimalizeButton.Name = "minimalizeButton";
-            minimalizeButton.Size = new Size(41, 47);
+            minimalizeButton.Size = new Size(36, 35);
             minimalizeButton.SizeMode = PictureBoxSizeMode.CenterImage;
             minimalizeButton.TabIndex = 5;
             minimalizeButton.TabStop = false;
@@ -873,10 +837,10 @@
             // 
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(544, 12);
-            pictureBox1.Margin = new Padding(5, 4, 5, 4);
+            pictureBox1.Location = new Point(476, 9);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(99, 109);
+            pictureBox1.Size = new Size(87, 82);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -887,9 +851,9 @@
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label19.ForeColor = Color.White;
-            label19.Location = new Point(503, 125);
+            label19.Location = new Point(440, 94);
             label19.Name = "label19";
-            label19.Size = new Size(198, 32);
+            label19.Size = new Size(156, 25);
             label19.TabIndex = 2;
             label19.Text = "Otel mi? Trivago!";
             // 
@@ -898,10 +862,9 @@
             txtKimlikAra.BackColor = Color.White;
             txtKimlikAra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtKimlikAra.ForeColor = Color.Black;
-            txtKimlikAra.Location = new Point(9, 8);
-            txtKimlikAra.Margin = new Padding(3, 4, 3, 4);
+            txtKimlikAra.Location = new Point(8, 6);
             txtKimlikAra.Name = "txtKimlikAra";
-            txtKimlikAra.Size = new Size(233, 34);
+            txtKimlikAra.Size = new Size(204, 29);
             txtKimlikAra.TabIndex = 3;
             txtKimlikAra.TextChanged += txtKimlikAra_TextChanged;
             // 
@@ -910,9 +873,9 @@
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label21.ForeColor = Color.White;
-            label21.Location = new Point(491, 517);
+            label21.Location = new Point(430, 388);
             label21.Name = "label21";
-            label21.Size = new Size(212, 28);
+            label21.Size = new Size(171, 21);
             label21.TabIndex = 2;
             label21.Text = "Aranacak Rezarvasyon";
             // 
@@ -921,22 +884,20 @@
             tabArama.Controls.Add(pgKimlik);
             tabArama.Controls.Add(pgAd);
             tabArama.Controls.Add(pgRez);
-            tabArama.Location = new Point(458, 564);
-            tabArama.Margin = new Padding(3, 4, 3, 4);
+            tabArama.Location = new Point(401, 423);
             tabArama.Name = "tabArama";
             tabArama.SelectedIndex = 0;
-            tabArama.Size = new Size(258, 92);
+            tabArama.Size = new Size(226, 69);
             tabArama.TabIndex = 13;
             // 
             // pgKimlik
             // 
             pgKimlik.BackColor = Color.SeaGreen;
             pgKimlik.Controls.Add(txtKimlikAra);
-            pgKimlik.Location = new Point(4, 29);
-            pgKimlik.Margin = new Padding(3, 4, 3, 4);
+            pgKimlik.Location = new Point(4, 24);
             pgKimlik.Name = "pgKimlik";
-            pgKimlik.Padding = new Padding(3, 4, 3, 4);
-            pgKimlik.Size = new Size(250, 59);
+            pgKimlik.Padding = new Padding(3, 3, 3, 3);
+            pgKimlik.Size = new Size(218, 41);
             pgKimlik.TabIndex = 0;
             pgKimlik.Text = "KİMLİK ";
             // 
@@ -944,11 +905,10 @@
             // 
             pgAd.BackColor = Color.SeaGreen;
             pgAd.Controls.Add(txtAdAra);
-            pgAd.Location = new Point(4, 29);
-            pgAd.Margin = new Padding(3, 4, 3, 4);
+            pgAd.Location = new Point(4, 24);
             pgAd.Name = "pgAd";
-            pgAd.Padding = new Padding(3, 4, 3, 4);
-            pgAd.Size = new Size(250, 59);
+            pgAd.Padding = new Padding(3, 3, 3, 3);
+            pgAd.Size = new Size(218, 41);
             pgAd.TabIndex = 1;
             pgAd.Text = "İSİM";
             // 
@@ -957,10 +917,9 @@
             txtAdAra.BackColor = Color.White;
             txtAdAra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtAdAra.ForeColor = Color.Black;
-            txtAdAra.Location = new Point(8, 8);
-            txtAdAra.Margin = new Padding(3, 4, 3, 4);
+            txtAdAra.Location = new Point(7, 6);
             txtAdAra.Name = "txtAdAra";
-            txtAdAra.Size = new Size(233, 34);
+            txtAdAra.Size = new Size(204, 29);
             txtAdAra.TabIndex = 4;
             txtAdAra.TextChanged += txtAdAra_TextChanged;
             // 
@@ -968,10 +927,9 @@
             // 
             pgRez.BackColor = Color.SeaGreen;
             pgRez.Controls.Add(txtRezAra);
-            pgRez.Location = new Point(4, 29);
-            pgRez.Margin = new Padding(3, 4, 3, 4);
+            pgRez.Location = new Point(4, 24);
             pgRez.Name = "pgRez";
-            pgRez.Size = new Size(250, 59);
+            pgRez.Size = new Size(218, 41);
             pgRez.TabIndex = 2;
             pgRez.Text = "REZ. NO";
             // 
@@ -980,19 +938,18 @@
             txtRezAra.BackColor = Color.White;
             txtRezAra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtRezAra.ForeColor = Color.Black;
-            txtRezAra.Location = new Point(8, 8);
-            txtRezAra.Margin = new Padding(3, 4, 3, 4);
+            txtRezAra.Location = new Point(7, 6);
             txtRezAra.Name = "txtRezAra";
-            txtRezAra.Size = new Size(233, 34);
+            txtRezAra.Size = new Size(204, 29);
             txtRezAra.TabIndex = 4;
             txtRezAra.TextChanged += txtRezAra_TextChanged;
             // 
             // FrmReservation
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaGreen;
-            ClientSize = new Size(1171, 1100);
+            ClientSize = new Size(1025, 825);
             Controls.Add(tabArama);
             Controls.Add(btnSil);
             Controls.Add(label1);
@@ -1010,10 +967,10 @@
             Controls.Add(panel1);
             Controls.Add(panel5);
             Controls.Add(grpPersonalDetails);
-            Controls.Add(grpGüncelleme);
             Controls.Add(grpReservationDetails);
+            Controls.Add(grpGüncelleme);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(5, 4, 5, 4);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "FrmReservation";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Rezervasyon Formu";

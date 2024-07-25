@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ using YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context;
 using YB_MelihEfeOmer_RezervasyonApp.DataAccess.Repositories;
 using YB_MelihEfeOmer_RezervasyonApp.Entity.Abstract;
 using YB_MelihEfeOmer_RezervasyonApp.Entity.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace YB_MelihEfeOmer_RezervasyonApp
 {
@@ -204,9 +206,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         int kisiSayisi;
         int misafirSayaci = 0;
         Guid lastBookingId;
-
+        bool formStatus = true;
         private void btnKaydet_Click(object sender, EventArgs e)
         {
+
             bool isValid = MisafirBilgileriniKontrolEt();
             if (isValid)
             {
@@ -214,44 +217,66 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 {
                     try
                     {
-                        Booking booking = new Booking()
+                        if (formStatus)
                         {
-                            CheckinDate = DateOnly.FromDateTime(dtpGirisTarihi.Value),
-                            CheckoutDate = DateOnly.FromDateTime(dtpCikisTarihi.Value),
-                            TotalPrice = totalPrice,
-                            RoomId = selectedRoom.Id,
-                        };
-
-                        bookingService.Add(booking);
-
-                        foreach (var m in misafirler)
-                        {
-                            Guest guest = new Guest()
+                            Booking booking = new Booking()
                             {
-                                IdentityNumber = m.IdentityNumber,
-                                FirstName = m.FirstName,
-                                LastName = m.LastName,
-                                DateOfBirth = m.DateOfBirth,
-                                Address = m.Address,
-                                Phone = m.Phone,
-                                Email = m.Email,
+                                CheckinDate = DateOnly.FromDateTime(dtpGirisTarihi.Value),
+                                CheckoutDate = DateOnly.FromDateTime(dtpCikisTarihi.Value),
+                                TotalPrice = totalPrice,
+                                RoomId = selectedRoom.Id,
                             };
 
-                            guestService.Add(guest);
+                            bookingService.Add(booking);
 
-                            BRBookingGuest bRBookingGuest = new BRBookingGuest()
+                            foreach (var m in misafirler)
                             {
-                                BookingId = booking.Id,
-                                GuestId = guest.Id
-                            };
+                                Guest guest = new Guest()
+                                {
+                                    IdentityNumber = m.IdentityNumber,
+                                    FirstName = m.FirstName,
+                                    LastName = m.LastName,
+                                    DateOfBirth = m.DateOfBirth,
+                                    Address = m.Address,
+                                    Phone = m.Phone,
+                                    Email = m.Email,
+                                };
+
+                                guestService.Add(guest);
+
+                                BRBookingGuest bRBookingGuest = new BRBookingGuest()
+                                {
+                                    BookingId = booking.Id,
+                                    GuestId = guest.Id
+                                };
 
 
 
-                            BRBookingGuestService.Add(bRBookingGuest);
+                                BRBookingGuestService.Add(bRBookingGuest);
+                            }
+                            transaction.Commit();
+                            lastBookingId = booking.Id;
+                            MessageBox.Show(kisiSayisi + " Kişinin kaydı başarıyla gerçekleşti", "Misafir Bilgi Girişi Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        transaction.Commit();
-                        lastBookingId = booking.Id;
-                        MessageBox.Show(kisiSayisi + " Kişinin kaydı başarıyla gerçekleşti", "Misafir Bilgi Girişi Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                        {
+                            _booking.CheckinDate = DateOnly.FromDateTime(dtpGirisTarihiGüncelleme.Value);
+                            _booking.CheckoutDate = DateOnly.FromDateTime(dtpCikisTarihiGüncelleme.Value);
+                            _booking.TotalPrice = totalPrice;
+                            _booking.RoomId = selectedRoom.Id;
+
+                            bookingService.Update(_booking);
+
+                            foreach (var m in misafirler)
+                            {
+                                guestService.Update(m);
+                            }
+                            transaction.Commit();
+                            lastBookingId = _booking.Id;
+                            MessageBox.Show(kisiSayisi + " Kişinin güncellemesi başarıyla gerçekleşti", "Misafir Bilgi Güncellemesi Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+
                         FillDataGridWithReservations();
                         CleanControls();
                         grpPersonalDetails.Enabled = false;
@@ -323,6 +348,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 misafirSayaci -= 1;
                 grpPersonalDetails.Text = $"{misafirSayaci + 1}. Misafirin Bilgilerini Giriniz";
                 FillControls();
+                MessageBox.Show(misafirler[misafirSayaci].Id.ToString());
                 if (İleriButonu.Enabled == false)
                 {
                     İleriButonu.Enabled = true;
@@ -333,7 +359,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 }
             }
         }
-
+        
         private bool MisafirBilgileriniKontrolEt()
         {
             try
@@ -349,6 +375,12 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                     Address = txtAdres.Text,
                     DateOfBirth = DateOnly.FromDateTime(dtpDogumTarihi.Value)
                 };
+                if (misafirler[misafirSayaci] != null)
+                {
+                    guest.Id = misafirler[misafirSayaci].Id;
+                }
+
+
                 ValidationResult result = guestValidator.Validate(guest);
                 if (!result.IsValid)
                 {
@@ -378,6 +410,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 }
                 else
                 {
+                    MessageBox.Show(misafirler[misafirSayaci].Id.ToString());
                     FillControls();
                 }
                 if (kisiSayisi == misafirSayaci + 1)
@@ -424,6 +457,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 dgvRezervasyonlar.DataSource = FillReservations(Guid.Empty).ToList();
                 btnGüncelle.Enabled = true;
                 btnListele.Text = "Listele";
+                formStatus = true;
             }
 
         }
@@ -433,6 +467,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         {
             if (dgvRezervasyonlar.SelectedRows.Count == 1)
             {
+                formStatus = false;
                 grpGüncelleme.BringToFront();
                 grpReservationDetails.Enabled = false;
                 btnListele.Text = "Güncellemeden Çık";
@@ -615,20 +650,25 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void btnGüncellemeRezervasyonaBasla_Click(object sender, EventArgs e)
         {
-
+            grpPersonalDetails.Enabled = true;
+            if (kisiSayisi > 1)
+            {
+                İleriButonu.Enabled = true;
+            }
+            grpGüncelleme.Enabled = false;
         }
 
-        
+
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-           
+
             if (dgvRezervasyonlar.SelectedRows.Count > 0)
             {
 
                 DialogResult result = MessageBox.Show("Seçili satırı silmek istediğinize emin misiniz?",
                     "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-         
+
                 if (result == DialogResult.Yes)
                 {
                     Guid deletedItem = (Guid)dgvRezervasyonlar.CurrentRow.Cells["RezId"].Value;
@@ -645,7 +685,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-    
+
         private void cmbOdaTipiGüncelleme_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbOdaTipiGüncelleme.SelectedValue != null)
