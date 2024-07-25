@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReservation));
             panel1 = new Panel();
             panel2 = new Panel();
@@ -176,12 +176,12 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Sans Serif Collection", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
             label1.Location = new Point(13, 15);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(204, 32);
+            label1.Size = new Size(128, 16);
             label1.TabIndex = 6;
             label1.Text = "Rezervasyon Formu";
             // 
@@ -217,14 +217,14 @@
             dgvRezervasyonlar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRezervasyonlar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRezervasyonlar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle4;
             dgvRezervasyonlar.Dock = DockStyle.Fill;
             dgvRezervasyonlar.Location = new Point(4, 25);
             dgvRezervasyonlar.Name = "dgvRezervasyonlar";
@@ -390,6 +390,7 @@
             cmbOda.Name = "cmbOda";
             cmbOda.Size = new Size(184, 29);
             cmbOda.TabIndex = 4;
+            cmbOda.SelectedIndexChanged += cmbOda_SelectedIndexChanged;
             // 
             // btnOdaBul
             // 
@@ -728,6 +729,7 @@
             cmbOdaTipiGüncelleme.Name = "cmbOdaTipiGüncelleme";
             cmbOdaTipiGüncelleme.Size = new Size(184, 29);
             cmbOdaTipiGüncelleme.TabIndex = 4;
+            cmbOdaTipiGüncelleme.SelectedIndexChanged += cmbOdaTipiGüncelleme_SelectedIndexChanged;
             // 
             // btnGüncellemeRezervasyonaBasla
             // 
@@ -770,6 +772,7 @@
             cmbOdaGüncelleme.Name = "cmbOdaGüncelleme";
             cmbOdaGüncelleme.Size = new Size(184, 29);
             cmbOdaGüncelleme.TabIndex = 4;
+            cmbOdaGüncelleme.SelectedIndexChanged += cmbOdaGüncelleme_SelectedIndexChanged;
             // 
             // btnGüncellemeOdaBul
             // 
@@ -963,8 +966,8 @@
             Controls.Add(panel1);
             Controls.Add(panel5);
             Controls.Add(grpPersonalDetails);
-            Controls.Add(grpReservationDetails);
             Controls.Add(grpGüncelleme);
+            Controls.Add(grpReservationDetails);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "FrmReservation";
