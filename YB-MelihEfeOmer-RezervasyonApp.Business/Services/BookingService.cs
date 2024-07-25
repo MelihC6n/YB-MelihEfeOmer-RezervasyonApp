@@ -13,6 +13,12 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
     public class BookingService : IService<Booking>
     {
         private readonly BookingRepository _bookingRepository;
+
+        public BookingService()
+        {
+
+        }
+
         public BookingService(BookingRepository bRep)
         {
             _bookingRepository = bRep;
@@ -47,6 +53,9 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
             _bookingRepository.Update(entity);
         }
 
-        
+        public void BookingDelete(Guid id)
+        {
+           _bookingRepository.BookingDelete(id);
+        }
     }
 }

@@ -24,8 +24,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Repositories
 
         public void Delete(Guid id)
         {
+     
             _dbSet.Remove(GetById(id));
             _context.SaveChanges();
+            
         }
 
         public IEnumerable<T> GetAll()

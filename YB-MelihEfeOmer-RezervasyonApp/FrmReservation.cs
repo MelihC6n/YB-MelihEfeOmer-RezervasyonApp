@@ -444,8 +444,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 GüncellemeBilgileriniDoldur(_booking);
 
 
-
-
                 //müşterileri getirme
 
                 misafirler = context.BRBookingGuests.Where(br => br.BookingId == (Guid)dgvRezervasyonlar.CurrentRow.Cells["RezId"].Value).Select(br => br.Guest).ToList();
@@ -638,15 +636,16 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
                     dgvRezervasyonlar.DataSource = FillReservations(Guid.Empty).ToList();
 
-            grpGüncelleme.Enabled = false;
-            grpPersonalDetails.Enabled = true;
-            if (misafirler.Count > 1)
-            {
-                İleriButonu.Enabled = true;
+
+                }
             }
-
+            else
+            {
+                MessageBox.Show("Lütfen silmek için bir satır seçin.", "Uyarı",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-
+    
         private void cmbOdaTipiGüncelleme_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbOdaTipiGüncelleme.SelectedValue != null)
@@ -676,15 +675,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 selectedRoom = roomService.GetById((Guid)cmbOdaGüncelleme.SelectedValue);
                 TimeSpan dayCount = dtpCikisTarihiGüncelleme.Value - dtpGirisTarihiGüncelleme.Value;
                 totalPrice = dayCount.Days * selectedRoom.RoomType.PricePerNight;
-            }
-        }
-    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Lütfen silmek için bir satır seçin.", "Uyarı",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
