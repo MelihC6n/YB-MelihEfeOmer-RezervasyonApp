@@ -80,6 +80,8 @@
             label10 = new Label();
             grpGüncelleme = new GroupBox();
             grpOdaGüncelleme = new GroupBox();
+            lblGuncelPrice = new Label();
+            label23 = new Label();
             cmbOdaTipiGüncelleme = new ComboBox();
             btnGüncellemeRezervasyonaBasla = new Button();
             label16 = new Label();
@@ -705,6 +707,8 @@
             // grpOdaGüncelleme
             // 
             grpOdaGüncelleme.BackColor = Color.Transparent;
+            grpOdaGüncelleme.Controls.Add(lblGuncelPrice);
+            grpOdaGüncelleme.Controls.Add(label23);
             grpOdaGüncelleme.Controls.Add(cmbOdaTipiGüncelleme);
             grpOdaGüncelleme.Controls.Add(btnGüncellemeRezervasyonaBasla);
             grpOdaGüncelleme.Controls.Add(label16);
@@ -713,12 +717,31 @@
             grpOdaGüncelleme.FlatStyle = FlatStyle.Flat;
             grpOdaGüncelleme.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             grpOdaGüncelleme.ForeColor = Color.White;
-            grpOdaGüncelleme.Location = new Point(6, 239);
+            grpOdaGüncelleme.Location = new Point(6, 204);
             grpOdaGüncelleme.Name = "grpOdaGüncelleme";
-            grpOdaGüncelleme.Size = new Size(348, 197);
+            grpOdaGüncelleme.Size = new Size(348, 232);
             grpOdaGüncelleme.TabIndex = 12;
             grpOdaGüncelleme.TabStop = false;
             grpOdaGüncelleme.Text = "Bilgilerinize Göre Müsait Oda Tipleri ve Odalar";
+            // 
+            // lblGuncelPrice
+            // 
+            lblGuncelPrice.AutoSize = true;
+            lblGuncelPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblGuncelPrice.Location = new Point(219, 133);
+            lblGuncelPrice.Name = "lblGuncelPrice";
+            lblGuncelPrice.Size = new Size(0, 21);
+            lblGuncelPrice.TabIndex = 5;
+            lblGuncelPrice.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(21, 133);
+            label23.Name = "label23";
+            label23.Size = new Size(107, 21);
+            label23.TabIndex = 6;
+            label23.Text = "Toplam Tutar :";
             // 
             // cmbOdaTipiGüncelleme
             // 
@@ -737,7 +760,7 @@
             btnGüncellemeRezervasyonaBasla.BackColor = Color.White;
             btnGüncellemeRezervasyonaBasla.FlatStyle = FlatStyle.Flat;
             btnGüncellemeRezervasyonaBasla.ForeColor = Color.Black;
-            btnGüncellemeRezervasyonaBasla.Location = new Point(134, 125);
+            btnGüncellemeRezervasyonaBasla.Location = new Point(134, 177);
             btnGüncellemeRezervasyonaBasla.Name = "btnGüncellemeRezervasyonaBasla";
             btnGüncellemeRezervasyonaBasla.Size = new Size(184, 32);
             btnGüncellemeRezervasyonaBasla.TabIndex = 1;
@@ -801,6 +824,7 @@
             dtpGirisTarihiGüncelleme.Name = "dtpGirisTarihiGüncelleme";
             dtpGirisTarihiGüncelleme.Size = new Size(184, 29);
             dtpGirisTarihiGüncelleme.TabIndex = 6;
+            dtpGirisTarihiGüncelleme.ValueChanged += dtpGirisTarihiGüncelleme_ValueChanged;
             // 
             // label18
             // 
@@ -967,8 +991,8 @@
             Controls.Add(panel1);
             Controls.Add(panel5);
             Controls.Add(grpPersonalDetails);
-            Controls.Add(grpReservationDetails);
             Controls.Add(grpGüncelleme);
+            Controls.Add(grpReservationDetails);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "FrmReservation";
@@ -1075,5 +1099,7 @@
         private TextBox txtRezAra;
         private Label lblToplamTutar;
         private Label label14;
+        private Label lblGuncelPrice;
+        private Label label23;
     }
 }

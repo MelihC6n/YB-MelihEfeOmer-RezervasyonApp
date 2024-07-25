@@ -59,6 +59,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         {
             dtpGirisTarihi.MinDate = DateTime.Now;
             dtpCikisTarihi.MinDate = DateTime.Now.AddDays(1);
+
+            dtpGirisTarihi.MinDate = DateTime.Now;
+            dtpGirisTarihiGüncelleme.MinDate = DateTime.Now.AddDays(1);
+
             dtpDogumTarihi.MaxDate = DateTime.Now.AddDays(-1);
             dgvRezervasyonlar.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             ListHotels();
@@ -369,7 +373,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 }
             }
         }
-        
+
         private bool MisafirBilgileriniKontrolEt()
         {
             try
@@ -704,7 +708,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 cmbOdaGüncelleme.ValueMember = "Id";
                 cmbOdaGüncelleme.DataSource = avaliableBooking.Where(ab => (Guid)ab.OdaTipi.Id == (Guid)cmbOdaTipiGüncelleme.SelectedValue).ToList();
 
-                lblToplamTutar.Text = totalPrice.ToString();
+                lblGuncelPrice.Text = totalPrice.ToString();
             }
         }
 
@@ -726,6 +730,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 TimeSpan dayCount = dtpCikisTarihiGüncelleme.Value - dtpGirisTarihiGüncelleme.Value;
                 totalPrice = dayCount.Days * selectedRoom.RoomType.PricePerNight;
             }
+        }
+
+        private void dtpGirisTarihiGüncelleme_ValueChanged(object sender, EventArgs e)
+        {
+            dtpCikisTarihiGüncelleme.MinDate = dtpGirisTarihiGüncelleme.Value.AddDays(1);
         }
     }
 }
