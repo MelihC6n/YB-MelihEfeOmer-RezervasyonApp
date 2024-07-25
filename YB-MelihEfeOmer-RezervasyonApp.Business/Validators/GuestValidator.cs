@@ -19,8 +19,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Validators
                 .Length(2, 50).WithMessage("Soyad alanı en az 2 karakterli olmalıdır.\n")
                 .Matches(@"[\p{L} ]+$").WithMessage("Soyad alanı sayı veya noktalama işareti içeremez.\n");
 
-            RuleFor(g => g.DateOfBirth).NotEmpty().WithMessage("Doğum tarihi alanı boş bırakılamaz.\n")
-                .Must(g => g < DateOnly.FromDateTime(DateTime.Now)).WithMessage("Doğum tarihi bugün seçilemez.\n");
+            RuleFor(g => g.DateOfBirth)
+                 .NotEmpty().WithMessage("Doğum tarihi alanı boş bırakılamaz. \n")
+                 .Must(g => g < DateOnly.FromDateTime(DateTime.Now)).WithMessage("Doğum tarihi bugün seçilemez.\n")
+                 .Must(g => g <= DateOnly.FromDateTime(DateTime.Now.AddYears(-18)))
+                 .WithMessage("Misafir 18 yaşından büyük olmalıdır.\n");
 
             RuleFor(g => g.Address).NotEmpty().WithMessage("Adres alanı boş bırakılamaz.\n")
                 .Length(25, 255).WithMessage("Adres alanı 25 ile 255 karakter arasında olmalıdır.\n");
@@ -34,3 +37,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Validators
         }
     }
 }
+
+
+//RuleFor(g => g.DateOfBirth)
+//   .NotEmpty().WithMessage("Doğum tarihi alanı boş bırakılamaz.")
+//   .Must(g => g < DateOnly.FromDateTime(DateTime.Now)).WithMessage("Doğum tarihi bugün seçilemez.")
+
+//   .Must(g => g <= DateOnly.FromDateTime(DateTime.Now.AddYears(-18)))
+//   .WithMessage("Misafir 18 yaşından büyük olmalıdır.");

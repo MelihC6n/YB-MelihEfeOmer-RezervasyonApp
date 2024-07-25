@@ -203,6 +203,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
+
+
             bool isValid = MisafirBilgileriniKontrolEt();
             if (isValid)
             {
@@ -350,7 +352,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Lütfen. Aşağıdaki kurallara göre doldurunuz.");
                 return false;
             }
         }

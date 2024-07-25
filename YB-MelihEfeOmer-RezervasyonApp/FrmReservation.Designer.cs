@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReservation));
             panel1 = new Panel();
             panel2 = new Panel();
@@ -215,14 +215,14 @@
             dgvRezervasyonlar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRezervasyonlar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRezervasyonlar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.SeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvRezervasyonlar.DefaultCellStyle = dataGridViewCellStyle1;
             dgvRezervasyonlar.Dock = DockStyle.Fill;
             dgvRezervasyonlar.Location = new Point(5, 31);
             dgvRezervasyonlar.Margin = new Padding(3, 4, 3, 4);
@@ -869,10 +869,10 @@
             txtKimlikAra.BackColor = Color.White;
             txtKimlikAra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtKimlikAra.ForeColor = Color.Black;
-            txtKimlikAra.Location = new Point(9, 8);
+            txtKimlikAra.Location = new Point(16, 16);
             txtKimlikAra.Margin = new Padding(3, 4, 3, 4);
             txtKimlikAra.Name = "txtKimlikAra";
-            txtKimlikAra.Size = new Size(233, 34);
+            txtKimlikAra.Size = new Size(245, 34);
             txtKimlikAra.TabIndex = 3;
             txtKimlikAra.TextChanged += txtKimlikAra_TextChanged;
             // 
@@ -892,11 +892,11 @@
             tabArama.Controls.Add(pgKimlik);
             tabArama.Controls.Add(pgAd);
             tabArama.Controls.Add(pgRez);
-            tabArama.Location = new Point(459, 571);
+            tabArama.Location = new Point(447, 571);
             tabArama.Margin = new Padding(3, 4, 3, 4);
             tabArama.Name = "tabArama";
             tabArama.SelectedIndex = 0;
-            tabArama.Size = new Size(258, 92);
+            tabArama.Size = new Size(284, 97);
             tabArama.TabIndex = 13;
             // 
             // pgKimlik
@@ -907,7 +907,7 @@
             pgKimlik.Margin = new Padding(3, 4, 3, 4);
             pgKimlik.Name = "pgKimlik";
             pgKimlik.Padding = new Padding(3, 4, 3, 4);
-            pgKimlik.Size = new Size(250, 59);
+            pgKimlik.Size = new Size(276, 64);
             pgKimlik.TabIndex = 0;
             pgKimlik.Text = "KİMLİK ";
             // 
@@ -919,7 +919,7 @@
             pgAd.Margin = new Padding(3, 4, 3, 4);
             pgAd.Name = "pgAd";
             pgAd.Padding = new Padding(3, 4, 3, 4);
-            pgAd.Size = new Size(250, 59);
+            pgAd.Size = new Size(276, 64);
             pgAd.TabIndex = 1;
             pgAd.Text = "İSİM";
             // 
@@ -928,10 +928,10 @@
             txtAdAra.BackColor = Color.White;
             txtAdAra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtAdAra.ForeColor = Color.Black;
-            txtAdAra.Location = new Point(8, 8);
+            txtAdAra.Location = new Point(15, 16);
             txtAdAra.Margin = new Padding(3, 4, 3, 4);
             txtAdAra.Name = "txtAdAra";
-            txtAdAra.Size = new Size(233, 34);
+            txtAdAra.Size = new Size(246, 34);
             txtAdAra.TabIndex = 4;
             txtAdAra.TextChanged += txtAdAra_TextChanged;
             // 
@@ -942,20 +942,22 @@
             pgRez.Location = new Point(4, 29);
             pgRez.Margin = new Padding(3, 4, 3, 4);
             pgRez.Name = "pgRez";
-            pgRez.Size = new Size(250, 59);
+            pgRez.Size = new Size(276, 64);
             pgRez.TabIndex = 2;
             pgRez.Text = "REZ. NO";
             // 
             // txtRezAra
             // 
             txtRezAra.BackColor = Color.White;
+            txtRezAra.Enabled = false;
             txtRezAra.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtRezAra.ForeColor = Color.Black;
-            txtRezAra.Location = new Point(8, 8);
+            txtRezAra.Location = new Point(13, 16);
             txtRezAra.Margin = new Padding(3, 4, 3, 4);
             txtRezAra.Name = "txtRezAra";
-            txtRezAra.Size = new Size(233, 34);
+            txtRezAra.Size = new Size(249, 34);
             txtRezAra.TabIndex = 4;
+            txtRezAra.Text = "şu anda kullanılmamaktadır.";
             txtRezAra.TextChanged += txtRezAra_TextChanged;
             // 
             // FrmReservation
