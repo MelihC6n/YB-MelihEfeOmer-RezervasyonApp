@@ -12,6 +12,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Services
     public class GuestService : IService<Guest>
     {
         private readonly GuestRepository _guestRepository;
+
+        public GuestService()
+        {
+        }
+
         public GuestService(GuestRepository gRep)
         {
             _guestRepository = gRep;

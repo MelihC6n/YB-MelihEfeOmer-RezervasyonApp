@@ -269,7 +269,17 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
                             foreach (var m in misafirler)
                             {
-                                guestService.Update(m);
+                                Guest guest = guestService.GetById(m.Id);
+
+                                guest.IdentityNumber = m.IdentityNumber;
+                                guest.FirstName = m.FirstName;
+                                guest.LastName = m.LastName;
+                                guest.DateOfBirth = m.DateOfBirth;
+                                guest.Address = m.Address;
+                                guest.Phone = m.Phone;
+                                guest.Email = m.Email;
+
+                                guestService.Update(guest);
                             }
                             transaction.Commit();
                             lastBookingId = _booking.Id;

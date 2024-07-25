@@ -547,7 +547,7 @@
             txtAdres.Name = "txtAdres";
             txtAdres.ScrollBars = ScrollBars.Vertical;
             txtAdres.Size = new Size(191, 90);
-            txtAdres.TabIndex = 3;
+            txtAdres.TabIndex = 6;
             // 
             // txtEmail
             // 
@@ -557,7 +557,7 @@
             txtEmail.Location = new Point(134, 316);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(191, 29);
-            txtEmail.TabIndex = 3;
+            txtEmail.TabIndex = 8;
             // 
             // txtTelefon
             // 
@@ -567,7 +567,7 @@
             txtTelefon.Location = new Point(134, 281);
             txtTelefon.Name = "txtTelefon";
             txtTelefon.Size = new Size(191, 29);
-            txtTelefon.TabIndex = 3;
+            txtTelefon.TabIndex = 7;
             // 
             // txtSoyadi
             // 
@@ -577,7 +577,7 @@
             txtSoyadi.Location = new Point(134, 115);
             txtSoyadi.Name = "txtSoyadi";
             txtSoyadi.Size = new Size(191, 29);
-            txtSoyadi.TabIndex = 3;
+            txtSoyadi.TabIndex = 5;
             // 
             // txtKimlikNo
             // 
@@ -598,7 +598,7 @@
             txtAdi.Location = new Point(134, 80);
             txtAdi.Name = "txtAdi";
             txtAdi.Size = new Size(191, 29);
-            txtAdi.TabIndex = 3;
+            txtAdi.TabIndex = 4;
             // 
             // label13
             // 
@@ -896,7 +896,7 @@
             pgKimlik.Controls.Add(txtKimlikAra);
             pgKimlik.Location = new Point(4, 24);
             pgKimlik.Name = "pgKimlik";
-            pgKimlik.Padding = new Padding(3, 3, 3, 3);
+            pgKimlik.Padding = new Padding(3);
             pgKimlik.Size = new Size(218, 41);
             pgKimlik.TabIndex = 0;
             pgKimlik.Text = "KİMLİK ";
@@ -907,7 +907,7 @@
             pgAd.Controls.Add(txtAdAra);
             pgAd.Location = new Point(4, 24);
             pgAd.Name = "pgAd";
-            pgAd.Padding = new Padding(3, 3, 3, 3);
+            pgAd.Padding = new Padding(3);
             pgAd.Size = new Size(218, 41);
             pgAd.TabIndex = 1;
             pgAd.Text = "İSİM";
