@@ -21,7 +21,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-13V6IU8;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); //Melihin connection string'i
+            //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-13V6IU8;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); //Melihin connection string'i
 
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-DERU;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); // Ömer'in connection string'i
 
@@ -33,7 +33,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
 
             //optionsBuilder.UseSqlServer(@"Data Source=BPC1\SQLEXPRESS;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); //Efe Bll Bilgisayar
 
-            //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-H6C59L9\SQLEXPRESS;Initial Catalog= Besiktas;Integrated Security=True; Trust Server Certificate=True;"); //mehmet'in connection String'i
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-H6C59L9\SQLEXPRESS;Initial Catalog= Besiktas;Integrated Security=True; Trust Server Certificate=True;"); //mehmet'in connection String'i
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
