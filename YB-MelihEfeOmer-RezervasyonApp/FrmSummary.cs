@@ -106,7 +106,12 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 lstMisafirler.Items.Add(item);
 
             }
-            lblTotalPrice.Text = booking.TotalPrice.ToString() + " TL";
+
+            decimal Price = booking.TotalPrice;
+            //lblTotalPrice.Text = Price.ToString()+ " TL" + Price/33 + " USD" + Price/36 + " EUR";
+            lblTotalPrice.Text = Price.ToString("F2") + " TL \n" +
+            (Price / 33).ToString("F2") + " USD \n" +
+            (Price / 36).ToString("F2") + " EUR";
         }
 
         private void lblCikis_Click(object sender, EventArgs e)
