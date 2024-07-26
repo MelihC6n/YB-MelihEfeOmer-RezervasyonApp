@@ -153,6 +153,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 btnKaydet.Enabled = false;
                 İleriButonu.Enabled = true;
             }
+
+            btnListele.Text = "Girişi İptal Et";
         }
 
         private bool RezervasyonBilgileriniKontrolEt()
@@ -471,7 +473,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         private void btnListele_Click(object sender, EventArgs e)
         {
             dgvRezervasyonlar.DataSource = FillReservations(Guid.Empty).ToList();
-            if (btnListele.Text == "Güncellemeden Çık")
+            if (btnListele.Text == "Güncellemeden Çık" || btnListele.Text == "Girişi İptal Et")
             {
                 grpReservationDetails.BringToFront();
                 grpReservationDetails.Enabled = true;
@@ -479,6 +481,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 btnGüncelle.Enabled = true;
                 btnListele.Text = "Listele";
                 formStatus = true;
+                grpPersonalDetails.Enabled = false;
+                grpRooms.Enabled = false;
+                cmbOdaTipi.DataSource = null;
+                cmbOda.DataSource = null;
                 CleanControls();
             }
         }
