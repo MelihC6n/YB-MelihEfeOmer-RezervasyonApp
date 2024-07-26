@@ -234,6 +234,7 @@
             dgvRezervasyonlar.RowHeadersWidth = 51;
             dgvRezervasyonlar.Size = new Size(1007, 243);
             dgvRezervasyonlar.TabIndex = 0;
+            dgvRezervasyonlar.CellDoubleClick += dgvRezervasyonlar_CellDoubleClick;
             // 
             // btnSil
             // 

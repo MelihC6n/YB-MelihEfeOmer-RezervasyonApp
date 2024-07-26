@@ -503,7 +503,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 {
                     btnListele.Text = "Güncellemeden Çık";
                     btnListele.PerformClick();
-                    MessageBox.Show("Geçmiş rezervasyonlar güncellenemez!","Güncelleme İşlemi İptal Edildi",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                    MessageBox.Show("Geçmiş rezervasyonlar güncellenemez!", "Güncelleme İşlemi İptal Edildi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else
                 {
@@ -787,6 +787,13 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 misafirler[misafirSayaci] = guestService.GetByIdentityNumber(txtKimlikNo.Text);
                 FillControls();
             }
+        }
+
+        private void dgvRezervasyonlar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Guid seciliRezervasyon=(Guid)dgvRezervasyonlar.CurrentRow.Cells["RezId"].Value;
+            FrmSummary bilgigoster = new FrmSummary(seciliRezervasyon);
+            bilgigoster.Show();
         }
     }
 }
