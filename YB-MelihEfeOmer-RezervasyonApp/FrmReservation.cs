@@ -231,7 +231,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                                     Email = m.Email,
                                 };
 
-                                if (!guestService.GetAll().Any(x=>x.Id == m.Id))
+                                if (!guestService.GetAll().Any(x => x.Id == m.Id))
                                 {
                                     guestService.Add(guest);
                                 }
@@ -325,10 +325,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             if (lastBookingId != Guid.Empty)
             {
                 return from b in context.Bookings
-                       where b.Id == lastBookingId && b.IsDeleted == false
                        join br in context.BRBookingGuests on b.Id equals br.BookingId
                        join g in context.Guests on br.GuestId equals g.Id
                        join r in context.Rooms on b.RoomId equals r.Id
+                       where b.Id == lastBookingId && b.IsDeleted == false
                        select new
                        {
                            RezId = b.Id,
@@ -344,10 +344,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             else
             {
                 return from b in context.Bookings
-                       where b.IsDeleted == false
                        join br in context.BRBookingGuests on b.Id equals br.BookingId
                        join g in context.Guests on br.GuestId equals g.Id
                        join r in context.Rooms on b.RoomId equals r.Id
+                       where b.IsDeleted == false
                        select new
                        {
                            RezId = b.Id,
@@ -534,71 +534,119 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         {
         }
 
-        private void txtKimlikAra_TextChanged(object sender, EventArgs e)
+        private void FilterReservationsByIdentityNumber(string identityNumber)
         {
-            string kimlikAra = txtKimlikAra.Text.ToLower();
             dgvRezervasyonlar.DataSource = null;
 
-            if (!string.IsNullOrEmpty(kimlikAra) && kimlikAra.Length >= 3)
+            if (!string.IsNullOrEmpty(identityNumber) && identityNumber.Length >= 1)
             {
-                IEnumerable<Guest> tList = guestService.GetAll().Where(x => x.IdentityNumber.ToLower().Contains(kimlikAra));
-                var tShowList = tList.Select(x => new { Tc_Kimlik_No = x.IdentityNumber, İsim = x.FirstName, Soyisim = x.LastName, Telefon = x.Phone, Email = x.Email, Dogum_Tarihi = x.DateOfBirth, x });
-                dgvRezervasyonlar.DataSource = tShowList.ToList();
+                var guests = from b in context.Bookings
+                             join br in context.BRBookingGuests on b.Id equals br.BookingId
+                             join g in context.Guests on br.GuestId equals g.Id
+                             join r in context.Rooms on b.RoomId equals r.Id
+                             where b.IsDeleted == false && g.IdentityNumber.Contains(identityNumber)
+                             select new
+                             {
+                                 RezId = b.Id,
+                                 CheckinDate = b.CheckinDate,
+                                 CheckoutDate = b.CheckoutDate,
+                                 RoomNumber = b.Room.RoomNumber,
+                                 TotalPrice = b.TotalPrice,
+                                 IdentityN = g.IdentityNumber,
+                                 Guest = g.FirstName + " " + g.LastName,
+                                 Phone = g.Phone,
+                                 OdaTipi = r.RoomType.Name
+                             };
 
+                dgvRezervasyonlar.DataSource = guests.ToList();
             }
-            else if (kimlikAra.Length == 0)
+            else if (identityNumber.Length == 0)
             {
                 FillDataGridWithReservations();
             }
+        }
+
+        private void FilterReservationsByFirstName(string firstName)
+        {
+            dgvRezervasyonlar.DataSource = null;
+
+            if (!string.IsNullOrEmpty(firstName) && firstName.Length >= 1)
+            {
+                var guests = from b in context.Bookings
+                             join br in context.BRBookingGuests on b.Id equals br.BookingId
+                             join g in context.Guests on br.GuestId equals g.Id
+                             join r in context.Rooms on b.RoomId equals r.Id
+                             where b.IsDeleted == false && g.FirstName.Contains(firstName)
+                             select new
+                             {
+                                 RezId = b.Id,
+                                 CheckinDate = b.CheckinDate,
+                                 CheckoutDate = b.CheckoutDate,
+                                 RoomNumber = b.Room.RoomNumber,
+                                 TotalPrice = b.TotalPrice,
+                                 Guest = g.FirstName + " " + g.LastName,
+                                 Phone = g.Phone,
+                                 OdaTipi = r.RoomType.Name
+                             };
+
+                dgvRezervasyonlar.DataSource = guests.ToList();
+            }
+            else if (firstName.Length == 0)
+            {
+                FillDataGridWithReservations();
+            }
+        }
+
+        private void FilterReservationsByBookingId(string bookingId)
+        {
+            dgvRezervasyonlar.DataSource = null;
+            if (!string.IsNullOrEmpty(bookingId) && bookingId.Length >= 1)
+            {
+                var filteredBridge = context.BRBookingGuests
+                .Where(br => br.BookingId.ToString().Contains(bookingId))
+                .Select(br => br.BookingId);
+
+                var results = from b in context.Bookings
+                              join brID in filteredBridge on b.Id equals brID
+                              join br in context.BRBookingGuests on b.Id equals br.BookingId
+                              join g in context.Guests on br.GuestId equals g.Id
+                              join r in context.Rooms on b.RoomId equals r.Id
+                              where b.IsDeleted == false
+                              select new
+                              {
+                                  RezId = b.Id,
+                                  CheckinDate = b.CheckinDate,
+                                  CheckoutDate = b.CheckoutDate,
+                                  RoomNumber = r.RoomNumber,
+                                  TotalPrice = b.TotalPrice,
+                                  Guest = g.FirstName + " " + g.LastName,
+                                  Phone = g.Phone,
+                                  OdaTipi = r.RoomType.Name
+                              };
+                dgvRezervasyonlar.DataSource = results.ToList();
+            }
+            else if (bookingId.Length == 0)
+            {
+                FillDataGridWithReservations();
+            }
+        }
+
+        private void txtKimlikAra_TextChanged(object sender, EventArgs e)
+        {
+            string kimlikAra = txtKimlikAra.Text;
+            FilterReservationsByIdentityNumber(kimlikAra);
         }
 
         private void txtAdAra_TextChanged(object sender, EventArgs e)
         {
-            string AdAra = txtAdAra.Text.ToLower();
-            dgvRezervasyonlar.DataSource = null;
-
-            if (!string.IsNullOrEmpty(AdAra) && AdAra.Length >= 3)
-            {
-                var aList = guestService.GetAll().Where(x => x.FirstName.ToLower()
-                .Contains(AdAra));
-                var aShowList = aList.Select(x => new { Tc_Kimlik_No = x.IdentityNumber, İsim = x.FirstName, Soyisim = x.LastName, Telefon = x.Phone, Email = x.Email, Dogum_Tarihi = x.DateOfBirth, x });
-                dgvRezervasyonlar.DataSource = aShowList.ToList();
-            }
-            else if (AdAra.Length == 0)
-            {
-                FillDataGridWithReservations();
-            }
+            string adAra = txtAdAra.Text;
+            FilterReservationsByFirstName(adAra);
         }
 
         private void txtRezAra_TextChanged(object sender, EventArgs e)
         {
-
-            string rezAra = txtRezAra.Text.ToLower();
-            dgvRezervasyonlar.DataSource = null;
-
-
-
-            var filteredBridge = context.BRBookingGuests
-                .Where(br => br.BookingId.ToString().Contains(rezAra))
-                .Select(br => br.BookingId);
-
-            var results = from b in context.Bookings
-                          join brID in filteredBridge on b.Id equals brID
-                          join br in context.BRBookingGuests on b.Id equals br.BookingId
-                          join g in context.Guests on br.GuestId equals g.Id
-                          join r in context.Rooms on b.RoomId equals r.Id
-                          select new
-                          {
-                              RezId = b.Id,
-                              CheckinDate = b.CheckinDate,
-                              CheckoutDate = b.CheckoutDate,
-                              RoomNumber = b.Room.RoomNumber,
-                              TotalPrice = b.TotalPrice,
-                              Guest = g.FirstName + " " + g.LastName,
-                              Phone = g.Phone,
-                              OdaTipi = r.RoomType.Name
-                          };
-            dgvRezervasyonlar.DataSource = results.ToList();
+            string rezAra = txtRezAra.Text;
+            FilterReservationsByBookingId(rezAra);
         }
 
         private void btnGüncellemeOdaBul_Click(object sender, EventArgs e)
