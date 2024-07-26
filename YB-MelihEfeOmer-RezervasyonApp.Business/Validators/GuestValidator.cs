@@ -23,7 +23,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp.Business.Validators
                 .Must(g => g < DateOnly.FromDateTime(DateTime.Now)).WithMessage("Doğum tarihi bugün seçilemez.\n");
 
             RuleFor(g => g.Address).NotEmpty().WithMessage("Adres alanı boş bırakılamaz.\n")
-                .Length(25, 255).WithMessage("Adres alanı 25 ile 255 karakter arasında olmalıdır.\n");
+                .Length(5, 255).WithMessage("Adres alanı 5 ile 255 karakter arasında olmalıdır.\n");
 
             RuleFor(g => g.Phone).NotEmpty().WithMessage("Telefon alanı boş bırakılamaz.\n")
                 .Length(3, 15).WithMessage("Telefon numarası 3 ile 15 karakter arasında olmalıdır.\n")
