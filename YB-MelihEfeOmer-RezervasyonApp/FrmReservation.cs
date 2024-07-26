@@ -71,8 +71,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             dgvRezervasyonlar.DataSource = showBookings.ToList();
         }
 
-
-
         private void ListHotels()
         {
             cmbOtelAdi.DataSource = hotelService.GetAll();
@@ -98,9 +96,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         private void btnOdaBul_Click(object sender, EventArgs e)
         {
             grpRooms.Enabled = false;
-
-            //var roomWithType = roomService.GetAllQueryable().Where(r=>r.HotelId==(Guid)cmbOtelAdi.SelectedValue);
-            // dataGridView1.DataSource= roomWithType.ToList();
             var avaliableRooms = from r in context.Rooms
                                  where r.RoomType.Capacity >= nudKisiSayisi.Value && r.HotelId == (Guid)cmbOtelAdi.SelectedValue
                                  select new avaliableBooking
@@ -114,20 +109,13 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                                      PricePerNight = r.RoomType.PricePerNight,
                                      RoomTypeName = r.RoomType.Name
                                  };
-            //dataGridView1.DataSource = avaliableRooms.ToList();
             var freeBookings = from b in context.Bookings
                                where b.CheckinDate <= DateOnly.FromDateTime(dtpCikisTarihi.Value) && b.CheckoutDate >= DateOnly.FromDateTime(dtpGirisTarihi.Value) && b.IsDeleted == false
                                select b;
 
             List<Guid> freeBookingIds = freeBookings.Select(b => b.Room.Id).ToList();
 
-
             avaliableBooking = avaliableRooms.Where(r => !freeBookingIds.Contains(r.Id)).ToList();
-
-            //var canSelectRoom = avaliableBookings.Where(r => r.OdaTipi == cmbOdaTipi.SelectedText);
-            /*cmbOda.DataSource = avaliableBookings;
-            cmbOda.DisplayMember = "RoomNumber";
-            cmbOda.ValueMember = "Id";*/
 
             if (avaliableBooking.Count == 0)
             {
@@ -148,10 +136,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                     DisplayInfo = $"{x.First().RoomTypeName} - {x.First().PricePerNight}:TL - {x.First().Capacity}",
                     Odalar = x.ToList()
                 }).ToList();
-
-
             }
-
         }
         private void btnRezervasyonaBasla_Click(object sender, EventArgs e)
         {
@@ -246,7 +231,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                                     Email = m.Email,
                                 };
 
-                                if (guestService.GetAll().Any(x=>x.Id == guest.Id))
+                                if (!guestService.GetAll().Any(x=>x.Id == m.Id))
                                 {
                                     guestService.Add(guest);
                                 }
@@ -385,7 +370,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 misafirSayaci -= 1;
                 grpPersonalDetails.Text = $"{misafirSayaci + 1}. Misafirin Bilgilerini Giriniz";
                 FillControls();
-                MessageBox.Show(misafirler[misafirSayaci].Id.ToString());
                 if (İleriButonu.Enabled == false)
                 {
                     İleriButonu.Enabled = true;
@@ -447,7 +431,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 }
                 else
                 {
-                    MessageBox.Show(misafirler[misafirSayaci].Id.ToString());
                     FillControls();
                 }
                 if (kisiSayisi == misafirSayaci + 1)
@@ -471,7 +454,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             txtEmail.Clear();
             txtAdres.Clear();
             dtpDogumTarihi.Value = DateTime.Now.AddHours(-25);
-
         }
         private void FillControls()
         {
@@ -497,8 +479,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 formStatus = true;
                 CleanControls();
             }
-
         }
+
         Booking _booking;
         Guid _hotelId;
         private void btnGüncelle_Click(object sender, EventArgs e)
@@ -546,18 +528,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         private void dtpGirisTarihi_ValueChanged(object sender, EventArgs e)
         {
             dtpCikisTarihi.MinDate = dtpGirisTarihi.Value.AddDays(1);
-            //if (!RezervasyonBilgileriniKontrolEt())
-            //{
-            //}
-
         }
 
         private void dtpCikisTarihi_ValueChanged(object sender, EventArgs e)
         {
-            //if (!RezervasyonBilgileriniKontrolEt())
-            //{
-            //    dtpCikisTarihi.Value = dtpGirisTarihi.Value.AddDays(1);
-            //}
         }
 
         private void txtKimlikAra_TextChanged(object sender, EventArgs e)
@@ -594,7 +568,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             {
                 FillDataGridWithReservations();
             }
-
         }
 
         private void txtRezAra_TextChanged(object sender, EventArgs e)
@@ -606,8 +579,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
 
             var filteredBridge = context.BRBookingGuests
-    .Where(br => br.BookingId.ToString().Contains(rezAra))
-    .Select(br => br.BookingId);
+                .Where(br => br.BookingId.ToString().Contains(rezAra))
+                .Select(br => br.BookingId);
 
             var results = from b in context.Bookings
                           join brID in filteredBridge on b.Id equals brID
@@ -632,9 +605,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
         {
             grpOdaGüncelleme.Enabled = true;
 
-
-            //var roomWithType = roomService.GetAllQueryable().Where(r=>r.HotelId==(Guid)cmbOtelAdi.SelectedValue);
-            // dataGridView1.DataSource= roomWithType.ToList();
             var avaliableRooms = from r in context.Rooms
                                  where r.RoomType.Capacity >= misafirler.Count && r.HotelId == _hotelId
                                  select new avaliableBooking
@@ -648,20 +618,14 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                                      PricePerNight = r.RoomType.PricePerNight,
                                      RoomTypeName = r.RoomType.Name
                                  };
-            //dataGridView1.DataSource = avaliableRooms.ToList();
+
             var freeBookings = from b in context.Bookings
                                where b.CheckinDate <= DateOnly.FromDateTime(dtpCikisTarihiGüncelleme.Value) && b.CheckoutDate >= DateOnly.FromDateTime(dtpGirisTarihiGüncelleme.Value) && b.IsDeleted == false
                                select b;
 
             List<Guid> freeBookingIds = freeBookings.Select(b => b.Room.Id).ToList();
 
-
             avaliableBooking = avaliableRooms.Where(r => !freeBookingIds.Contains(r.Id)).ToList();
-
-            //var canSelectRoom = avaliableBookings.Where(r => r.OdaTipi == cmbOdaTipi.SelectedText);
-            /*cmbOda.DataSource = avaliableBookings;
-            cmbOda.DisplayMember = "RoomNumber";
-            cmbOda.ValueMember = "Id";*/
 
             if (avaliableBooking.Count == 0)
             {
@@ -696,14 +660,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             grpGüncelleme.Enabled = false;
         }
 
-
-
         private void btnSil_Click(object sender, EventArgs e)
         {
-
             if (dgvRezervasyonlar.SelectedRows.Count > 0)
             {
-
                 DialogResult result = MessageBox.Show("Seçili satırı silmek istediğinize emin misiniz?",
                     "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -713,8 +673,6 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                     bookingService.BookingDelete(deletedItem);
 
                     dgvRezervasyonlar.DataSource = FillReservations(Guid.Empty).ToList();
-
-
                 }
             }
             else
