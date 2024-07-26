@@ -337,9 +337,9 @@
             grpOdaGüncelleme.FlatStyle = FlatStyle.Flat;
             grpOdaGüncelleme.Font = new Font("Microsoft Sans Serif", 14.25F);
             grpOdaGüncelleme.ForeColor = Color.White;
-            grpOdaGüncelleme.Location = new Point(13, 371);
+            grpOdaGüncelleme.Location = new Point(13, 420);
             grpOdaGüncelleme.Name = "grpOdaGüncelleme";
-            grpOdaGüncelleme.Size = new Size(475, 268);
+            grpOdaGüncelleme.Size = new Size(475, 219);
             grpOdaGüncelleme.TabIndex = 15;
             grpOdaGüncelleme.TabStop = false;
             grpOdaGüncelleme.Text = "Misafirler";
@@ -351,7 +351,7 @@
             lstMisafirler.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             lstMisafirler.Location = new Point(6, 28);
             lstMisafirler.Name = "lstMisafirler";
-            lstMisafirler.Size = new Size(463, 234);
+            lstMisafirler.Size = new Size(463, 185);
             lstMisafirler.TabIndex = 16;
             lstMisafirler.UseCompatibleStateImageBehavior = false;
             // 
