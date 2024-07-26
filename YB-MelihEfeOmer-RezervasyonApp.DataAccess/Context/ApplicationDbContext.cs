@@ -27,11 +27,11 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
 
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-93GN49G\SQLEXPRESS;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); //Efe'nin connection string'i
 
-            optionsBuilder.UseSqlServer(@"Data Source=BPC9\SQLEXPRESS;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); //Melih Bll Bilgisayar
+            //optionsBuilder.UseSqlServer(@"Data Source=BPC9\SQLEXPRESS;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); //Melih Bll Bilgisayar
 
             //optionsBuilder.UseSqlServer(@"Data Source = BPC18\SQLEXPRESS; Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); //mehmet bll bilgisayar
 
-            //optionsBuilder.UseSqlServer(@"Data Source=BPC1\SQLEXPRESS;Initial Catalog=HotelRezervationApp;Integrated Security=True;Trust Server Certificate=True"); //Efe Bll Bilgisayar
+            optionsBuilder.UseSqlServer(@"Data Source=BPC1\SQLEXPRESS;Initial Catalog=HotelRezervationAppV2;Integrated Security=True;Trust Server Certificate=True"); //Efe Bll Bilgisayar
 
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-H6C59L9\SQLEXPRESS;Initial Catalog= Besiktas;Integrated Security=True; Trust Server Certificate=True;"); //mehmet'in connection String'i
         }

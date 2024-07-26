@@ -60,8 +60,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             dtpGirisTarihi.MinDate = DateTime.Now;
             dtpCikisTarihi.MinDate = DateTime.Now.AddDays(1);
 
-            dtpGirisTarihi.MinDate = DateTime.Now;
-            dtpGirisTarihiGüncelleme.MinDate = DateTime.Now.AddDays(1);
+            dtpGirisTarihi.MinDate = DateTime.Now.AddHours(-1);
+            dtpGirisTarihiGüncelleme.MinDate = DateTime.Now.AddHours(-23);
 
             dtpDogumTarihi.MaxDate = DateTime.Now.AddDays(-1);
             dgvRezervasyonlar.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -297,6 +297,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                         CleanControls();
                         cmbOdaTipi.DataSource = null;
                         cmbOda.DataSource = null;
+                        cmbOdaTipiGüncelleme.DataSource = null;
+                        cmbOdaGüncelleme.DataSource= null;
                         grpPersonalDetails.Enabled = false;
                         grpReservationDetails.Enabled = true;
                         grpRooms.Enabled = false;
@@ -492,6 +494,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 grpReservationDetails.Enabled = false;
                 btnListele.Text = "Güncellemeden Çık";
                 btnGüncelle.Enabled = false;
+                grpGüncelleme.Enabled = true;
                 grpOdaGüncelleme.Enabled = false;
 
                 _booking = bookingService.GetById((Guid)dgvRezervasyonlar.CurrentRow.Cells["RezId"].Value);
