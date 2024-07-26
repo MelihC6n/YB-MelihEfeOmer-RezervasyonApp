@@ -298,7 +298,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                         cmbOdaTipi.DataSource = null;
                         cmbOda.DataSource = null;
                         cmbOdaTipiGüncelleme.DataSource = null;
-                        cmbOdaGüncelleme.DataSource= null;
+                        cmbOdaGüncelleme.DataSource = null;
                         grpPersonalDetails.Enabled = false;
                         grpReservationDetails.Enabled = true;
                         grpRooms.Enabled = false;
@@ -498,20 +498,30 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 grpOdaGüncelleme.Enabled = false;
 
                 _booking = bookingService.GetById((Guid)dgvRezervasyonlar.CurrentRow.Cells["RezId"].Value);
-                var currentRoom = roomService.GetById(_booking.RoomId);
-                GüncellemeBilgileriniDoldur(_booking);
+
+                if (_booking.CheckinDate < DateOnly.FromDateTime(DateTime.Now))
+                {
+                    btnListele.Text = "Güncellemeden Çık";
+                    btnListele.PerformClick();
+                    MessageBox.Show("Geçmiş rezervasyonlar güncellenemez!","Güncelleme İşlemi İptal Edildi",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    var currentRoom = roomService.GetById(_booking.RoomId);
+                    GüncellemeBilgileriniDoldur(_booking);
 
 
-                //müşterileri getirme
+                    //müşterileri getirme
 
-                misafirler = context.BRBookingGuests.Where(br => br.BookingId == (Guid)dgvRezervasyonlar.CurrentRow.Cells["RezId"].Value).Select(br => br.Guest).ToList();
-                misafirSayaci = 0;
-                kisiSayisi = misafirler.Count;
-                FillControls();
-                grpPersonalDetails.Text = (misafirSayaci + 1) + ". Misafirin Bilgilerini Giriniz";
+                    misafirler = context.BRBookingGuests.Where(br => br.BookingId == (Guid)dgvRezervasyonlar.CurrentRow.Cells["RezId"].Value).Select(br => br.Guest).ToList();
+                    misafirSayaci = 0;
+                    kisiSayisi = misafirler.Count;
+                    FillControls();
+                    grpPersonalDetails.Text = (misafirSayaci + 1) + ". Misafirin Bilgilerini Giriniz";
 
-                //Oteli getirme
-                _hotelId = currentRoom.HotelId;
+                    //Oteli getirme
+                    _hotelId = currentRoom.HotelId;
+                }
             }
             else
             {
