@@ -222,13 +222,13 @@ namespace YB_MelihEfeOmer_RezervasyonApp.DataAccess.Context
                 new Guest
                 {
                     Id = guestId,
-                    IdentityNumber = "11111111111",
-                    FirstName = "Test",
-                    LastName = "Test",
+                    IdentityNumber = "61006494392",
+                    FirstName = "Ali",
+                    LastName = "Veli",
                     DateOfBirth = new DateOnly(1999, 9, 9),
-                    Address = "aa",
-                    Phone = "5656",
-                    Email = "aaa"
+                    Address = "İstanbul Beylikdüzü Bişeyler mahallesi",
+                    Phone = "56569856",
+                    Email = "aaa@test.com"
                 });
 
             var bookingId = Guid.NewGuid();
