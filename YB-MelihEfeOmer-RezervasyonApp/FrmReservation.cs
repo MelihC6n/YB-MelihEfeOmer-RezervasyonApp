@@ -619,12 +619,12 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 .Where(br => br.BookingId.ToString().Contains(bookingId))
                 .Select(br => br.BookingId);
 
-                var results = from b in context.Bookings
+                var results = (from b in context.Bookings
                               join brID in filteredBridge on b.Id equals brID
                               join br in context.BRBookingGuests on b.Id equals br.BookingId
                               join g in context.Guests on br.GuestId equals g.Id
                               join r in context.Rooms on b.RoomId equals r.Id
-                              where b.IsDeleted == false
+                              where b.IsDeleted == false 
                               select new
                               {
                                   RezId = b.Id,
@@ -635,7 +635,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                                   Guest = g.FirstName + " " + g.LastName,
                                   Phone = g.Phone,
                                   OdaTipi = r.RoomType.Name
-                              };
+                              }).Distinct().ToList();
                 dgvRezervasyonlar.DataSource = results.ToList();
             }
             else if (bookingId.Length == 0)
