@@ -60,8 +60,7 @@ namespace YB_MelihEfeOmer_RezervasyonApp
             dtpGirisTarihi.MinDate = DateTime.Now;
             dtpCikisTarihi.MinDate = DateTime.Now.AddDays(1);
 
-            dtpGirisTarihi.MinDate = DateTime.Now.AddHours(-1);
-            dtpGirisTarihiGüncelleme.MinDate = DateTime.Now.AddHours(-23);
+            dtpGirisTarihi.MinDate = DateTime.Now;
 
             dtpDogumTarihi.MaxDate = DateTime.Now.AddDays(-1);
             dgvRezervasyonlar.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
@@ -485,6 +484,8 @@ namespace YB_MelihEfeOmer_RezervasyonApp
                 grpRooms.Enabled = false;
                 cmbOdaTipi.DataSource = null;
                 cmbOda.DataSource = null;
+                misafirSayaci = 0;
+                grpPersonalDetails.Text = $"{misafirSayaci + 1}. Misafirin Bilgilerini Giriniz";
                 CleanControls();
             }
         }
@@ -538,10 +539,10 @@ namespace YB_MelihEfeOmer_RezervasyonApp
 
         private void GüncellemeBilgileriniDoldur(Booking b)
         {
+            dtpGirisTarihiGüncelleme.MinDate = DateTime.Now.Date;
             dtpGirisTarihiGüncelleme.Value = DateTime.Parse(b.CheckinDate.ToString());
             dtpCikisTarihiGüncelleme.Value = DateTime.Parse(b.CheckoutDate.ToString());
-
-
+            dtpCikisTarihiGüncelleme.MinDate = dtpGirisTarihi.MinDate.AddDays(1);
         }
 
         private void dtpGirisTarihi_ValueChanged(object sender, EventArgs e)
